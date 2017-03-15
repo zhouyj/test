@@ -1,0 +1,51 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+ <h2 class="sub-header ">测试</h2>
+<form>
+   <table class="table main">
+     <tr>
+        <td style="border: 0px solid;">用户ID:</td>
+        <td style="border: 0px solid;">
+           <input id="userId" type="text" name="content" th:attr="value=${userId}" class="form-control"> 
+        </td>
+     </tr>
+     <tr>
+        <td style="border: 0px solid;">标题:</td>
+        <td style="border: 0px solid;">
+           <input id="title" type="text" name="content" th:attr="value=${title}" class="form-control"> 
+        </td>
+     </tr>
+     <tr>
+        <td style="border: 0px solid;"></td>
+        <td style="border: 0px solid;height:80px;">
+        <input id="release" type="button" value="发出请求">
+        </td>
+     </tr>
+   </table>
+   </form>
+   </div>
+</div>
+<!-- <script src="/uploadify/jquery.uploadify.min.js"></script> -->
+<script type="text/javascript">
+  //取消
+  $(function(){
+	  $("#release").click(function(){
+		  var title = $("#title").val();
+		  $.ajax({
+  			   type: "POST",
+  			   url: "/contentcenter/stream/createStream",
+  			   data: {'title':'title','categoryId':'c0d37690-8250-4133-b08f-fc328877a589', 'cover':'','secret':'','longitude':0,'latitude':0,'position':'position'},
+			   dataType: "json",
+  			   success: function(response){
+  				 if(response.code == 0){
+  					location.href="/stream/";
+  				 }else{
+  					 alert(response.msg);
+  				 }
+  			   }
+  		   });
+	  });
+	  
+  });
+   </script>
+</div>

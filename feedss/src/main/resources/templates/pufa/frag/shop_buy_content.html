@@ -1,0 +1,77 @@
+<link rel='stylesheet' id='sitecss-css' th:href='@{/pufa/css/sign.css}' type='text/css' media='all' />
+<form id="form-to-shop-my" class="form-horizontal form-signin" action="/shop/doBuy" method="post">
+	<div class="alert alert-danger" role="alert" id="sign-msg" style="display: none"></div>
+
+	<div class="panel panel-primary" style="border-color: #f1f1f1">
+		<div class="panel-heading" style="text-align: center;font-size: 18px">
+			兑换商品
+		</div>
+		<div class="panel-body row">
+			<div class="col-md-5">
+				<img alt="" th:src="@{${product.pic}}" />
+			</div>
+			<div class="col-md-7" style="margin-top: 20px">
+				<input type="hidden" name="productId" th:value="${product.uuid}"/>
+				<h5 th:text="${product.name}">商品名</h5>
+				<p style="font-size: 14px; color: #ff5900;" th:text="${product.remark}">实用，可爱清新</p>
+				<p style="font-size: 14px; color: grey;">库存：<strong style="color: #ff5900" th:text="${product.stocks}">990</strong></p>
+				<p>
+					兑换价：<strong style="color: #ff5900" th:text="${product.price}">990</strong> 普法币
+				</p>
+				<p th:if="not ${balance} or ${balance.balance} lt ${product.price}" style="font-size: 16px; color: #ff5900;">您的普法币不足！</p>
+			</div>
+			<div style="padding-top: 20px;clear: both; border-bottom: 1px solid #f1f1f1"></div>
+			<div style="text-align: right; margin: 20px 50px 0 0">
+				<a th:href="@{/editInfoPage}">修改信息 &gt;</a>
+			</div>
+			<div style="margin: 40px 20px">
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">收货人：</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" disabled="disabled" th:value="${session.user.profile.containsKey('nickname')} ? ${session.user.profile.nickname}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="tel" class="col-sm-2 control-label">联系电话：</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" disabled="disabled" th:value="${session.user.containsKey('mobile')} ? ${session.user.mobile}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="address" class="col-sm-2 control-label">收货地址：</label>
+					<div class="col-sm-10">
+						<textarea class="form-control" disabled="disabled" th:text="${session.user.profile.ext.containsKey('address')} ? ${session.user.profile.ext.address}"></textarea>
+					</div>
+				</div>
+				<br />
+				<button class="btn btn-lg btn-warning btn-block pufa-submit" type="submit" th:if="${balance} and ${balance.balance} gt ${product.price}">立即兑换</button>
+			</div>
+			<hr/>
+			<h3 style="margin-left: 20px">商品详情</h3>
+			<div style="margin: 40px 20px" th:utext="${product.description}">
+			</div>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript" th:src="@{/pufa/js/jquery.form.js}"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#form-to-shop-my').ajaxForm({
+			beforeSubmit: function(){
+				$(".pufa-submit").attr("disabled", true);
+			},
+			success: function(data) {
+				$("#sign-msg").hide();
+				if (data.code == 0) {
+					alert(data.msg);
+					location.href = "/shop/my";//成功跳转到我的订单页面
+				} else {
+					$("#sign-msg").text(data.msg).fadeIn();
+					console.log(data)
+				}
+				$(".pufa-submit").attr("disabled", false);//恢复按钮
+			}
+		});
+	});
+</script>

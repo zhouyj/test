@@ -1,0 +1,50 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <div th:include="/common/header::header"></div>
+    <title>App下载</title>
+    <link href="/css/blue.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+<div class="header"> <span class="backBtn"></span>
+    <h2>App下载</h2>
+</div>
+
+<div class="appDownload">
+    <div class="icon"><img src="http://static.feedss.com/xinhuanet/xinhualive.png"/></div>
+    <div class="name">新华直播</div>
+    <div class="btns">
+        <span id="androidDownload">Android下载</span>
+        <span id="iosDownload">iOS 敬请期待...</span>
+    </div>
+    <div class="summary">新华直播，不仅仅是直播</div>
+</div>
+
+<div class="appGallery">
+    <ul>
+        <li><img src="/images/info1.png"/></li>
+        <li><img src="/images/info2.png"/></li>
+    </ul>
+</div>
+
+<input type="hidden" id="androidUrl" value="http://feedss.com/xinhuawang_v1.7.1.apk"/>
+<input type="hidden" id="iosUrl" value=""/>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    $(function(){
+
+        $("#androidDownload").bind("click", function(){
+            window.top.location.href =$("#androidUrl").val();
+        });
+
+    });
+
+    /*]]>*/
+</script>
+</body>
+</html>

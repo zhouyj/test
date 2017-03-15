@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('user')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">设置管理员</h2>
+				<form id="form1">
+					<input type="hidden" name="userId" th:value="${userId}" value="">
+					<div class="form-group">
+						<label for="exampleInputEmail1">帐号：</label> <input type="text"
+							class="form-control"  id="exampleInputEmail1"  name="username"
+							placeholder="">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">密码：</label> <input type="text"
+							class="form-control"  id="exampleInputEmail1" name="password"
+							placeholder="">
+					</div>
+					<button type="button" class="btn btn-default" onclick="history.go(-1)">取消</button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-success" onclick="addAdmin()">确认</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	
+	<script>
+		function addAdmin(){
+			jQuery.ajax({
+				   type: "POST",
+				   url: "/manage/user/addAdmin",
+				   data: $("#form1").serialize(),
+				   success: function(msg){
+				       if(msg==0){
+				    	 alert("设置管理员成功")
+				         location.href="/manage/user/list";
+				       }else{
+				       	 alert("设置管理员失败")
+				       }
+				   }
+				});
+			
+		}
+    </script>
+</body>
+</html>

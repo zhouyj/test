@@ -1,0 +1,192 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div
+				class="container col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">直播管理<a href="/manage/stream/add" id="toAddStream" class="pull-right  lead">发起直播</a></h2>
+				<form id="form1" action="" method="post">
+					<input type="hidden" id="page" name="page" value=""> <input
+						type="hidden" id="field" name="field" value=""> <input
+						type="hidden" id="direction" name="direction" value="">
+
+					<div class="row">
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 标题: <input type="text" name="name" id="name"
+									value="" aria-controls="example" th:value="${name}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 主播id: <input type="text" name="userId"
+									id="userId" value="" aria-controls="example"
+									th:value="${userId}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 直播状态: <select id="status">
+										<option value="0" th:selected="${status == 0}">全部</option>
+										<option value="1" th:selected="${status == 1}">进行中</option>
+										<option value="2" th:selected="${status == 2}">已结束</option>
+								</select>
+								</label>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<div class="dataTables_filter" id="example_filter">
+								<button id="sreach" type="button" onclick="getList(1);">查询</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th class="text-center">直播ID</th>
+								<th class="text-center">直播标题</th>
+								<th class="text-center">分类</th>
+								<th class="text-center">类型</th>
+								<th class="text-center">状态</th>
+								<th class="text-center">可见范围</th>
+								<th class="text-center">开始时间</th>
+								<th class="text-center">结束时间</th>
+								<th class="text-center">主播ID</th>
+								<th class="text-center">主播昵称</th>
+								<th class="text-center">播放</th>
+								<th class="text-center">回放地址</th>
+								<th class="text-center">播放次数</th>
+								<th class="text-center">点赞次数</th>
+								<th class="text-center">删除</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="stream:${streams}">
+								<td th:text="${stream.uuid}"></td>
+								<td th:text="${stream.name}"></td>
+								<td th:text="${stream.categoryName}"></td>
+								<td th:switch="${stream.type}">
+									<p th:case="Normal">普通</p>
+									<p th:case="HD">高清</p>
+									<p th:case="VR">VR</p>
+								</td>
+								<td th:switch="${stream.status}">
+									<p th:case="1">推流中</p>
+									<p th:case="2">结束</p>
+								</td>
+								<td th:switch="${stream.secret}">
+									<p th:case="0">公开</p>
+									<p th:case="1">私密|密码：<span th:text="${stream.clearSecret}" /></p>
+								</td>
+								<td th:text="${stream.started}"></td>
+								<td th:text="${stream.ended}"></td>
+								<td th:text="${stream.userId}"></td>
+								<td th:text="${stream.userNickname}"></td>
+								<td><a th:href="@{/manage/stream/play(playUri=${stream.playUri})}" target="_blank">播放</a></td>
+								<td th:text="${stream.playbackUri}"></td>
+								<td th:text="${stream.playCount}"></td>
+								<td th:text="${stream.praiseCount}"></td>
+								<td>
+									<a href="#" th:onclick="'javascript:deleteStream(\''+${stream.uuid}+'\');'" th:if="${stream.deleted} == false">删除</a>
+									<p th:if="${stream.deleted} == true">已删除</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- <div>
+					<nav>
+						<input type="hidden" id="pageCount" th:value="${pageCount}">
+						<ul class="pager">
+							<li><a th:if="${pageNo - 1 lt 1}" class="disabled" page=0>
+									上一页 </a> <a th:if="${pageNo - 1 gt 0}" th:attr="page=${pageNo - 1}">上一页</a>
+							</li>
+							<li class="active"><a><span th:text="${pageNo}"></span></a></li>
+							<li><a th:attr="page=${pageNo + 1}">下一页</a></li>
+						</ul>
+					</nav>
+				</div> -->
+				
+				<div class="row">
+				    <input type="hidden" id="page1" name="page" th:attr="value=${pageNo}">
+					<div class="col-md-6">
+						<div >
+							<ul id="bp-3-element-sm-test"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/bootstrap-paginator.js"></script>
+<script type='text/javascript' th:inline="javascript">
+	 var element = $('#bp-3-element-sm-test');
+
+     options = {
+         size:"small",
+         bootstrapMajorVersion:3,
+         currentPage: /*[[${pageNo}]]*/,
+         numberOfPages: 10,
+         totalPages:[[${pageCount}]],
+         onPageClicked: function(e,originalEvent,type,page){
+        	 //alert("Page item clicked, type: "+type+" page: "+page);
+        	 getList(page);
+         }
+     };
+     element.bootstrapPaginator(options);
+</script>
+
+<script type="text/javascript">
+$(function(){	
+	  //搜索
+	  $(".pager a").click(function(){
+		//图片
+		var page = $(this).attr("page");
+		if(page ==undefined || page==null){
+			return;
+		}
+		var pageCount = $("#pageCount").val();
+		if(parseInt(page) < 1 || parseInt(page) > parseInt(pageCount)){
+			return;
+		}
+		getList(page);
+	  });
+  });
+  
+  //删除
+function deleteStream(streamId){
+	if(!confirm("确认要删除该直播?")){
+		return false;
+	}
+	$.ajax({
+			   type: "POST",
+			   url: "/manage/stream/delete",
+			   data: "streamId="+streamId,
+			   dataType: "json",
+			   success: function(msg){
+				if(msg.code==0){
+			    	 alert("删除成功");
+			    	 location.reload();
+			     }else{
+			    	 alert(msg.msg);
+			     }
+			   }
+			});
+}
+
+  //查询
+  function getList(pageNo){
+	  var name = $("#name").val();
+	  var userId = $("#userId").val();
+	  var status = $("#status option:selected").val();
+	  var path = "name="+name+"&userId="+userId+"&status="+status+"&pageNo="+pageNo+"&pageSize=10";
+	  location.href="/manage/stream/?"+path;
+	  return;
+  }
+</script>

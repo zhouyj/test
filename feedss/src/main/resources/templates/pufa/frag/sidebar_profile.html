@@ -1,0 +1,130 @@
+<style>
+	.sidebar .sidebar-part.alibaba-trending .form-horizontal{
+		background-color: #00346b;
+		padding: 10px 5px;
+	}
+	.sidebar .sidebar-part.alibaba-trending .form-horizontal .row{
+		padding: 5px 10px;
+	}
+</style>
+
+<!-- 边栏，位于PC右端，移动下端 -->
+<div class='sidebar sticky post-index-sidebar'>
+		<div class='sidebar-part alibaba-trending hidden-xs'>
+			<div style="text-align: center; margin: 20px 0" th:if="${session.user.containsKey('profile')} and ${session.user.profile}">
+				<a><img th:src="(${session.user.profile.avatar}) ? ${session.user.profile.avatar} : 'pufa/images/default_head.jpg'" width="80px" height="80px" class="img-circle" /></a> <br /> 
+				<a href="javascript:;" style="color: white;"><h3 th:text="${session.user.profile.nickname}">姓名</h3></a>
+				<p><th:block th:text="${session.user.containsKey('profile')} ? ${session.user.profile.age} : '未知'"></th:block>岁｜<th:block th:text="(${session.user.profile.gender})==0 ? '男生' : '女生'"></th:block></p>
+			</div>
+			<div style="text-align: center; margin: 20px 0" th:if="not ${session.user.containsKey('profile')} or not ${session.user.profile}">
+				<a><img th:src="'pufa/images/default_head.jpg'" width="80px" class="img-circle" /></a> <br /> 
+				<a href="javascript:;" style="color: white;"><h3 th:text="${session.user.containsKey('mobile')}${session.user.mobile}">姓名</h3></a>
+				<p>未知｜不详</p>
+			</div>
+			<div class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<h5 style="font-weight: bold;">我的普法币：
+							<a style="font-weight: normal;" th:if="${balance} and ${balance.containsKey('data')} and ${balance.data} and ${balance.data.containsKey('balance')}"><label th:text="${balance.data.balance}"></label>枚</a>
+							<a href="./shop" style="font-size: 15px;margin-left:20px;color: #ff5900;font-weight: normal;">兑换</a>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="form-horizontal" th:if="${session.user.containsKey('profile')}">
+				<div class="row">
+					<div class="col-sm-12">
+						<h5 style="font-weight: bold;">我的资料：<a href="./editInfoPage" style="font-size: 15px;margin-left:20px;color: #ff5900">修改</a></h5>
+						<hr style="margin: 0"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						出生日期：
+					</div>
+					<div class="col-sm-8" th:text="${session.user.profile.birthdate}">
+						2009年10月30日
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						所在学校：
+					</div>
+					<div class="col-sm-8" th:text="${session.user.profile.ext.school}">
+						清华附小
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">年级：
+					</div>
+					<div class="col-sm-8" th:text="${session.user.profile.ext.grade}">
+						小学五年级
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">邮箱：
+					</div>
+					<div class="col-sm-8" th:text="${session.user.profile.ext.email}">
+						test@163.com
+					</div>
+				</div>
+			</div>
+			<div class="form-horizontal" th:if="not ${session.user.containsKey('profile')}">
+				<div class="row">
+					<div class="col-sm-12">
+						<h5 style="font-weight: bold;">我的资料（暂无）：<a href="#" style="font-size: 15px;margin-left:20px;color: #ff5900">补充</a></h5>
+						<hr style="margin: 0"/>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<!-- 账号信息 -->
+			<div class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<h5 style="font-weight: bold;">我的账号：</h5>
+						<hr style="margin: 0"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						手机号：
+					</div>
+					<div class="col-sm-8">
+						<th:block th:text="${session.user.containsKey('mobile')} ? ${session.user.mobile}"></th:block>
+						<a href="./bindMobilePage" style="font-size: 15px;margin-left:20px;color: #ff5900">修改</a>
+					</div>
+				</div>
+				<!-- 
+				<div class="row">
+					<div class="col-sm-4">
+						微信号：
+					</div>
+					<div class="col-sm-8">
+						<a href="#" style="font-size: 15px;color: #ff5900">绑定</a>
+					</div>
+				</div>
+				 -->
+				<div class="row">
+					<div class="col-sm-4">密码：
+					</div>
+					<div class="col-sm-8">
+						<a href="./changePwdPage" style="font-size: 15px;color: #ff5900">修改密码</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">学习卡：
+					</div>
+					<div class="col-sm-8" th:if="${user} and ${user.timeCard}">
+						<a style="font-size: 15px;color: #ff5900">已绑定</a>
+					</div>
+					<div class="col-sm-8" th:if="not ${user} or not ${user.timeCard}">
+						未绑定&nbsp;&nbsp;
+						<a href="./bindCardPage" style="font-size: 15px;color: #ff5900">绑定</a>
+					</div>
+				</div>
+			</div>
+			<br/>
+		</div>
+</div>

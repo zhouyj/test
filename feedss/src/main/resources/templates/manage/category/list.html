@@ -1,0 +1,135 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+
+<div class="container-fluid">
+		<div class="row">
+			<div class="container col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h2 class="sub-header ">分类管理  <a href="#" class="pull-right  lead">添加分类</a></h2>
+<table class="table table-bordered text-center">
+  <tr>
+     <th class="text-center">分类ID</th>
+     <th class="text-center">分类名称</th>
+     <th class="text-center">排序</th>
+     <th class="text-center">直播量</th>
+     <th class="text-center">回放量</th>
+     <th class="text-center">操作</th>
+  </tr>
+  <tr th:each="category:${categorys}">
+    <td th:text="${category.uuid}"></td>
+    <td th:text="${category.name}"></td>
+    <td><input type="text" th:value="${category.sort}" th:attr="categoryId=${category.uuid}" size=2> </td>
+    <td th:text="${category.streamCount}"></td>
+    <td th:text="${category.backCount}"></td>
+    <td>
+      <a th:attr="value=${category.uuid},name=${category.name}" type=1>编辑</a>
+      |<a th:attr="value=${category.uuid}" type=2>删除</a>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div id="bg"></div>
+<div id="show">
+  <div style="position: relative; height: 60%;top: 0px;width: 100%">
+      <input id="crgName" type="text" style="left: 49px;top: 10px;position: relative;" size="50">
+      <input id="ctgId" type="hidden">
+  </div>
+  <div>
+     <input id="btnclose" type="button" value="取消" onclick="hidediv();" style="margin-left: 263px"/> &nbsp;&nbsp;&nbsp;&nbsp;
+     <input id="release" type="button" value="发布" onclick="addCtg('');"/>
+  </div>
+</div>
+<script>
+
+//显示
+function showdiv(categoryId,name) {            
+	$("#crgName").val(name);
+	$("#ctgId").val(categoryId);
+    document.getElementById("bg").style.display ="block";
+    document.getElementById("show").style.display ="block";
+}
+
+//隐藏
+function hidediv() {
+    document.getElementById("bg").style.display ='none';
+    document.getElementById("show").style.display ='none';
+}
+
+$(function(){
+	$("h2 a").click(function(){
+		showdiv('','');
+	});
+	
+	$("td a").click(function(){
+		var type = $(this).attr("type");
+		if(type == 2){//删除
+			if(confirm("确认删除么？")){
+				deleteCtg($(this).attr("value"));
+			  }
+		}else if(type == 1){//修改
+			showdiv($(this).attr("value"),$(this).attr("name"));
+		}
+	});
+	//设置排序
+	$("input[type='text'][size='2']").change(function(){
+		var categoryId = $(this).attr("categoryId");
+		var sort = $(this).val();
+		$.ajax({
+			  url: "/manage/category/sort",
+			  data:{"categoryId":categoryId,"sort":sort},
+			  type: "POST",
+			  dataType:'json',
+			  success: function(response){
+				 if(response.code == 0){
+					location.href="/category/"
+				 }else{
+					 alert(response.msg);
+				 }
+			  }
+		  });
+	});
+	
+});
+
+//添加操作
+function addCtg(categoryId){
+	  var name = $("#crgName").val();
+	  if(name =='' || name==null){
+		  alert("请输入分类名称!");
+		  return;
+	  }
+	  var categoryId = $("#ctgId").val();
+	  $.ajax({
+		  url: "/manage/category/add",
+		  data:{"categoryId":categoryId,"name":name},
+		  type: "POST",
+		  dataType:'json',
+		  success: function(response){
+			 if(response.code == 0){
+				location.href="/category/"
+			 }else{
+				 alert(response.msg);
+			 }
+		  }
+	  });
+}
+
+//删除操作
+function deleteCtg(categoryId){
+	  $.ajax({
+		  url: "/manage/category/delete",
+		  data:{"categoryId":categoryId},
+		  type: "POST",
+		  dataType:'json',
+		  success: function(response){
+			 if(response.code == 0){
+				location.href="/manage/category/"
+			 }else{
+				 alert(response.msg);
+			 }
+		  }
+	  });
+}
+</script>

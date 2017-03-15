@@ -1,0 +1,49 @@
+<!-- 移动端导航菜单 -->
+<ul class='menu mobile-menu with-transition hidden-md hidden-lg'>
+	<li class='menu-item search normal-style'>
+			<div class='container'>
+				<div class='form-content'>
+					<a href="/lives" style="color: white;font-weight: bold;">普法直播</a>
+				</div>
+			</div>
+	</li>
+	
+	<!-- 移动端导航 -->
+	<div class='menu-item alibaba-link' th:each="category : ${navTree}">
+		<a th:href="${category.childList} ? 'javascript:;' : @{list?category=}+${category.uuid}" class='mobile-businesses' th:text="${category.name}">导航文字</a>
+		<div class='mobile-sub-menu our-businesses hidden-md hidden-lg' th:if="${category.childList}">
+			<div class='menu-item alibaba-link mobile-back-link'>
+				<a href='javascript:;'> 返回上一级 </a>
+			</div>
+			<div class='menu-item alibaba-link ' th:each="childCategory : ${category.childList}">
+				<a href="#" th:href="@{list?category=} + ${childCategory.uuid}" th:text="${childCategory.name}">子导航标题</a>
+			</div>
+		</div>
+	</div>
+	
+	<li class='menu-item normal-style'>
+			<div class='container'>
+				<div class='form-content'>
+					<a href="/shop" style="font-weight: bold;">普法币商城</a>
+				</div>
+			</div>
+	</li>
+	
+	<li class='menu-item'>
+		<!-- 移动端登录信息 -->
+		<div class='top-bar-part subscribe-and-search-buttons right visible-xs visible-sm' style="padding-top: 3px">
+			<div class="social-icons" th:if="not ${session.user}" style="padding-top: 15px">
+				<a href="sign?tab=signin">登录</a> | <a href="sign?tab=signup">注册</a>
+			</div>
+			<div class="social-icons" th:if="${session.user}" >
+				<a href="profile" th:if="${session.user.containsKey('profile')} and ${session.user.profile}">
+					<img th:src="${session.user.profile.avatar} ? ${session.user.profile.avatar} : 'pufa/images/default_head.jpg'" height="40px" class="img-rounded" />
+					&nbsp;&nbsp;
+					<a href="profile" th:text="(${session.user.profile} and ${session.user.profile.containsKey('nickname')}) ? ${session.user.profile.nickname} : ${session.user.mobile}"></a> 
+					| <a href="signout">退出</a>
+				</a>
+			</div>
+		</div>
+	</li>
+	
+</ul>

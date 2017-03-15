@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<link rel='stylesheet' id='sitecss-css' href='pufa/css/sign.css' type='text/css' media='all' />
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 登录注册 -->
+				<div class="col-md-offset-3 col-md-6 col-sm-12">
+					<div class="alert alert-danger" role="alert" id="sign-msg" style="display: none"></div>
+					<div id="myTabContent" class="tab-content" style="border-top: 1px solid;">
+							<!-- 修改密码框 -->
+							<form id="form-submit-to-profile" class="form-signin" role="form" action="portal/user/resetPwd" method="post">
+								<br />
+								<div class="row">
+									<div class="col-xs-8">
+										<input type="text" class="form-control" name="verify" placeholder="图形验证码" required="required" autofocus="autofocus"/>
+									</div>
+									<div class="col-xs-4">
+										<img src="portal/user/imageCode" alt="" onclick="this.src='portal/user/imageCode?' + Math.random()" height="44px" />
+									</div>
+								</div>
+								<br />
+								<input type="text" class="form-control" name="mobile" placeholder="手机号" required="required"/> <br />
+								<div class="row" style="margin-top:-20px">
+									<div class="col-xs-8">
+										<input type="text" class="form-control" name="smsCode" placeholder="手机验证码" required="required" />
+									</div>
+									<div class="col-xs-4" style="padding-top: 12px;">
+										<a href="javascript:sendSms('RESETPWD');" style="font-size: 16px;">获取验证码</a>
+									</div>
+								</div>
+								<br />
+								<input type="password" class="form-control" name="password" placeholder="新密码" required="required" autocomplete="off"/> <br />
+								<input type="password" class="form-control" name="password2" placeholder="重复密码" style="margin-top:-20px" required="required" autocomplete="off"/> <br />
+								<br />
+								<button class="btn btn-lg btn-danger btn-block pufa-submit" type="submit" id="submit-bind-mobile">提交</button>
+							</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+		<script type="text/javascript" src="pufa/js/jquery.form.js"></script>
+		<script type="text/javascript" src="pufa/js/pufa-common.js"></script>
+		<script type="text/javascript" src="pufa/js/sign.js"></script>
+		<script type="text/javascript">
+			//根据URL标签切换
+			var param = getUrlParam("tab");
+			if("signup" == param){
+				$("#signin").removeClass("active");
+				$("#signin-content").removeClass("in active");
+				$("#signup").addClass("active");
+				$("#signup-content").addClass("in active");
+				console.log("tab=" + param);
+			}
+		</script>
+	</body>
+
+</html>

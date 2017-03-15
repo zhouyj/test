@@ -1,0 +1,24 @@
+<!-- 收藏 -->
+<div class="news-latest" style="margin-top: 0;text-align: center;" th:if="${favorites.data.list.isEmpty()}">
+	<h3>暂无收藏</h3>
+	<div class="clear"></div>
+</div>
+<div class="news-latest" style="margin-top: 0" th:if="${favorites} and ${favorites.data}">
+	<div class="news-item rows" th:each="item : ${favorites.data.list}">
+		<div class="col-md-3">
+			<a th:href="'article?articleId='+${item.objectId}"><img src="" th:src="(${item.containsKey('extAttr')} and ${item.extAttr} and ${item.extAttr.containsKey('cover')} and ${!#strings.isEmpty(item.extAttr.cover)}) ? ${item.extAttr.cover} : @{/pufa/images/pic_default.jpg}" /></a>
+		</div>
+		<div class="col-md-9">
+			<a th:href="'article?articleId='+${item.objectId}"><h3 th:text="${item.extAttr.name}">标题</h3></a>
+			<p th:if="${item.containsKey('extAttr')} and ${item.extAttr}">
+				来源：
+				<th:block th:text="(${item.extAttr.containsKey('source')} and ${item.extAttr.source}) ? ${item.extAttr.source} : '无'"></th:block>
+				｜
+				<th:block th:text="(${item.extAttr.containsKey('updated')} and ${item.extAttr.updated}) ? ${#strings.substring(item.extAttr.updated,0,10)}"></th:block>
+				｜ 阅读量：
+				<th:block th:text="(${item.extAttr.containsKey('viewCount')} and ${item.extAttr.viewCount}) ? ${item.extAttr.viewCount}"></th:block>
+			</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

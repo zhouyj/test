@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<link rel='stylesheet' id='sitecss-css' href='pufa/css/sign.css' type='text/css' media='all' />
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+		
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 通用端左边 -->
+				<div class='col-md-8 left-content'>
+					<ul id="myTab" class="nav nav-tabs">
+						<li id="signin" class="active" style="width: 33.3%;text-align: center;">
+							<a href="#message-content" data-toggle="tab">消息</a>
+						</li>
+						<li id="signup" style="width: 33.3%;text-align: center; ">
+							<a href="#favorites-content" data-toggle="tab">收藏</a>
+						</li>
+						<li id="signup" style="width: 33.3%;text-align: center">
+							<a href="#view-content" data-toggle="tab">足迹</a>
+						</li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="message-content" th:include="/pufa/frag/profile_message">消息</div>
+						<div class="tab-pane fade" id="favorites-content" th:include="/pufa/frag/profile_favorites">收藏</div>
+						<div class="tab-pane fade" id="view-content" th:include="/pufa/frag/profile_view">足迹</div>
+					</div>
+				</div>
+
+				<!-- PC端右边 -->
+				<div class='col-md-4 sidebar-content' th:include="/pufa/frag/sidebar_profile"></div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+	</body>
+
+</html>

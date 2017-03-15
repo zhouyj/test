@@ -1,0 +1,220 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/js/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+
+    <div th:include="/common/header::header"></div>
+    <title>发布的任务</title>
+
+</head>
+<body>
+<input type="hidden" id="appDownloadUrl" value="" th:value="#{appDownloadUrl}"/>
+<div class="header"><span class="backBtn"></span>
+    <div class="tab_list"><span class="selected">发布的任务</span><span>抢到的任务</span></div>
+</div>
+
+<input type="hidden" id="userId" value=""  th:value="${userId}" />
+<input type="hidden" id="userToken" value=""  th:value="${userToken}" />
+
+<div class="task2">
+
+    <div class="task2_item" th:each="one:${list}">
+        <div class="content" th:text="${one.description}">朝阳区亮马桥附近，谁在2小时内给我送个感冒药。</div>
+        <div class="flag"><span th:utext="${one.statusDescription}"></span></div>
+        <div class="delBtn" th:if="${one.status eq 0 or one.status eq 3}" th:attr="data-bind=${one.taskId}"></div>
+        <div class="btn_group" th:if="${one.status == 2}">
+            <span class="btn-lv completeBtn" th:attr="data-bind=${one.taskId}">确认完成</span>
+            <span class="btn-lv refuseBtn" th:attr="data-bind=${one.taskId}">不同意</span>
+        </div>
+        <div class="remarks" th:each="reject:${one.rejectList}" th:text="'不同意：'+${reject.description}"></div>
+    </div>
+
+</div>
+
+<div class="nodata_outer2" th:if="${#lists.size(list) eq 0}">
+    <div class="nodata_inner2">
+        <img src="/images/nodata.png" />
+        <span>您还没有发布过任务，开启直播可以发布任务哦~</span>
+    </div>
+</div>
+
+<div class="mask"></div>
+
+<div class="confirm-dialog">
+    <div class="inner"><textarea class="inputReason" placeholder="请输入拒绝理由"
+              onKeyDown='checkInputReason(this)'
+    ></textarea></div>
+    <div class="btn-group-lv">
+        <div class="btn cancel-btn">取消</div>
+        <div class="btn ok-btn">确认</div>
+    </div>
+</div>
+
+<div th:include="/common/boot::boot"></div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var jQuery = $;
+    /*]]>*/
+</script>
+<script src="js/jquery-json-min.js"  th:src="@{/js/jquery-json-min.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    function checkInputReason(o){
+        if (o.value.length>=40){
+            if(event.keyCode != 8 && event.keyCode != 127)
+                event.returnValue=false;
+        }
+    }
+
+    $(function () {
+
+        $(".delBtn").each(function () {
+            var o = $(this);
+            o.bind("click", function () {
+                var taskId = o.attr("data-bind");
+                Modal.confirm(
+                        {
+                            msg: "确认删除么？"
+                        })
+                        .on(function (e) {
+                            if(e){
+                                doDel(taskId);
+                            }
+                        });
+            });
+        });
+
+        $(".completeBtn").each(function () {
+            var o = $(this);
+            o.bind("click", function () {
+                doFinish(o.attr("data-bind"));
+            });
+        });
+    });
+
+    function doDel(taskId) {
+        var req = {
+            "taskId": taskId
+        };
+        $.ajax({
+            type: "POST",
+            url: "/task/del",
+            dataType: "json",
+            contentType : 'application/json',
+            data : $.toJSON(req),
+            headers: {
+                "userId": $("#userId").val(),
+                "userToken": $("#userToken").val()
+            },
+            success: function(data){
+                if (data) {
+                    if (data.code == 0) {
+                        location.reload();
+                        return;
+                    }
+                    alert(data.msg);
+                }
+
+            }
+        });
+
+    }
+
+    function doFinish(taskId) {
+        var req = {
+            "taskId": taskId
+        };
+        $.ajax({
+            type: "POST",
+            url: "/task/confirmFinish",
+            dataType: "json",
+            contentType : 'application/json',
+            data : $.toJSON(req),
+            headers: {
+              "userId": $("#userId").val(),
+              "userToken": $("#userToken").val()
+            },
+            success: function(data){
+                if (data) {
+                    if (data.code == 0) {
+                        //alert("确认完成成功");
+                        location.reload();
+                        return;
+                    }
+                    alert(data.msg);
+                }
+
+            }
+        });
+    }
+
+    function doReject(taskId,description) {
+        if(description == ''){
+            return;
+        }
+
+        var req = {
+            "taskId": taskId,
+            "description": description
+        };
+        $.ajax({
+            type: "POST",
+            url: "/task/reject",
+            dataType: "json",
+            contentType : 'application/json',
+            data : $.toJSON(req),
+            headers: {
+                "userId": $("#userId").val(),
+                "userToken": $("#userToken").val()
+            },
+            success: function(data){
+                if (data) {
+                    if (data.code == 0) {
+                        alert("驳回成功");
+                        location.reload();
+                        return;
+                    }
+                    alert(data.msg);
+                }
+
+            }
+        });
+
+    }
+
+
+    $(".refuseBtn").click(function(){
+        var id = $(this).attr("data-bind");
+        $(".mask").show();
+        $(".confirm-dialog").attr("data-taskId",id).show();
+    });
+
+    $(".cancel-btn").click(function(){
+        $(".mask").hide();
+        $(this).closest(".confirm-dialog").hide();
+    });
+
+    $(".ok-btn").click(function(){
+        var dialog= $(this).closest(".confirm-dialog");
+        var id = dialog.attr("data-taskId");
+        var reason = dialog.find(".inputReason").val();
+        if(''== reason){
+        	alert("请输入拒绝理由");
+        }else{
+        	doReject(id,reason);
+            $(".mask").hide();
+            dialog.hide();
+        }
+    });
+
+
+    /*]]>*/
+</script>
+
+</body>
+</html>

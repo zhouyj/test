@@ -1,0 +1,157 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 通用端左边 -->
+				<div class='col-md-9 col-sm-12 left-content'>
+					<!-- 面包屑 -->
+					<div class="breadNav">
+						<style>
+							.breadcrumb > li + li:before {color: #CCCCCC;content: "/ ";padding: 0 5px;}
+							.breadcrumb .active{color: #ff5900}
+						</style>
+						<ol class="breadcrumb" style="background-color: white;">
+							<li><a th:href="@{/}"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+							<li th:each="category,iterStat : ${breadNav}">
+								<a th:class="${iterStat.last} ? active" th:href="${iterStat.first} ? 'javascript:;' : (@{/list?category=} + ${category.uuid})" th:text="${category.name}">分类项</a>
+							</li>
+						</ol>
+					</div>
+					<div class='post full-post mobile-full-width' th:if="${data} == null">
+						<div class="text-container post-title">
+							<h1 class='title' style="text-align: center;">暂无内容</h1>
+						</div>
+					</div>
+					<div class='post full-post mobile-full-width' th:if="${data} != null">
+						<div class="text-container post-title">
+							<h3 class='title' th:text="${data.name}" style="font-size: 28px">文章标题</h3>
+							<div class="byline">
+								<span class="post-author">
+									来源:<th:block th:text="${data.source} ? ${data.source} : '无'"></th:block>
+								</span>
+								|
+								<span class="post-date">
+									<th:block th:if="${data.updated} != null" th:text="${#dates.format(data.updated,'yyyy-MM-dd HH:mm')}"></th:block>
+								</span>
+								|
+								<span class="">
+									阅读量:<th:block th:text="${data.viewCount} ? ${data.viewCount} : 0"></th:block>
+								</span>
+								|
+								<span class="">
+									<a id="favorite-btn" th:if="not ${isFavorite}" href="javascript:favorite();" class="favorite-btn"></a>
+									<a id="favorite-btn" th:if="${isFavorite}" href="javascript:unfavorite();" class="favorite-btn favorited"></a>
+									
+									<style>
+										.favorite-btn{
+											padding: 3px 30px;
+											width: 60px;
+											background-image: url('/pufa/images/favorite.png');
+											background-repeat: no-repeat;
+											background-size: contain;
+										}
+										.favorite-btn.favorited{
+											background-image: url('/pufa/images/favorited.png');
+										}
+										.favorite-btn.favorited:hover{
+											background-image: url('/pufa/images/unfavorite.png');
+										}
+									</style>
+								</span>
+								 | 
+								<span>
+									<!-- JiaThis Button BEGIN -->
+									<div class="jiathis_style" style="display: inline-block;vertical-align: middle">
+										<a class="jiathis_button_tsina"></a>
+										<a class="jiathis_button_weixin"></a>
+										<a class="jiathis_button_qzone"></a>
+										<a class="jiathis_button_tqq"></a>
+										<a class="jiathis_button_renren"></a>
+										<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+									</div>
+									<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+									<!-- JiaThis Button END -->
+								</span>
+							</div>
+							<hr />
+						</div>
+						<div class="text-container">
+							<div class="main" th:utext="${data.text}">
+								正文
+							</div>
+							<hr />
+							<div class="content-label">
+								<th:block th:each="tag : ${#strings.arraySplit(data.tags,',')}">
+									<a th:href="'#'+${tag}">
+										<span class="label label-default label-pufa" th:text="${tag}">标签</span>
+									</a>
+								</th:block>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- PC端右边 -->
+				<div th:replace="/pufa/frag/sidebar_index"></div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+	</body>
+	
+	<script type="text/javascript" th:inline="javascript">
+		/*<![CDATA[*/
+		function favorite(){
+			extAttr = {
+					"uuid": /*[[${data.uuid}]]*/,
+					"cover": /*[[${data.cover} ?${data.cover} : '']]*/,
+					"name": /*[[${data.name}]]*/,
+					"source": /*[[${data.source} ? ${data.source} : '']]*/,
+					"updated": /*[[${data.updated}]]*/,
+					"viewCount": /*[[${data.viewCount}]]*/
+			}
+			
+			var extAttrStr = JSON.stringify(extAttr);
+			
+			$.post("portal/user/favoriteArticle", {"extAttr": extAttrStr}, function(data){
+				if(data.code == 0 || data.code == 10430){
+					$("#favorite-btn").addClass('favorited')
+						.attr("href", "javascript:unfavorite();");
+					if(data.code == 0){
+						alert("收藏成功！");
+					}
+				}else{
+					if(data .msg && data.msg.indexOf("未登录") > 0){
+						alert("您还未登录，现在将前往登录。");
+						location.href = "./sign";
+					}else{
+						console.log(data);
+						alert(data.msg);
+					}
+				}
+			});
+		}
+		
+		//取消收藏
+		function unfavorite(){
+
+			var articleId = /*[[${data.uuid}]]*/;
+			$.post("portal/user/unFavoriteArticle", {"articleId": articleId}, function(data){
+				if(data.code == 0){
+					$("#favorite-btn").removeClass('favorited')
+						.attr("href", "javascript:favorite();");
+					alert("取消收藏成功！");
+				}
+			});
+		}
+		/*]]>*/
+	</script>
+
+</html>

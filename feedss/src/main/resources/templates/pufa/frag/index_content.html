@@ -1,0 +1,68 @@
+<th:block th:if="${articlesGroupByCategory} != null and ${articlesGroupByCategory.containsKey('mainList')}">
+<div th:class="${iterStat.index == 0} ? '' : 'category-latest-posts'" th:each="category,iterStat : ${articlesGroupByCategory.mainList}">
+	<th:block th:if="${iterStat.index == 0}">
+		<!-- 第一个栏目 -->
+		<h5 class='section-header video'>
+			<a th:href="@{list?category=} + ${category.uuid}">
+				<span class='section-name-container'>
+					<h3 class='section-name' th:text="${category.name}">第一栏目标题</h3>
+				</span>
+			</a>
+		</h5>
+		<div class="post-excerpts latest row">
+			<div class='col-sm-4' th:each="article : ${category.articles.content}">
+				<div class='post post-excerpt post-shadow'>
+					<div class='image-container'>
+						<div class='image-overlay'></div>
+						<a th:href="@{article?articleId=}+${article.uuid}">
+							<div class="bg-image lazyload image" th:attr="data-bgset=@{${article.cover}}" data-sizes='auto'></div>
+						</a>
+					</div>
+					<div class='text-container'>
+						<h5 class="title overflow-ellipsis">
+							<a th:href="'article?articleId='+${article.uuid}" th:text="${article.name}" th:title="${article.name}"></a>
+						</h5>
+						<p class='small date' th:if="${article.updated} != null" th:text="${#dates.format(article.updated,'yyyy-MM-dd HH:mm')}">2016-11-07 14:50</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+
+	<th:block th:if="${iterStat.index gt 0}">
+		<!-- 后续栏目, 分为gateway-to-china，china-insights，ecosystem-in-action -->
+		<div class='alizila-title category-title gateway-to-china' th:if="${iterStat.index %3 == 0}">
+			<h2 th:text="${category.name}">后续栏目</h2>
+			<span class="see-all"><a th:href="'./list?category=' + ${category.uuid}">查看更多</a></span>
+		</div>
+		<div class='alizila-title category-title china-insights' th:if="${iterStat.index %3 == 1}">
+			<h2 th:text="${category.name}">后续栏目</h2>
+			<span class="see-all"><a th:href="'./list?category=' + ${category.uuid}">查看更多</a></span>
+		</div>
+		<div class='alizila-title category-title ecosystem-in-action' th:if="${iterStat.index %3 == 2}">
+			<h2 th:text="${category.name}">后续栏目</h2>
+			<span class="see-all"><a th:href="'./list?category=' + ${category.uuid}">查看更多</a></span>
+		</div>
+		<div class='post-excerpts post-shadow'>
+			<div class="row">
+				<div class='col-sm-4 post-container' th:if="${category.articles} != null" th:each="article : ${category.articles.content}">
+					<div class='post post-excerpt category-post category-Gateway to China'>
+						<div class='image-container' style="">
+							<div class='image-overlay'></div>
+							<a th:href="@{article?articleId=} + ${article.uuid}">
+								<div class="bg-image lazyload image" th:attr="data-bgset=@{${article.cover}}" data-sizes='auto'></div>
+							</a>
+						</div>
+						<div class='text-container'>
+							<h5 class="title overflow-ellipsis">
+								<a th:href="'./article?articleId='+${article.uuid}" th:text="${article.name}" th:title="${article.name}"></a>
+							</h5>
+							<p class='small date' th:if="${article.updated} != null" th:text="${#dates.format(article.updated,'yyyy-MM-dd HH:mm')}">2016-11-07 14:50</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</div>
+</th:block>

@@ -1,0 +1,9 @@
+<!-- 页脚 -->
+<div class="j_jszc" id="j_jszc"><i></i><span th:text="${h5Footer}">打开众品直播，互动更精彩</span></div>
+<script>
+	var appDownloadUrl = document.getElementById("appDownloadUrl").value;
+	var appDown = document.getElementById("j_jszc");
+	appDown.addEventListener("click", function() {
+		window.top.open(appDownloadUrl);
+	}, false);
+</script>

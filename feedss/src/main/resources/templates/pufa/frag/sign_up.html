@@ -1,0 +1,30 @@
+<!-- 注册框 -->
+<form id="form-signup" class="form-signin" role="form" action="portal/user/signup" method="post">
+	<br />
+	<input type="text" class="form-control" name="mobile" placeholder="手机号" required="required"/> <br />
+	<div class="row">
+		<div class="col-xs-8">
+			<input type="text" class="form-control" name="verify" placeholder="图形验证码，用于获取手机验证码" required="required" autofocus="autofocus"/>
+		</div>
+		<div class="col-xs-4">
+			<img src="portal/user/imageCode" alt="" onclick="this.src='portal/user/imageCode?' + Math.random()" height="44px" />
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-xs-8">
+			<input type="text" class="form-control" name="smscode" placeholder="手机验证码" required="required" />
+		</div>
+		<div class="col-xs-4" style="padding-top: 12px;">
+			<a href="javascript:;" id="btn-send-sms" style="font-size: 16px;">获取手机验证码</a>
+		</div>
+	</div>
+	<br />
+	<input type="password" class="form-control" name="password" placeholder="密码" required="required" /><br/>
+	<input type="password" class="form-control" name="password2" placeholder="重复密码" required="required" /> <br />
+	<div class="checkbox">
+		<label> <input type="checkbox" id="remember-me" value="remember-me" /> 阅读并同意 <a href="article?articleId=836f7e4a-3be2-401a-b8ee-248092810a80" target="_blank">我要普法网用户服务协议</a></label>
+	</div>
+	<br />
+	<button class="btn btn-lg btn-danger btn-block pufa-submit" type="submit" id="submit-signup" disabled="disabled">注册</button>
+</form>

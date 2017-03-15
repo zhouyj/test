@@ -1,0 +1,13 @@
+.social-icons .icon {
+  z-index: 0;
+  position: relative;
+  behavior: url(/wp-content/themes/alibaba/library/css/pie/PIE.htc);
+}
+
+.event-sub-bar .image-container {
+  behavior: url(/wp-content/themes/alibaba/library/css/pie/PIE.htc);
+}
+
+.post.video-post.play-video-link {
+  display: none;
+}

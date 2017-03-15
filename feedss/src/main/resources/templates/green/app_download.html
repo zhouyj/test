@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <div th:include="/common/header::header"></div>
+    <title>App下载</title>
+    <link href="/css/green.css" rel="stylesheet"  th:href="@{/css/green.css}"/>
+</head>
+<body>
+
+
+<div class="header"> <span class="backBtn"></span>
+    <h2>App下载</h2>
+</div>
+
+<div class="appDownload">
+    <div class="icon"><img src="/images/logo_232x232.png"/></div>
+    <div class="name">VR云女眼</div>
+    <div class="btns">
+        <span id="androidDownload">Android下载</span>
+        <span id="iosDownload">IOS下载</span>
+    </div>
+    <div class="summary">VR云女眼，开启心世界</div>
+</div>
+
+<div class="appGallery">
+    <ul>
+        <li><img src="/images/392_697_1.jpg"/></li>
+        <li><img src="/images/392_697_2.jpg"/></li>
+    </ul>
+</div>
+
+<input type="hidden" id="androidUrl" value="" th:value="${androidUrl}" />
+<input type="hidden" id="iosUrl" value=""  th:value="${iosUrl}" />
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    $(function(){
+
+        $("#androidDownload").bind("click", function(){
+            window.top.location.href =$("#androidUrl").val();
+        });
+
+        $("#iosDownload").bind("click", function(){
+            window.top.location.href =$("#iosUrl").val();
+        });
+
+    });
+
+    /*]]>*/
+</script>
+</body>
+</html>

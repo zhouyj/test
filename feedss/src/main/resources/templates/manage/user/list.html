@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="../../favicon.ico" />
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet" />
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('user')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header">用户管理</h2>
+				<form id="form1" action="/manage/user/list" method="post">
+					<input type="hidden" id="page" name="page" value="">
+					<input type="hidden" id="field" name="field" th:value="${field}" value="">
+					<input type="hidden" id="direction" name="direction" th:value="${direction}" value="">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 用户ID: <input type="text" name="uuid" value=""
+									aria-controls="example" th:value="${uuid}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 昵称: <input type="text" name="nickname" value=""
+									aria-controls="example" th:value="${nickname}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 手机号: <input type="text" name="mobile" value=""
+									aria-controls="example" th:value="${mobile}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="dataTables_filter" id="example_filter">
+								<input th:checked="${v}==1?'check':'false'" type="checkbox" name="v" value="1"/>查看V
+							</div>
+						</div>
+						<div class="col-md-1">
+							<div class="dataTables_filter" id="example_filter">
+								<button class="btn btn-sm btn-primary">查询</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="width: 150px;">用户ID</th>
+								<th style="width: 100px;">昵称</th>
+								<th id="level" class="sort_able" style='width: 50px;' onclick="sortField('level')">等级</th>
+								<th>手机号</th>
+								<th>头像</th>
+								<th id="age" class="sort_able" style='width: 50px;' onclick="sortField('age')">年龄</th>
+								<th style="width: 50px;">性别</th>
+								<th  style="width: 100px;" id="time" class="sort_able" onclick="sortField('time')" >注册时间</th>
+								<th>是否加V</th>
+								<th>是否主播</th>
+								<th class='txt-center' >操作</th>
+							</tr>
+						</thead>
+						<tbody th:remove="all-but-first">
+							<tr th:each="user:${list}">
+								<td th:text="${user.uuid}">1</td>
+								<td th:text="${user.nickname}" >-</td>
+								<td class='txt-center' th:text="${user.level}" >-</td>
+								<td th:text="${user.mobile}" >-</td>
+								<td >
+								<img th:src="${user.avatar}" class="avatar-img" src="">
+								</td>
+								<td class='txt-center'  th:text="${user.age}">无</td>
+								<td  class='txt-center' th:text="${user.gender}==0?'男':'女'">0</td>
+								
+								<td class='txt-center' th:text="${#dates.format(user.created, 'yyyy-MM-dd HH:mm:ss')}">0</td>
+								<td class='txt-center'  th:text="${user.ruuid} != null?'V':''">V</td>
+								<td class='txt-center'  th:text="${user.rhuuid} != null?'是':''">是</td>
+								<td class='txt-center' >
+								<a href="#" th:href="@{/manage/user/addAdmin(userId=${user.uuid})}" th:if="${user.rmuuid} == null"  th:text="设置管理员" >设置管理员</a>
+								<a href="#" th:if="${user.rmuuid} != null"  th:text="取消管理员" th:onclick="'javascript:removeAdmin(\''+${user.uuid}+'\');'">取消管理员</a> 
+								<br />
+								<a href="#" th:if="${user.rhuuid} == null"  th:text="设置主播" th:onclick="'javascript:addHost(\''+${user.uuid}+'\');'" >设置主播</a>
+								<a href="#" th:if="${user.rhuuid} != null"  th:text="取消主播" th:onclick="'javascript:removeHost(\''+${user.uuid}+'\');'">取消主播</a>
+								<br />
+								<a href="#" th:if="${user.status}==1"  th:text="启用" th:onclick="'javascript:enabled(\''+${user.uuid}+'\');'">启用</a> &nbsp;&nbsp; 
+								<a href="#" th:if="${user.status}==0"  th:text="禁用" th:onclick="'javascript:disable(\''+${user.uuid}+'\');'">禁用</a> &nbsp;&nbsp;
+								<a href="#" th:if="${user.ruuid} != null"  th:text="取消V" th:onclick="'javascript:removeV(\''+${user.uuid}+'\');'">取消V</a> &nbsp;&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td>1,001</td>
+								<td>Lorem</td>
+								<td>ipsum</td>
+								<td>dolor</td>
+								<td>sit</td>
+							</tr>
+							<tr>
+								<td>1,002</td>
+								<td>amet</td>
+								<td>consectetur</td>
+								<td>adipiscing</td>
+								<td>elit</td>
+							</tr>
+							<tr>
+								<td>1,003</td>
+								<td>Integer</td>
+								<td>nec</td>
+								<td>odio</td>
+								<td>Praesent</td>
+							</tr>
+							<tr>
+								<td>1,003</td>
+								<td>libero</td>
+								<td>Sed</td>
+								<td>cursus</td>
+								<td>ante</td>
+							</tr>
+							<tr>
+								<td>1,004</td>
+								<td>dapibus</td>
+								<td>diam</td>
+								<td>Sed</td>
+								<td>nisi</td>
+							</tr>
+							<tr>
+								<td>1,005</td>
+								<td>Nulla</td>
+								<td>quis</td>
+								<td>sem</td>
+								<td>at</td>
+							</tr>
+							<tr>
+								<td>1,006</td>
+								<td>nibh</td>
+								<td>elementum</td>
+								<td>imperdiet</td>
+								<td>Duis</td>
+							</tr>
+							<tr>
+								<td>1,007</td>
+								<td>sagittis</td>
+								<td>ipsum</td>
+								<td>Praesent</td>
+								<td>mauris</td>
+							</tr>
+							<tr>
+								<td>1,008</td>
+								<td>Fusce</td>
+								<td>nec</td>
+								<td>tellus</td>
+								<td>sed</td>
+							</tr>
+							<tr>
+								<td>1,009</td>
+								<td>augue</td>
+								<td>semper</td>
+								<td>porta</td>
+								<td>Mauris</td>
+							</tr>
+							<tr>
+								<td>1,010</td>
+								<td>massa</td>
+								<td>Vestibulum</td>
+								<td>lacinia</td>
+								<td>arcu</td>
+							</tr>
+							<tr>
+								<td>1,011</td>
+								<td>eget</td>
+								<td>nulla</td>
+								<td>Class</td>
+								<td>aptent</td>
+							</tr>
+							<tr>
+								<td>1,012</td>
+								<td>taciti</td>
+								<td>sociosqu</td>
+								<td>ad</td>
+								<td>litora</td>
+							</tr>
+							<tr>
+								<td>1,013</td>
+								<td>torquent</td>
+								<td>per</td>
+								<td>conubia</td>
+								<td>nostra</td>
+							</tr>
+							<tr>
+								<td>1,014</td>
+								<td>per</td>
+								<td>inceptos</td>
+								<td>himenaeos</td>
+								<td>Curabitur</td>
+							</tr>
+							<tr>
+								<td>1,015</td>
+								<td>sodales</td>
+								<td>ligula</td>
+								<td>in</td>
+								<td>libero</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row">
+						<div class="col-md-6">
+							<div >
+								<ul id="bp-3-element-sm-test"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	<script src="/js/bootstrap-paginator.js"></script>
+	<script type='text/javascript' th:inline="javascript">
+	 var element = $('#bp-3-element-sm-test');
+
+     options = {
+         size:"small",
+         bootstrapMajorVersion:3,
+         currentPage: /*[[${pageNo}]]*/,
+         numberOfPages: 10,
+         totalPages:/*[[${totalPages}]]*/,
+         onPageClicked: function(e,originalEvent,type,page){
+        	// alert("Page item clicked, type: "+type+" page: "+page);
+        	 $("#page").val(page);
+        	 $("#form1").submit();
+         }
+     };
+     element.bootstrapPaginator(options);
+    </script>
+    <script  th:inline="javascript">
+    
+    	function removeAdmin(userId){
+    		if(!confirm("确认要取消该用户的管理员角色?")){
+    			return false;
+    		}
+    		$.ajax({
+   			   type: "POST",
+   			   url: "/manage/user/removeAdmin",
+   			   data: "userId="+userId,
+   			   success: function(msg){
+   				 if(msg==0){
+			    	 alert("取消管理员成功");
+			    	 location.reload();
+			     }else{
+			    	 alert("取消管理员失败");
+			     }
+   			   }
+   			});
+    	}
+    	
+    	function addHost(userId){
+    		$.ajax({
+   			   type: "POST",
+   			   url: "/manage/user/addHost",
+   			   data: "userId="+userId,
+   			   success: function(msg){
+   				 if(msg==0){
+			    	 alert("设置主播成功");
+			    	 location.reload();
+			     }else{
+			    	 alert("设置主播失败");
+			     }
+   			   }
+   			});
+    	}
+    	
+    	function removeHost(userId){
+    		if(!confirm("确认要取消该用户的主播角色?")){
+    			return false;
+    		}
+    		$.ajax({
+   			   type: "POST",
+   			   url: "/manage/user/removeHost",
+   			   data: "userId="+userId,
+   			   success: function(msg){
+   				 if(msg==0){
+			    	 alert("取消主播成功");
+			    	 location.reload();
+			     }else{
+			    	 alert("取消主播失败");
+			     }
+   			   }
+   			});
+    	}
+    
+    	function removeV(userId){
+    		if(!confirm("确认要取消该用户的V角色?")){
+    			return false;
+    		}
+    		$.ajax({
+   			   type: "POST",
+   			   url: "/manage/user/removeV",
+   			 data: "userId="+userId,
+			   dataType: "json",
+   			   success: function(msg){
+   				 if(msg.code==0){
+			    	 alert("取消V成功");
+			    	 location.reload();
+			     }else{
+			    	 alert(msg.msg);
+			     }
+   			   }
+   			});
+    	}
+    	function enabled(userId){
+    		if(!confirm("确认要启用该用户?")){
+    			return false;
+    		}
+    		$.ajax({
+    			   type: "POST",
+    			   url: "/manage/user/enabled",
+    			   data: "userId="+userId,
+    			   dataType: "json",
+    			   success: function(msg){
+    			     if(msg.code==0){
+    			    	 alert("启用成功");
+    			    	 location.reload();
+    			     }else{
+    			    	 alert(msg.msg);
+    			     }
+    			   }
+    			});
+    	}
+		function disable(userId){
+			if(!confirm("确认要禁用该用户?")){
+    			return false;
+    		}
+			$.ajax({
+	   			   type: "POST",
+	   			   url: "/manage/user/disable",
+	   			   data: "userId="+userId,
+	   			   dataType: "json",
+	   			   success: function(msg){
+	   				if(msg.code==0){
+	   			    	 alert("禁用成功");
+	   			    	 location.reload();
+	   			     }else{
+	   			    	 alert(msg.msg);
+	   			     }
+	   			   }
+	   			});
+    	}
+		
+		function initSort(){
+			var field=/*[[${field}]]*/;
+			var dir=/*[[${direction}]]*/;
+			if(field==null){
+				field='time';
+			}
+			console.info(field+":"+dir);
+			if(dir=='desc'){
+				$("#"+field).removeClass('sort_able');
+				$("#"+field).addClass('sort_desc');
+			}else if(dir=='asc'){
+				$("#"+field).removeClass('sort_able');
+				$("#"+field).addClass('sort_asc');
+			}else{
+				
+			}
+		}
+		
+		function sortField(field){
+			var f=$("#field").val();
+			var dir=$("#direction").val();
+			if(f==field){
+				if(dir==''){
+					dir='desc';
+				}else if(dir=='desc'){
+					dir='asc';
+				}else{
+					dir=''
+					$("#field").val("");
+				}
+				$("#direction").val(dir);
+			}else{
+				$("#field").val(field);
+				$("#direction").val('desc');
+			}
+			$("#page").val("");
+			$("#form1").submit();
+		}
+		
+		initSort();
+    </script>
+</body>
+</html>

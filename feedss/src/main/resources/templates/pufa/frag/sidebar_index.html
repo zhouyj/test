@@ -1,0 +1,30 @@
+<!-- 边栏，位于PC右端，移动下端 -->
+<div class='col-md-3 sidebar-content'>
+	<div class='sidebar sticky post-index-sidebar'>
+		<div class='row'>
+			<div class='col-sm-6 col-md-12' th:if="${articlesGroupByCategory} != null and ${articlesGroupByCategory.containsKey('rightList')}">
+				<div style="margin-bottom: 20px" class='sidebar-part alibaba-in-the-news hidden-xs' th:classappend="${iterStat.index==0} ? '' : 'pufa-sidebar'" th:each="category,iterStat : ${articlesGroupByCategory.rightList}">
+					<a th:href="'./list?category=' + ${category.uuid}">
+						<h3 class="sidebar-title" style="text-align: center;" th:text="${category.name}">第一分类</h3>
+					</a>
+					<a th:href="'./article?articleId=' + ${article.uuid}" th:each="article : ${category.articles.content}">
+						<div class="post clearfix">
+							<img width="640" height="360" th:src="${article.cover}" class="img-responsive lazyload wp-post-image" sizes="(max-width: 640px) 100vw, 640px" />
+							<h5 class="title" style="margin: 5px 0 20px 0" th:text="${article.name}">标题</h5>
+						</div>
+					</a>
+				</div>
+
+				<!-- 幻灯片切换 -->
+				<a th:href="${banner.content}" class="sidebar-part ali-views" th:if="${banner.location} ==1" th:each="banner : ${bannerList}">
+					<div class="ali-bg first active" th:style="'background-image: url('+${banner.picUrl}+')'"></div>
+					<div class="ali-bg" th:style="'background-image: url('+${banner.picUrl}+')'"></div>
+					<div class="ali-bg last" th:style="'background-image: url('+${banner.picUrl}+')'"></div>
+					<div class="" style="background-color: #ff5900; opacity:0.8;vertical-align: bottom;text-align: center;">
+						<p th:text="${banner.title}" style="color:white"></p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

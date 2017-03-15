@@ -1,0 +1,13 @@
+<style>
+.ad-banner {
+}
+</style>
+
+<div class="row ad-banner">
+	<div class="col-xs-12 col-sm-6" th:each="middleBanner : ${middleBanners}">
+		<a th:href="${middleBanner.content}" target="_blank">
+			<img th:src="${middleBanner.picUrl}" width="100%"/>
+		</a>
+		<div style="height: 10px"></div>
+	</div>
+</div>

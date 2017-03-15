@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+		
+		<script type="text/javascript" src="pufa/js/jwplayer.js"></script>
+		<script type="text/javascript" src="pufa/js/jwplayer.html5.js"></script>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 通用端左边 -->
+				<div class='col-md-9 col-sm-12 left-content'>
+					<div class='post full-post mobile-full-width'>
+						<div class="text-container post-title">
+							<h1 class='title' th:text="${stream.name}" style="text-align: center;">文章标题</h1>
+							<hr />
+						</div>
+						<div class="text-container">
+							<div class="main">
+								<input type="hidden" id="playUri" size="100" th:value="${stream.playUri}" />
+								<div id="myElement">直播加载中。。。</div>
+								<script type="text/javascript">
+									var playUri = document.getElementById("playUri").value;
+									jwplayer("myElement").setup({
+										flashplayer: 'pufa/swf/jwplayer.flash.swf',
+										//image: "pufa/images/preview.jpg",
+										file: playUri,
+										rtmp: {
+											bufferlength: 1
+										},
+										'width': '100%',
+										'aspectratio':'16:9',
+										autostart:true
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- PC端右边 -->
+				<div th:replace="/pufa/frag/sidebar_index"></div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+	</body>
+</html>

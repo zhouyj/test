@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="Description" content="" th:content="${content}"/>
+<meta name="apple-itunes-app" content="" th:content="${appleAppContent}">
+<meta content="telephone=no" name="format-detection">
+<head>
+    <title th:text="${title}"></title>
+    <link href="/css/black_new.css" rel="stylesheet">
+    <script>
+        function setRemFontSize(baseSize,baseWidth){
+            var baseSize = baseSize||108,baseWidth = baseWidth||1080,
+                    clientWidth = document.documentElement.clientWidth<=640?document.documentElement.clientWidth: 640 ;
+            document.getElementsByTagName('html')[0].style.fontSize = clientWidth*baseSize/baseWidth+'px'
+        }
+        setRemFontSize();
+        window.addEventListener("resize",function(){
+            setTimeout(function(){setRemFontSize();},200)
+        });
+    </script>
+</head>
+<body><input type="hidden" id="appDownloadUrl" value="" th:value="${appDownloadUrl}"/>
+<div class="j_player">
+	<div class="zp-video-wrap">
+			<div class="i-v-mask" id="zp_mask">
+			<div class="i-poster" th:style="'background-image: url('+${picUrl}+')'"> </div>
+			</div>
+	</div>
+</div>
+
+
+<div class="j_zb_introduce"><h2><th:block th:text="${title}"></th:block></h2>
+<h3>开始时间：<th:block th:text="${playTime}"></th:block>
+<br>
+主播：<img th:src="${avatar}" class="user_pic"><th:block th:text="${nickname}"></th:block></h3></div>
+	<div th:replace="/black/frags/footer"></div>
+
+</body>
+</html>

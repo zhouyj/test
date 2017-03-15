@@ -1,0 +1,36 @@
+<div class="shop-profile" style="height: 100%" th:if="not ${session.user}">
+	<div style="margin-bottom: 50px; margin-top: 30px">
+		<img src="/pufa/images/head_default.png" width="80px" height="80px"/>
+	</div>
+	<a href="sign?tab=signin" style="border: 1px solid white; padding: 10px 60px">立即登录</a>
+	<div style="margin-top: 30px">
+		登录后可查看你的普法币数量哦~
+	</div>
+</div>
+<div class="shop-profile" style="height: 100%" th:if="${session.user}">
+	<div th:if="${session.user.containsKey('profile')} and ${session.user.profile}">
+		<a><img th:src="${session.user.profile.avatar} ? ${session.user.profile.avatar} : 'pufa/images/default_head.jpg'" width="80px" height="80px" class="img-circle" /></a> 
+		<br /> 
+		<a href="javascript:;" style="color: white;"><h3 th:text="${session.user.profile.nickname}">姓名</h3></a>
+		<p>
+			<th:block th:text="${session.user.profile.age}"></th:block>岁｜<th:block th:text="${session.user.profile.gender}==0 ? '男生' : '女生'"></th:block>
+		</p>
+	</div>
+	<div class="shop-profile" th:if="not ${session.user.containsKey('profile')} or not ${session.user.profile}">
+		<a><img th:src="'pufa/images/default_head.jpg'" width="80px" height="80px" class="img-circle" /></a> <br /> 
+		<a href="javascript:;" style="color: white;"><h3 th:text="${session.user.containsKey('mobile')}${session.user.mobile}">姓名</h3></a>
+		<p>未知｜不详</p>
+	</div>
+	<div class="form-horizontal">
+		<h5 th:if="${balance} and ${balance.balance}">
+			我的普法币： <a><label style="color: #ff5900" th:text="${balance.balance}">500</label></a> 枚
+		</h5>
+	</div>
+	<div>
+		<a href="/article?articleId=e03980f7-26c4-4dae-af03-2cc7b4678301" target="_blank">普法币是什么？</a>
+	</div>
+	<div class="bottom">
+		<a th:href="@{/shop/my}">积分兑换记录</a>
+		<div style="float: right; margin-right: 10px;">&gt;</div>
+	</div>
+</div>

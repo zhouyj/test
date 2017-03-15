@@ -1,0 +1,227 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h2 class="sub-header ">添加或更新广告</h2>
+		<form>
+			<input id="bannerId" type="hidden" th:value="${banner.uuid}">
+			<table class="table main">
+				<tr>
+					<td style="border: 0px solid;">类别 :</td>
+					<td style="border: 0px solid;">
+						<select id="bannerCategory" name="categoryId">
+							<option th:value="${category.uuid}" th:text="${category.name}" th:each="category:${categories}" th:selected="${category.uuid == banner.category}">类别</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">广告图片：</td>
+					<td style="border: 0px solid;">
+						<div style="width: 70px; height: 21px;">
+							<span style="width: 45px; cursor: pointer"><a>点击上传</a></span> <input class="input-file" type="file" name="file" id="inputFile" />
+						</div>
+						<img id="picUrl" alt="" th:attr="src=${banner.picUrl}" max-width="403px" />
+						<table>
+							<tr>
+								<td>大小：</td><td>不超过5M</td>
+							</tr>
+							<tr>
+								<td>格式：</td><td>bmp, png, jpg, gif</td>
+							</tr>
+							<tr>
+								<td>首页Banner比例：</td><td>1080*342</td>
+							</tr>
+							<tr>
+								<td>直播间活动：</td><td>png，背景透明，大小不超过300*160</td>
+							</tr>
+							<tr>
+								<td>商品页：</td><td>100 * 91</td>
+							</tr>
+							<tr>
+								<td>商品页顶部：</td><td>555 * 312</td>
+							</tr>
+							<tr>
+								<td>商品页左边：</td><td>234 * 610</td>
+							</tr>
+							<tr>
+								<td>商品页中部：</td><td>567 * 141</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">标题:</td>
+					<td style="border: 0px solid;"><input id="title" type="text" name="title" th:attr="value=${banner.title}"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">类型:</td>
+					<td style="border: 0px solid;">
+						<select id="bannerType">
+							<option value="0" th:selected="${banner.type == '0'}">预告</option>
+							<option value="1" th:selected="${banner.type == '1'}">直播</option>
+							<option value="2" th:selected="${banner.type == '2'}">回放</option>
+							<option value="3" th:selected="${banner.type == '3'}">空间</option>
+							<option value="4" th:selected="${banner.type == '4'}">网页</option>
+							<option value="5" th:selected="${banner.type == '5'}">无跳转</option>
+						</select>
+						<input id="content" type="text" name="content" th:attr="value=${banner.content}"><span id="tips"></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">位置:</td>
+					<td style="border: 0px solid;">
+						<select id="bannerLocation">
+							<option value="HomePageBanner" th:selected="${banner.location == 'HomePageBanner'}">首页</option>
+							<option value="HomePageRight" th:selected="${banner.location == 'HomePageRight'}">侧边栏</option>
+							<option value="LiveRoom" th:selected="${banner.location == 'LiveRoom'}">直播间</option>
+							<option value="Splash" th:selected="${banner.location == 'Splash'}">app启动页</option>
+							<option value="ShopPage" th:selected="${banner.location == 'ShopPage'}">商品页</option>
+							<option value="ShopTop" th:selected="${banner.location == 'ShopTop'}">商品页顶部</option>
+							<option value="ShopLeft" th:selected="${banner.location == 'ShopLeft'}">商品页左边</option>
+							<option value="ShopMiddle" th:selected="${banner.location == 'ShopMiddle'}">商品页中部</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">排序:</td>
+					<td style="border: 0px solid;">
+						<input id="bannerSort" type="number" name="sort" th:attr="value=${banner.sort}">
+						<span>请输入数字，表示该广告的显示位置，数字越小越靠前</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">所在区域:</td>
+					<td style="border: 0px solid;">
+						<input id="bannerRegion" type="text" name="region" th:attr="value=${banner.region}">
+						<span>省市市名称，多个用英文逗号隔开</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;"></td>
+					<td style="border: 0px solid; height: 80px;">
+						<input id="cancel" type="button" value="取消" class="btn btn-warning">&nbsp;&nbsp;
+						<input id="release" type="button" value="发布" class="btn btn-primary">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<!-- <script src="/uploadify/jquery.uploadify.min.js"></script> -->
+<script type="text/javascript">
+	//取消
+	$(function() {
+		$("#cancel").click(function() {
+			location.href = "/manage/banner/";
+		});
+
+		$("#release").click(
+				function() {
+					var type = $("#bannerType option:selected").val();
+					var content = $("#content").val();
+					if (type != 0 && type != 5
+							&& (content == '' || content == null)) {
+						alert("内容不能为空!");
+						return;
+					}
+					var title = $("#title").val();
+					var picUrl = $("#picUrl").attr("src");
+					if (picUrl == '' || picUrl == null) {
+						alert("图片不能为空!");
+						return;
+					}
+					var bannerId = $("#bannerId").val(),
+						bannerLocation = $("#bannerLocation").val(), 
+						bannerSort = $("#bannerSort").val(), 
+						bannerRegion = $("#bannerRegion").val(),
+						bannerCategory = $("#bannerCategory").val();
+					$.ajax({
+						type : "POST",
+						url : "/manage/banner/add",
+						data : {
+							'content' : content,
+							'title' : title,
+							'picUrl' : picUrl,
+							'bannerId' : bannerId,
+							'type' : type,
+							'location' : bannerLocation,
+							'sort' : bannerSort,
+							'region' : bannerRegion,
+							'category': bannerCategory
+						},
+						dataType : "json",
+						success : function(response) {
+							if (response.code == 0) {
+								location.href = "/manage/banner/"
+							} else {
+								alert(response.msg);
+							}
+						}
+					});
+				});
+
+	});
+
+	$("#bannerType").change(function() {
+		var type = $("#bannerType option:selected").val();
+		if (type == '0' || type == '5') {
+			$("#content").hide();
+			$("#tips").text('');
+		} else {
+			$("#content").show();
+			if (type == "1") {
+				$("#tips").text('*请输入直播id');
+			} else if (type == "2") {
+				$("#tips").text('*请输入回放id');
+			} else if (type == "3") {
+				$("#tips").text('*请输入用户id');
+			} else if (type == "4") {
+				$("#tips").text('*请输入url');
+			} else {
+				$("#tips").text('');
+			}
+		}
+	});
+
+	$("#inputFile").uploadify({
+		auto : true,
+		swf : '/uploadify/uploadify.swf',
+		button_image_url : '/uploadify/spacer.gif',
+		fileObjName : 'file',
+		uploader : '/file/upload',
+		buttonText : "",
+		fileTypeExts : "*.jpg;*.gif;*.png",
+		fileTypeDesc : ".jpg",
+		hideButton : true,
+		multi : true,
+		removeCompleted : true,
+		removeTimeout : 1,
+		fileSizeLimit : 200000,
+		queueID : "input-file-queue",
+		//cancelImg:'/uploadify/uploadify-cancel.jpg',
+		//检测FLASH失败调用
+		onFallback : function() {
+			alert("您未安装FLASH控件，无法上传图片！请安装FLASH控件后再试。");
+		},
+		onUploadSuccess : function(file, data, response) {
+			var json = eval("(" + data + ")");//转换为json对象
+			if (json.code > 0) {
+				alert(json.msg);
+				return;
+			}
+			$("#picUrl").attr("src", json.data.files[0]);
+		}
+	});
+	//UUID
+	function uuid() {
+		var s = [];
+		var hexDigits = "0123456789abcdef";
+		for (var i = 0; i < 36; i++) {
+			s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+		}
+		s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+		s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+		s[8] = s[13] = s[18] = s[23] = "-";
+
+		var uuid = s.join("");
+		return uuid;
+	}
+</script>

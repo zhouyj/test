@@ -1,0 +1,8 @@
+<!-- 消息列表 -->
+<div class="news-latest" style="margin-top: 0">
+	<div class="news-item rows" th:each="item : ${messages}">
+		<div class="col-md-9"><a style="font-size: 16px" th:text="${item.content}">标题</a></div>
+		<div class="col-md-3"><small th:text="${item.updated} ? ${#dates.format(item.updated,'yyyy-MM-dd HH:mm')}">2016-12-12</small></div>
+		<div class="clear"></div>
+	</div>
+</div>

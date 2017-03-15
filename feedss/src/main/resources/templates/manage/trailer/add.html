@@ -1,0 +1,131 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h2 class="sub-header ">添加预告</h2>
+		<form>
+		  <input type="hidden" id="trailerId" th:value="${trailer.uuid}">
+			<div class="form-group">
+				<label for="exampleInputEmail1">预告标题</label> <input type="text" class="form-control"  id="title" placeholder="" th:value="${trailer.title}">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">简介（不超过40个字）</label> 
+				<textarea id="content" class="form-control" rows="4" th:text="${trailer.content}"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">开始时间</label> 
+				<div class="input-append date form_datetime" data-date="">
+				    <input id="playTime" size="26" type="text" th:value="${trailer.playTiemStr}" readonly class="">
+				    <span class="add-on"><i class="icon-th glyphicon glyphicon-time"></i></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile">预告图片</label>
+				<div style="width: 70px;height: 21px;">
+	              <span style="width: 45px;cursor: pointer"><a>点击上传</a></span>
+	              <input class="input-file" type="file" name="file" id="inputFile" />
+	            </div>
+	            <img id="picUrl" th:attr="src=${trailer.picUrl}" width="162px" height="85px">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">主播</label> <input id="userId" type="text" class="form-control" th:value="${trailer.userId}" placeholder="">
+			</div>
+			<button id="back" type="button" class="btn btn-default">取消</button>&nbsp;&nbsp;
+			<button id="release" type="button" class="btn btn-success">发布</button>
+		</form>
+	</div>
+</div>
+<script src="/js/bootstrap-paginator.js"></script>
+<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script>
+	$(function(){
+		//时间
+	    $(".form_datetime").datetimepicker({
+	        format: "yyyy-mm-dd hh:ii",
+	        language:  'zh',
+	        autoclose: true,
+	        todayBtn: true,
+	        startDate: "2016-09-09 10:00",
+	        minuteStep: 10
+	    });
+		//取消
+		$("#back").click(function(){
+			window.history.back(-1);
+		});
+		//发布
+		$("#release").click(function(){
+			//标题
+			var title = $("#title").val();
+			if(title ==undefined || title==null){
+				alert("标题不能为空");
+				return;
+			}
+			//开始时间
+			var playTime = $("#playTime").val();
+			if(playTime ==undefined || playTime==null){
+				alert("请设置预告时间");
+				return;
+			}
+			//图片
+			var picUrl = $("#picUrl").attr("src");
+			if(picUrl ==undefined || picUrl==null){
+				alert("请上传图片");
+				return;
+			}
+			//主播
+			var userId = $("#userId").val();
+			if(userId ==undefined || userId==null){
+				alert("请选择一位主播");
+				return;
+			}
+			//简介
+			var content = $("#content").val();
+			var trailerId = $("#trailerId").val();
+			$.ajax({
+	  			   type: "POST",
+	  			   url: "/manage/trailer/modify",
+	  			   data: {'content':content,'picUrl':picUrl,'trailerId':trailerId,'userId':userId,"title":title,"playTime":playTime},
+				   dataType: "json",
+	  			   success: function(response){
+	  				 if(response.code == 0){
+	  					 alert("保存成功");
+	  					location.href="/manage/trailer/"
+	  				 }else{
+	  					 alert(response.msg);
+	  				 }
+	  			   }
+	  		 });
+		});
+		
+		//图片上传
+		$("#inputFile").uploadify({
+		   	auto:true,
+		   	swf:'/uploadify/uploadify.swf',
+			button_image_url : '/uploadify/spacer.gif',
+		   	uploader:'/file/upload',
+			fileObjName: 'file',
+		   	buttonText:"",
+		   	fileTypeExts:"*.jpg;*.gif;*.png",
+		   	fileTypeDesc:".jpg",
+		   	hideButton:true,
+		   	multi:true,
+		   	removeCompleted:true,
+		   	removeTimeout:1,
+		   	fileSizeLimit:5000,
+		   	queueID:"input-file-queue",
+		   	//cancelImg:'/uploadify/uploadify-cancel.jpg',
+		    //检测FLASH失败调用
+		    onFallback:function(){
+		        alert("您未安装FLASH控件，无法上传图片！请安装FLASH控件后再试。");
+		    },
+		    onUploadSuccess:function(file,data,response){
+		    	 var json = eval("("+data+")");//转换为json对象
+		    	 if(json.code > 0){
+		    		 alert(json.msg);
+		    		 return;
+		    	 }
+		    	 $("#picUrl").attr("src",json.data.files[0]);
+		    }
+		});
+	});
+</script>

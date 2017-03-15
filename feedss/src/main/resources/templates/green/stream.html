@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+	<div th:include="/common/header::header"></div>
+<title>视频直播</title>
+<link href="/css/green.css" rel="stylesheet"  th:href="@{/css/green.css}"/>
+</head>
+<body>
+<input type="hidden" id="appDownloadUrl" value="" th:value="${appDownloadUrl}"/>
+<img src="images/full_bg_1.jpg" th:src="@{/images/full_bg_1.jpg}" class="sharing_bg" />
+
+<div class="video_outer">
+	<video src="" th:src="${videoUrl}" th:attr="poster=${videoCoverUrl}" preload="none" controls="controls"></video>
+</div>
+
+<div class="live_info"><img src="" th:src="${avatar}" />
+	<span class="name" th:text="${nickname}"></span>
+	<span class="number"><i></i><em th:text="${playCount}"></em></span>
+</div>
+<div style="font-size:0.3888rem;color:#fff;position:absolute;top:2.574rem;left:0;right:0;text-align:center;">
+<span th:if="${status}==-1" th:text="直播已删除，请下载App观看其他直播" >欢迎</span>
+<span th:if="${status}==0" th:text="直播还未开始，请下载App预约直播" >欢迎</span>
+<span th:if="${isPrivate}==1" th:text="这是个私密直播，请下载App输入密码后观看" >欢迎</span>
+</div>
+<div class="app_down_bar" id="app_down_bar">
+	<img src="images/app_logo.png" th:src="@{/images/app_logo.png}"/>
+	<span>马上去</span><span th:text="${appName}"></span><span>看直播</span>
+</div>
+
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	var appDownloadUrl= $("#appDownloadUrl").val();
+	$("#app_down_bar").bind("click",function(){
+		window.top.open(appDownloadUrl);
+	});
+	/*]]>*/
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<link rel='stylesheet' id='sitecss-css' href='pufa/css/sign.css' type='text/css' media='all' />
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 完善信息 -->
+				<div class="col-md-offset-3 col-md-6 col-sm-12">
+					<div class="alert alert-danger" role="alert" id="sign-msg" style="display: none">错误消息</div>
+					<div id="myTabContent" class="tab-content" style="border-top: 1px solid">
+						<div class="tab-pane fade in active" id="signin-content" th:include="pufa/frag/edit_form">表单</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+		<script type="text/javascript" src="pufa/js/jquery.form.js"></script>
+		<script type="text/javascript" src="pufa/js/pufa-common.js"></script>
+		<script type="text/javascript" src="pufa/js/sign.js"></script>
+		<script type="text/javascript" src="pufa/js/birthday.js"></script>
+	</body>
+
+</html>

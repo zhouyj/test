@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+<div th:include="/common/header::header"></div>
+<title>举报</title>
+
+<script src="js/zepto.min.js" th:src="@{/js/zepto.min.js}"></script>
+</head>
+<body>
+	<div class="header">
+		<span class="backBtn"></span>
+		<h2>举报</h2>
+	</div>
+
+	<form>
+		<input type="hidden" id="userId" value="" th:value="${userId}" /> <input
+			type="hidden" id="toUserId" value="" th:value="${toUserId}" /> <input
+			type="hidden" id="userToken" value="" th:value="${userToken}" /> <input
+			type="hidden" id="reportType" />
+		<div class="report_checkbox">
+			<ul>
+				<li data-rt="色情"><i></i><em>色情</em></li>
+				<li data-rt="欺诈骗钱"><i></i><em>欺诈骗钱</em></li>
+				<li data-rt="侮辱诋毁"><i></i><em>侮辱诋毁</em></li>
+				<li data-rt="广告骚扰"><i></i><em>广告骚扰</em></li>
+				<li data-rt="政治"><i></i><em>政治</em></li>
+			</ul>
+		</div>
+		<div class="report_textarea">
+			<textarea id="reportContent"></textarea>
+		</div>
+		<div class="report_submit" id="sendBtn">发送</div>
+	</form>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		var jQuery = $;
+		/*]]>*/
+	</script>
+	<script src="js/jquery-json-min.js" th:src="@{/js/jquery-json-min.js}"></script>
+	<script>
+		$(".report_checkbox li").click(function() {
+			$(this).toggleClass("selected");
+		});
+		$("#sendBtn").click(function() {
+			sendReport();
+		});
+
+		function sendReport() {
+			var arr = [];
+			$(".report_checkbox li.selected").each(function() {
+				arr.push($(this).data("rt"))
+			});
+
+			var req = {
+				"tags" : arr.join(),
+				"description" : $("#reportContent").val(),
+				"userId" : $("#userId").val(),
+				"toUserId" : $("#toUserId").val()
+			};
+
+			$.ajax({
+				type : "POST",
+				url : "/report/send",
+				dataType : "json",
+				contentType : 'application/json',
+				data : $.toJSON(req),
+				headers : {
+					"userId" : $("#userId").val(),
+					"userToken" : $("#userToken").val()
+				},
+				success : function(data) {
+					if (data.code == 0) {
+						alert("发送举报成功！");
+						window.app_js_interface.jumpToPreviousPage();
+						return;
+					}
+					alert(data.msg);
+				}
+			});
+		}
+	</script>
+</body>
+</html>

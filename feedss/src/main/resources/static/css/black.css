@@ -1,0 +1,131 @@
+a,body,div,em,footer,h1,h2,h3,h4,h5,h6,header,i,img,li,nav,p,section,span,strong,ul {
+	color:#9E9D9D;
+	margin:0;
+	padding:0;
+	font-weight:400
+}
+img {
+	border:0
+}
+p {
+	text-align:justify
+}
+strong {
+	color:#F4629C
+}
+a {
+	text-decoration:none
+}
+.c:after {
+	display:block;
+	height:0;
+	content:'.'
+}
+
+.fl,.fr {
+	float:left
+}
+.pr {
+	position:relative
+}
+.pa {
+	position:absolute
+}
+.none {
+	display:none
+}
+.blk {
+	display:block
+}
+body {
+	font:normal normal 14px Arial,Helvetica,'微软雅黑','黑体';
+	color:#666;
+	line-height:22px;
+	min-width:320px;
+	max-width:640px;
+	margin:0 auto;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-overflow-scrolling:touch;
+	overflow-scrolling:touch;
+	font-family:helvetica;
+	background-color:#fff
+}
+* {
+	-webkit-tap-highlight-color:transparent;
+	outline:0;
+	-webkit-overflow-scrolling:touch
+}
+*{margin:0;padding:0}
+/* video::-webkit-media-controls {
+	display:none!important
+} */
+body,html{width:100%;height:100%}
+body{position:relative;}
+.j_player{height:100%;position:relative;z-index:1}
+.zp-video-wrap{position: relative;    height: 100%;    overflow: hidden;}
+.zp-video-wrap video {
+    border: 0;
+    position: absolute;
+    z-index: 1;
+    top: -2000px;
+    background: #000;
+	width:100%;
+	height:100%;
+}
+
+.zp-video-wrap .i-v-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0,0,0,0);
+    left: 0;
+    top: 0;
+}
+
+.zp-video-wrap .i-poster {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.zp-video-wrap .i-play-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    display: block;
+    background: url(../images/icon_play_243x243.png) no-repeat;
+    background-size: 100% auto;
+}
+
+.j_user_info{z-index:2;position:absolute;width:3.5935rem;height:1.2222rem;background-color:rgba(0,0,0,0.3);top:0.3333rem;left:0.3333rem;border-radius:0.16rem}
+.j_user_info .user_pic{position:absolute;width:0.8333rem;height:0.8333rem;left:0.1851rem;border:0.07rem #fff solid;border-radius:100%;top:0.1244rem}
+.j_user_info h3{margin-left:1.37rem;font-size:0.2962rem;color:#fff;line-height:0.3rem;margin-top:0.2222rem;height:0.3rem;}
+.j_user_info h4{margin-left:1.37rem;line-height:0.3rem;height:0.3rem;margin-top:0.1574rem;}
+.j_user_info h4 i{float:left;width:0.3611rem;height:0.2129rem;background:url(../images/icon_eye_39x23.png) no-repeat;background-size:100% auto;margin-top:0.0435rem;margin-right:0.1111rem}
+.j_user_info h4 span{float:left;font-size:0.2962rem;color:#fff}
+
+.j_zb_title{font-weight:bold;z-index:3;position:absolute;color:#fff;font-size:0.5555rem;line-height:0.56rem;top:4.148rem;left:0;width:100%;text-align:center;text-shadow:0 0 0.12rem #000}
+
+.j_zb_introduce{position:absolute;top:50%;z-index:4;-webkit-transform: translateY(-50%);transform: translateY(-50%);width:100%;text-align:center;}
+
+.j_zb_introduce h2{font-weight:bold;color:#fff;font-size:0.5555rem;line-height:0.9rem;top:4.8rem;left:0;text-shadow:0 0 0.12rem #000}
+.j_zb_introduce h3{color:#fff;font-size:0.4444rem;line-height:0.9rem;top:6.8rem;left:0;text-shadow:0 0 0.12rem #000}
+.j_zb_introduce h3 .user_pic{width:0.8333rem;height:0.8333rem;display:inline-block;vertical-align:middle;border:0.07rem #fff solid;border-radius:100%;margin-right:0.2rem;}
+
+.j_zb_sta{z-index:3;position:absolute;color:#fff;font-size:0.4444rem;line-height:0.5rem;top:5.185rem;left:0;width:100%;text-align:center;text-shadow:0 0 0.12rem #000}
+.j_jszc{z-index:3;position:absolute;padding:0 1rem 0 0.38rem;height:1rem;border-radius:0.5rem;bottom:1.3rem;right:0.2rem;background-color:rgba(0,0,0,0.3)}
+.j_jszc span{display:block;color:#d2d2d2;line-height:1rem;font-size:0.38rem;}
+.j_jszc i{position:absolute;right:0.38rem;top:0.26rem;width:0.48rem;height:0.48rem;background:url(../images/arrow_64x64.png) no-repeat;background-size:100% auto}
+.j_lxwm a{z-index:3;position:absolute;bottom:0.3rem;right:0.4rem;color:#fff;font-size:0.38rem;}

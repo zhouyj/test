@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head th:include="/fragments/header::header">
+<meta charset="UTF-8">
+<title>后台管理</title>
+</head>
+<body>
+  <!-- 标题导航 -->
+  <div class="navbar navbar-inverse navbar-fixed-top" th:include="/fragments/nav::nav"></div>
+  <div class="container-fluid">
+      <div class="row">
+          <!-- left 导航 -->
+          <div class="col-sm-3 col-md-2 sidebar" th:include="/fragments/left::left (${vale})"></div>
+          <!-- 内容 -->
+          <!-- <h1 class="page-header">Dashboard</h1> -->
+          <!-- 嵌套页 -->
+          <div layout:fragment="content"></div>
+      </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<link rel='stylesheet' id='sitecss-css' href='pufa/uploader/webuploader.css' type='text/css' media='all' />
+<form id="form-improve-info" class="form-horizontal form-signin" role="form" action="portal/user/updateProfile" method="post" th:object="${session.user}">
+	<div class="form-group" style="text-align: center;margin: 20px 0">
+		<input id="avatar" type="hidden" name="avatar" th:value="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.avatar}" />
+		<img id="avatar-show" th:src="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.avatar}" width="80px" height="80px" class="img-circle"/><br/>
+		<a id="filePicker" href="javascript:;">上传照片</a>
+	</div>
+	<script type="text/javascript" src="pufa/uploader/webuploader.nolog.js"></script>
+	<script type="text/javascript">
+			$(function(){
+				// 初始化Web Uploader
+				var uploader = WebUploader.create({
+					fileVal: 'file',
+					// 选完文件后，是否自动上传。
+					auto: true,
+					// swf文件路径
+					swf:'/pufa/uploader/Uploader.swf',
+					// 文件接收服务端。
+					server: '/file/upload',
+					// 选择文件的按钮。可选。
+					// 内部根据当前运行是创建，可能是input元素，也可能是flash.
+					pick: '#filePicker',
+					// 只允许选择图片文件。
+					accept: {
+						title: 'Images',
+						extensions: 'gif,jpg,jpeg,bmp,png',
+						mimeTypes: 'image/*'
+					},
+					//压缩
+					compress: {
+						width: 120,
+						//height: 120,
+						quality: 70,
+						allowMagnify: false,
+						crop: false,
+						preserveHeaders: true,
+						noCompressIfLarger: true,
+						compressSize: 512000
+					}
+				});
+				uploader.on( 'uploadSuccess', function(file, response) {
+					if(response.code == 0){
+						$("#avatar-show").attr("src", response.data.files[0]);
+						$("#avatar").val(response.data.files[0]);
+					}else{
+						$("#sign-msg").text(response.msg).fadeIn();
+					}
+					console.log(response);
+				});
+			});
+	</script>
+	
+	<div class="form-group">
+		<label for="nickname" class="col-sm-2 control-label"><small style="color: red">*</small>姓名</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="nickname" name="nickname" placeholder="请输入真实姓名" required="required" th:value="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.nickname}" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="gender" class="col-sm-2 control-label"><small style="color: red">*</small>性别</label>
+		<div class="col-sm-10">
+			<div class="radio">
+				<label> <input type="radio" name="gender" id="gender" value="0" required="required" th:checked="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.gender} == 0" /> 男</label>
+				<label> <input type="radio" name="gender" id="gender" value="1" required="required" th:checked="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.gender} == 1" /> 女</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="gender" class="col-sm-2 control-label"><small style="color: red">*</small>出生日期</label>
+		<div class="col-sm-10">
+			<label style="font-weight: normal;">
+				<select id="birthdateYear" name="birthdateYear" class="form-control" required="required"></select>
+			</label>
+			<label> 年 </label>
+			<label style="font-weight: normal;">
+				<select id="birthdateMonth" name="birthdateMonth" class="form-control" required="required"></select>
+			</label>
+			<label> 月 </label>
+			<label style="font-weight: normal;">
+				<select id="birthdateDay" name="birthdateDay" class="form-control" required="required"></select>
+			</label>
+			<label> 日 </label>
+		</div>
+		<script>
+			$(function() {
+				$.ms_DatePicker({
+					YearSelector : "#birthdateYear",
+					MonthSelector : "#birthdateMonth",
+					DaySelector : "#birthdateDay"
+				});
+				$.ms_DatePicker();
+			});
+		</script>
+	</div>
+	<div class="form-group">
+		<label for="school" class="col-sm-2 control-label"><small style="color: red">*</small>学校名称</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="school" name="school" placeholder="学校名称" th:value="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.ext.school}" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="gender" class="col-sm-2 control-label"><small style="color: red">*</small>所在年级</label>
+		<div class="col-sm-10">
+			<label>
+				<select name="grade" class="form-control" style="font-weight:normal;" th:value="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.ext.grade}">
+					<option>一年级</option>
+					<option>二年级</option>
+					<option>三年级</option>
+					<option>四年级</option>
+					<option>五年级</option>
+					<option>六年级</option>
+					<option>七年级</option>
+					<option>八年级</option>
+					<option>九年级</option>
+					<option>高一</option>
+					<option>高二</option>
+					<option>高三</option>
+				</select>
+			</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="area" class="col-sm-2 control-label"><small style="color: red">*</small>所在地区</label>
+		<div class="col-sm-10">
+			<label>
+				<select id="s_province" name="province" class="form-control" style="font-weight:normal;"></select>
+			</label>
+			<label>
+				<select id="s_city" name="city" class="form-control" style="font-weight:normal;"></select>
+			</label>
+			<label>
+				<select id="s_district" name="district" class="form-control" style="font-weight:normal;"></select>
+			</label>
+			<script type="text/javascript" src="pufa/js/provincesCity.js" style="font-weight:normal;"></script>
+			<script type="text/javascript">
+				_init_area();
+			</script>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label"><small style="color: red">*</small>邮箱</label>
+		<div class="col-sm-10">
+			<input type="email" class="form-control" id="email" name="email" placeholder="邮箱" th:value="(${session.user.containsKey('profile')} and *{profile}) ? *{profile.ext.email}" />
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<a href="javascript:openExt();">
+		<div class="form-group" style="text-align: center;">
+			<a href="javascript:openExt();"><img id="ext_hand" src="pufa/images/u285.png"/></a>
+		</div>
+	</a>
+	<script type="text/javascript">
+		var rotate = 0;
+		//打开扩展表单
+		function openExt(){
+			rotate = rotate == 0 ? 180 : 0;
+			$('#profile_ext').slideToggle(function(){
+				$("#ext_hand").css("transform", "rotate("+rotate+"deg)");
+				$("#ext_hand").css("-ms-transform", "rotate("+rotate+"deg)");
+				$("#ext_hand").css("-moz-transform", "rotate("+rotate+"deg)");
+				$("#ext_hand").css("-webkit-transform", "rotate("+rotate+"deg)");
+				$("#ext_hand").css("-o-transform", "rotate("+rotate+"deg)");
+			});
+		}
+	</script>
+	
+	<div id="profile_ext" style="display: none;" th:include="pufa/frag/edit_form_ext"></div>
+
+	<br />
+	<button class="btn btn-lg btn-warning btn-block pufa-submit" type="submit">完成</button>
+</form>
+

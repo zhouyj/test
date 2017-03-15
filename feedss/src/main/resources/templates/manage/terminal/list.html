@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('terminal')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header">
+					设备管理 <a href="#" class="pull-right  lead">绑定设备</a>
+				</h2>
+				<form id="form1" action="/manage/terminal/list"
+					method="post">
+					<input type="hidden" id="page" name="page" value="">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 用户ID: <input type="text" name="userId" value=""
+									aria-controls="example" th:value="${userId}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 编号: <input type="text" name="name" value=""
+									aria-controls="example" th:value="${name}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<button class="btn btn-sm btn-primary">查询</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="width: 200px;">ID</th>
+								<th style="width: 50px;">编号</th>
+								<th style="width: 150px;">设备类型</th>
+								<th style="width: 200px;">绑定用户ID</th>
+								<th style="width: 200px;">推流url</th>
+								<th class='txt-center'>操作</th>
+							</tr>
+						</thead>
+						<tbody th:remove="all-but-first">
+							<tr th:each="t:${list}">
+								<td th:text="${t.uuid}">1</td>
+								<td th:text="${t.name}">1</td>
+								<td><th:block th:if="${t.type}==0" th:text="普通">-</th:block>
+									<th:block th:if="${t.type}==1" th:text="VR">-</th:block> 
+									<th:block th:if="${t.type}==2" th:text="推流软件">-</th:block></td>
+								<td th:text="${t.userId}">-</td>
+								<td th:text="${t.publishUrl}">-</td>
+								<td class='txt-center'><a href="#" th:onclick="'javascript:del(\''+${t.uuid}+'\');'" >删除</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row">
+						<div class="col-md-6">
+							<div>
+								<ul id="bp-3-element-sm-test"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="bg"></div>
+	<div id="show">
+		<div style="position: relative; height: 100%; top: 0px; width: 100%">
+			<input id="terminalId" type="hidden"> <label>推流地址</label> 
+				<input id="publishUrl" type="text" size="50"> <label>设备名称</label> 
+				<input id="name" type="text" size="50">
+			<label>用户ID</label> 
+			<input id="userId" type="text" size="50">
+			
+			<label>设备类型</label> <select name="type" id="type">
+				<option value="0">普通设备</option>
+				<option value="1">VR设备</option>
+				<option value="2">推流软件</option>
+			</select><br />
+			<input id="btnclose" type="button" value="取消" onclick="hidediv();" /> &nbsp;&nbsp;&nbsp;&nbsp; <input
+				id="release" type="button" value="发布" onclick="add();" />
+		</div>
+		<div>
+			
+		</div>
+	</div>
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	<script src="/js/bootstrap-paginator.js"></script>
+
+
+
+	<script>
+
+//显示
+function showdiv(publishUrl, name, type, userId) {  
+	$("#publishUrl").val(publishUrl);
+	$("#name").val(name);
+	$("#type").val(type);
+	$("#userId").val(userId);
+    document.getElementById("bg").style.display ="block";
+    document.getElementById("show").style.display ="block";
+}
+
+//隐藏
+function hidediv() {
+    document.getElementById("bg").style.display ='none';
+    document.getElementById("show").style.display ='none';
+}
+
+$(function(){
+	$("h2 a").click(function(){
+		showdiv('','','','');
+	});
+});
+
+//添加操作
+function add(){
+	  var publishUrl = $("#publishUrl").val();
+	  var name = $("#name").val();
+	  var type = $("#type").val();
+	  var userId = $("#userId").val();
+	  if(name =='' || name==null){
+		  alert("请输入设备编号!");
+		  return;
+	  }
+	  if(publishUrl =='' || publishUrl==null){
+		  alert("请输入设备推送url!");
+		  return;
+	  }
+	  if(userId =='' || userId==null){
+		  alert("请输入绑定的用户Id!");
+		  return;
+	  }
+	  if(type =='' || type==null){
+		  alert("请选择设备所属类型!");
+		  return;
+	  }
+	  $.ajax({
+		  url: "/manage/terminal/add",
+		  data:{"name":name,"type":type,"userId":userId, "publishUrl":publishUrl},
+		  type: "POST",
+		  dataType:'json',
+		  success: function(code){
+			  
+			 if(code == 0){
+				 location.reload();
+			 }else{
+				 alert("添加失败,已经存在");
+			 }
+		  }
+	  });
+}
+
+
+function del(terminalId){
+	if(!confirm("确认要删除设备？")){
+		return false;
+	}
+	$.ajax({
+		   type: "POST",
+		   url: "/manage/terminal/del",
+			data: "terminalId="+terminalId,
+		 	dataType: "json",
+		   success: function(code){
+			if(code==0){
+		    	 alert("删除成功");
+		    	 location.reload();
+		     }else{
+		    	 alert("删除失败");
+		     }
+		   }
+		});
+}
+
+</script>
+	<script type='text/javascript' th:inline="javascript">
+	 var element = $('#bp-3-element-sm-test');
+
+     options = {
+         size:"small",
+         bootstrapMajorVersion:3,
+         currentPage: /*[[${pageNo}]]*/,
+         numberOfPages: 5,
+         totalPages:/*[[${totalPages}]]*/,
+         onPageClicked: function(e,originalEvent,type,page){
+        	// alert("Page item clicked, type: "+type+" page: "+page);
+        	 $("#page").val(page);
+        	 $("#form1").submit();
+         }
+     };
+     element.bootstrapPaginator(options);
+    </script>
+</body>
+</html>

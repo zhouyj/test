@@ -1,0 +1,28 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+	<div th:include="/common/header::header"></div>
+	<title>礼物</title>
+
+</head>
+<body>
+<div class="header"> <span class="backBtn"></span>
+<span class="shareBtn"></span>
+   <h2>Angelbaby收到的礼物</h2>
+</div>
+
+<div class="gift" th:each="one:${list}">
+	<div class="gift_item"><img src="images/gold_233x233.png" th:src="${one.product.pic}" /><em th:text="${one.product.name}">数量</em><span th:text="'X'+${one.productNum}">数量</span></div>
+</div>
+
+<div class="nodata_outer2" th:if="${#lists.size(list) eq 0}">
+	<div class="nodata_inner2">
+		<img src="/images/nodata.png" />
+		<span>还没收到礼物呢~</span>
+	</div>
+</div>
+
+</body>
+</html>

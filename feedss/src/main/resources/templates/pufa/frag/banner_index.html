@@ -1,0 +1,24 @@
+<!-- 主页滚动图片 -->
+<div class='featured-slider post-excerpts page-section mobile-full-width' th:if="${bannerList}">
+	<div class='actual-posts'>
+		<div class='post post-excerpt featured category-Ecosystem in Action' th:if="${banner.location} =='HomePageBanner'" th:each="banner : ${bannerList}">
+			<div class='image-container'>
+				<div class='image-overlay'></div>
+				<a th:href="${banner.content}">
+					<div class="bg-image lazyload image" th:attr="data-bgset=@{${banner.picUrl}}" data-sizes='auto'></div>
+				</a>
+			</div>
+			<div class='text-container'>
+				<h2>
+					<a style="color: white" th:href="${banner.content}" th:text="${banner.title}"></a>
+				</h2>
+				<p style="color: aliceblue"></p>
+			</div>
+		</div>
+	</div>
+	<div class='post-selectors'>
+		<a class='selector' th:href="${banner.content}" th:if="${banner.location} =='HomePageBanner'" th:each="banner : ${bannerList}">
+			<h5 th:text="${banner.title}">图片1</h5>
+		</a> 
+	</div>
+</div>

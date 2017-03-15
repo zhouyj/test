@@ -1,0 +1,27 @@
+<!-- 登录框 -->
+<form id="form-signin" class="form-signin" role="form" action="portal/user/signin" method="post">
+	<br />
+	<input type="text" name="username" class="form-control" placeholder="用户名/手机号/普法学习卡号" required="required" autofocus="autofocus" /><br/>
+	<input type="password" name="password" class="form-control" placeholder="密码" required="required" /><br/>
+	<div class="row">
+		<div class="col-xs-8">
+			<input type="text" name="verifyCode" class="form-control" placeholder="图形验证码" required="required" />
+		</div>
+		<div class="col-xs-4">
+			<img src="portal/user/imageCode" onclick="this.src='portal/user/imageCode?' + Math.random()" height="44px" />
+		</div>
+	</div>
+
+	<br />
+	<button class="btn btn-lg btn-warning btn-block pufa-submit" type="submit">登录</button>
+	<div style="text-align: right; margin-top: 10px;">
+		<a href="./resetPwdPage">忘记密码？</a>
+	</div>
+	<hr />
+	<!-- 
+	<div style="text-align: center;">
+		<p>快速登录</p>
+		<a href=""><img src="pufa/images/u74.png" width="16%" /></a>
+	</div>
+	 -->
+</form>

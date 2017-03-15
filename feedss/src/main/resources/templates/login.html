@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="../../favicon.ico" />
+
+<title>管理平台</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="css/custom.css" rel="stylesheet" />
+<script src="/js/jquery.min.js"></script>
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+	<div class="container">
+
+		<div class="login-form-signin" style="background-color: white;">
+			<form id="login-form">
+				<h2 class="form-signin-heading" style="text-align: center;font-weight: bold;">请登录</h2>
+				<hr/>
+				<label for="inputEmail" class="sr-only">帐号</label>
+				<input type="text" id="inputEmail" name="loginName" class="form-control" placeholder="请输入帐号" required="required" autofocus="autofocus" />
+				<br/>
+				<label for="inputPassword" class="sr-only">密码</label>
+				<input type="password" id="inputPassword" name="password" class="form-control" placeholder="请输入密码" required="required" />
+				<hr/>
+				<button class="btn btn-lg btn-primary btn-block login_btn" type="button" style="border-radius:0">登录</button>
+			</form>
+		</div>
+
+	</div>
+	<!-- /container -->
+
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="js/ie10-viewport-bug-workaround.js"></script>
+	<script>
+		$(function($) {
+
+			//登录
+			$(".login_btn").click(function() {
+				$.ajax({
+					type : "POST",
+					url : "/login",
+					data : $("#login-form").serialize(),
+					dataType : "json",
+					success : function(msg) {
+						if (msg.code == 0) {
+							location.href = "/manage/user/list";
+						} else {
+							alert(msg.msg);
+						}
+					}
+				});
+			})
+		});
+	</script>
+</body>
+</html>

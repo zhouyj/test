@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="telephone=no" name="format-detection">
+<title th:text="${videoTitle}"></title>
+<link href="/css/black.css" rel="stylesheet">
+<script>
+	function setRemFontSize(baseSize, baseWidth) {
+		var baseSize = baseSize || 108, baseWidth = baseWidth || 1080, clientWidth = document.documentElement.clientWidth <= 640 ? document.documentElement.clientWidth
+				: 640;
+		document.getElementsByTagName('html')[0].style.fontSize = clientWidth
+				* baseSize / baseWidth + 'px'
+	}
+	setRemFontSize();
+	window.addEventListener("resize", function() {
+		setTimeout(function() {
+			setRemFontSize();
+		}, 200)
+	});
+</script>
+</head>
+<body><input type="hidden" id="appDownloadUrl" value="" th:value="${appDownloadUrl}"/>
+	<div class="j_player">
+		<div class="zp-video-wrap">
+
+			<video id="zp_video" preload="auto" src="" th:src="${videoUrl}" th:attr="poster=${videoCoverUrl}" webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" controls="controls">
+				<p>不支持video</p>
+			</video>
+
+			<div class="i-v-mask" id="zp_mask">
+				<div class="i-poster"
+					th:style="'background-image: url('+${videoCoverUrl}+')'"></div>
+				<span th:if="${videoUrl}" class="i-play-btn" id="i-play-btn">
+					</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="j_user_info">
+		<img th:src="${avatar}" class="user_pic">
+		<h3>
+			<th:block th:text="${nickname}"></th:block>
+		</h3>
+		<h4>
+			<i></i><span th:text="${playCount}"></span>
+		</h4>
+	</div>
+
+	<div class="j_zb_title" id="j_zb_title">
+		<th:block th:text="${videoTitle}"></th:block>
+	</div>
+	<div class="j_zb_sta" id="j_zb_sta">
+		<th:block th:if="${status}==-1" th:text="直播已删除">欢迎</th:block>
+		<th:block th:if="${status}==0" th:text="直播还未开始">欢迎</th:block>
+		<th:block th:if="${status}==2" th:text="直播已结束">欢迎</th:block>
+		<th:block th:if="${isPrivate}==1" th:text="这是个私密直播，请下载App输入密码后观看">欢迎</th:block>
+	</div>
+	<div th:replace="/black/frags/footer"></div>
+	<script>
+		var oVideo = document.getElementById("zp_video");
+		var mask = document.getElementById("zp_mask");
+		var j_zb_title = document.getElementById("j_zb_title");
+		var j_zb_sta = document.getElementById("j_zb_sta");
+		var playBtn = document.getElementById("i-play-btn");
+
+		playBtn.addEventListener("touchstart", function() {
+			mask.style.display = "none";
+			j_zb_title.style.display = "none";
+			j_zb_sta.style.display = "none";
+			oVideo.style.top = "0";
+			oVideo.play();
+		}, false);
+
+		playBtn.addEventListener("click", function() {
+			mask.style.display = "none";
+			j_zb_title.style.display = "none";
+			j_zb_sta.style.display = "none";
+			oVideo.style.top = "0";
+			oVideo.play();
+		}, false);
+		
+		var playList = new Array();
+		var currentIndex = 0;
+		playList=oVideo.src.split(",");
+		getVideo(oVideo, currentIndex++);
+		oVideo.play();
+
+		  oVideo.addEventListener("ended", 
+		    function() {
+		      if(currentIndex >= playList.length)
+		        return;
+		      getVideo(oVideo, currentIndex++);
+		      oVideo.play();
+		    }, false);
+
+		  function getVideo(video, i) {           
+		    if (i < playList.length && playList != "") {
+		      video.src = playList[i];
+		    } else {
+		      alert("Enter a valid video URL");  // fail silently
+		    }
+		  }
+	</script>
+</body>
+</html>

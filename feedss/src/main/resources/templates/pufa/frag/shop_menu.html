@@ -1,0 +1,35 @@
+<style>
+	.shop-menu{
+		border: 1px solid #e0d7d7;
+	}
+	.shop-menu ul{
+		margin: 20px 10px;
+	}
+	
+	.nav-sub{
+		position: absolute;
+		top: -20px;
+		left: 230px;
+		width: 200px;
+		z-index: 1000;
+		background-color: white;
+		display: none;
+	}
+	.nav-item:hover .nav-sub{
+		display: block;
+	}
+</style>
+
+<div class="shop-menu">
+	<ul class="nav nav-pills nav-stacked" role="tablist">
+		<li class="nav-item" th:each="category : ${shopNavTree}">
+			<a style="float: right">&gt;</a>
+			<a th:href="@{/shop/list?category=} + ${category.uuid}" th:text="${category.name}">一级栏目</a>
+			<ul class="nav nav-pills nav-stacked nav-sub" th:if="${category.childList} and ${category.childList.size() > 0}">
+					<li th:each="category : ${category.childList}">
+							<a th:href="@{/shop/list?category=} + ${category.uuid}" th:text="${category.name}">二级栏目</a>
+					</li>
+			</ul>
+		</li>
+	</ul>
+</div>

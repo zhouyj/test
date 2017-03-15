@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+	<div th:include="/common/header::header"></div>
+	<title>登记介绍</title>
+</head>
+<body>
+<div class="header"> <span class="backBtn"></span>
+   <h2>等级介绍</h2>
+</div>
+
+<div style="background-color:#fff;overflow:hidden;min-height:100%">
+	<div style="margin:0.463rem;color:#6e6e6e">
+		用户的等级根据积分增长 。随着用户作为主播的直播时长 和观看直播时长的增长，用户积分也随之升高。详细等级计算方法和对应表如下：
+	</div>
+	<div style="margin:0.463rem;color:#333">累计积分 = 直播分钟数*3+观看分钟数</div>
+	<div style="margin:0.463rem;color:#6e6e6e">不足1分钟的时长不计入</div>
+	<div  class="grade_table">
+		<table>
+			<tr>
+				<th>等级</th>
+				<th>积分</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>0 &le; 积分 &le; 30</td>
+			</tr>
+			<tr class="even">
+				<td>2</td>
+				<td>30 &le; 积分 &le; 150</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>150 &le; 积分 &le; 750</td>
+			</tr>
+			<tr class="even">
+				<td>4</td>
+				<td>750 &le; 积分 &le; 3750</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>3750 &le; 积分 &le; 18750</td>
+			</tr>
+			<tr class="even">
+				<td>6</td>
+				<td>18750 &le; 积分 &le; 93750</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>93750 &le; 积分 &le; 999999</td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+
+
+</body>
+</html>

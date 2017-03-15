@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="/js/mobileUtil.js"></script>
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>预约</title>
+<link href="/css/green.css" rel="stylesheet">
+<link href="/css/green_addon.css" rel="stylesheet">
+<script src="/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="header"> <span class="backBtn"></span>
+   <h2 th:text="${title}">会客厅</h2>
+</div>
+
+<div class="parlor_cover">
+	<img class="pic" src="/image/image_1080x720.jpg" th:src="${imageURL}">
+	<!-- <div class="tit" th:text="${title}">云女家</div> -->
+	<div class="shadow"><div class="sq"><i></i><span><span th:text="${title}">申请参观云女家</span></span></div></div>
+</div>
+
+
+<div class="parlor_apply">
+	<div class="inner">
+	<form class="appointment-form">
+		<input name="type" type="hidden" th:value="${type}" />
+		<input name="userId" type="hidden" th:value="${userId}" />
+		<input name="targetUserId" type="hidden" th:value="${targetUserId}" />
+		<div class="row">
+			<strong style="line-height: 1.5185rem;">当前主播：</strong>
+			<div class="anchor"><img src="/image/image_164x164.jpg" th:src="${avatar}" height="164" width="164">
+				<span th:text="${targetUserNickname}">不爱吃鱼的猫</span>
+			</div>
+		</div>
+		<div class="row">
+			<strong style="line-height: 1.1296rem;">您的手机号：</strong>
+			<div class="inputMob"><input type="text" name="mobile" id="mobile"></div>
+		</div>
+		<div class="row"><span class="btn_apply">申请</span></div>
+	</form>
+	</div>
+</div>
+
+    <script>
+   		 $(function($) {
+   			 
+   			 //登录
+   			$(".btn_apply").click(function(){
+   				if($(".btn_apply").text()=="预约成功"){
+   					alert("您已经预约成功。");
+   					return;
+   				}
+   				if($("#mobile").val() == ""){
+   					alert("请输入您的手机号。");
+   					return;
+   				}
+   				if (!$("#mobile").val().match(/^1[34578]\d{9}$/)) { 
+   					alert("请正确输入您的手机号。");
+   					return;
+   				}
+   				$.ajax({
+   	   			   type: "POST",
+   	   			   url: "/h5/appointment",
+   	   			   data: $(".appointment-form").serialize(),
+   	   			   dataType:"json",
+   	   			   success: function(msg){
+   	   			     if(msg.code==0){
+   	   			    	 alert("预约成功。");
+   	   			    	 $(".btn_apply").text("预约成功");
+   	   			     }else{
+   	   			    	 alert(msg.msg);
+   	   			     }
+   	   			   }
+   	   			});
+   			})
+    	});
+    </script>
+    
+</body>
+</html>
+

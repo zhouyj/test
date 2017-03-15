@@ -1,0 +1,162 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h2 class="sub-header ">发起直播</h2>
+		<form>
+			<input id="stringId" type="hidden" th:value="${stringId}">
+			<table class="table main">
+				<tr>
+					<td style="border: 0px solid;">用户ID:</td>
+					<td style="border: 0px solid;"><input id="userId" type="text" name="content" th:attr="value=${userId}" class="form-control"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">标题:</td>
+					<td style="border: 0px solid;"><input id="title" type="text" name="content" th:attr="value=${title}" class="form-control"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">类别:</td>
+					<td style="border: 0px solid;"><select id="categoryId">
+							<option th:value="${category.uuid}" th:text="${category.name}" th:each="category:${categories}">预告</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">封面图片：</td>
+					<td style="border: 0px solid;">
+						<div style="width: 70px; height: 21px;">
+							<span style="width: 45px; cursor: pointer"><a>点击上传</a></span> <input class="input-file" type="file" name="file" id="inputFile" />
+						</div> <span>大小: 不超过5M, 格式: bmp, png, jpeg, jpg, gif, 720*720</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;"></td>
+					<td style="border: 0px solid; height: 80px;"><img id="cover" alt="" th:attr="src=${cover}" width="403px" height="160px"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">密码:</td>
+					<td style="border: 0px solid;"><input id="secret" type="text" name="content" th:attr="value=${secret}" class="form-control"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">经度:</td>
+					<td style="border: 0px solid;"><input id="longitude" type="text" name="content" th:attr="value=${longitude}" class="form-control"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">维度:</td>
+					<td style="border: 0px solid;"><input id="latitude" type="text" name="content" th:attr="value=${latitude}" class="form-control"></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">位置:</td>
+					<td style="border: 0px solid;"><input id="position" type="text" name="content" th:attr="value=${position}" class="form-control"></td>
+				</tr>
+
+				<tr>
+					<td style="border: 0px solid;"></td>
+					<td style="border: 0px solid; height: 80px;"><input id="cancel" type="button" value="取消">&nbsp;&nbsp;<input id="release" type="button" value="发布"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<!-- <script src="/uploadify/jquery.uploadify.min.js"></script> -->
+<script type="text/javascript">
+	//取消
+	$(function() {
+		$("#cancel").click(function() {
+			location.href = "/manage/stream/";
+		});
+
+		$("#release")
+				.click(
+						function() {
+							var userId = $("#userId").val();
+							var title = $("#title").val();
+							if (title == '' || title == null) {
+								alert("标题不能为空!");
+								return;
+							}
+
+							var categoryId = $("#categoryId option:selected").val();
+							var cover = $("#cover").attr("src");
+							if (cover == '' || cover == null) {
+								alert("封面不能为空!");
+								return;
+							}
+
+							var secret = $("#secret").val();
+
+							var longitude = $("#longitude").val();
+							var latitude = $("#latitude").val();
+							var position = $("#position").val();
+
+							$
+									.ajax({
+										type : "POST",
+										url : "/manage/stream/add",
+										data : {
+											'userId' : userId,
+											'title' : title,
+											'categoryId' : categoryId,
+											'cover' : cover,
+											'secret' : secret,
+											'longitude' : longitude,
+											'latitude' : latitude,
+											'position' : position
+										},
+										dataType : "json",
+										success : function(response) {
+											if (response.code == 0) {
+												location.href = "/manage/stream/publish?publishUri="
+														+ response.data.publishUri
+											} else {
+												alert(response.msg);
+											}
+										}
+									});
+						});
+
+	});
+
+	$("#inputFile").uploadify({
+		auto : true,
+		swf : '/uploadify/uploadify.swf',
+		button_image_url : '/uploadify/spacer.gif',
+		uploader : '/file/upload?;jsessionid==' + uuid(),
+		fileObjName : 'file',
+		buttonText : "",
+		fileTypeExts : "*.jpg;*.gif;*.png",
+		fileTypeDesc : ".jpg",
+		hideButton : true,
+		multi : true,
+		removeCompleted : true,
+		removeTimeout : 1,
+		fileSizeLimit : 2000,
+		queueID : "input-file-queue",
+		//cancelImg:'/uploadify/uploadify-cancel.jpg',
+		//检测FLASH失败调用
+		onFallback : function() {
+			alert("您未安装FLASH控件，无法上传图片！请安装FLASH控件后再试。");
+		},
+		onUploadSuccess : function(file, data, response) {
+			var json = eval("(" + data + ")");//转换为json对象
+			if (json.code > 0) {
+				alert(json.msg);
+				return;
+			}
+			$("#cover").attr("src", json.data.files[0]);
+		}
+	});
+
+	//UUID
+	function uuid() {
+		var s = [];
+		var hexDigits = "0123456789abcdef";
+		for (var i = 0; i < 36; i++) {
+			s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+		}
+		s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+		s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+		s[8] = s[13] = s[18] = s[23] = "-";
+
+		var uuid = s.join("");
+		return uuid;
+	}
+</script>
+</div>

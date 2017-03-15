@@ -1,0 +1,191 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content" xmlns:layout="http://www.w3.org/1999/xhtml"
+	 xmlns:th="http://www.w3.org/1999/xhtml">
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h2 class="sub-header ">全局设置</h2>
+		<form>
+			<table class="table main">
+				<tr>
+					<td style="border: 0px solid;">站点名称:</td>
+					<td style="padding-left: 13px; padding-right: 13px;
+							size: 14px; border: 0px solid;">
+						<input id="sysTitle" type="text" name="title"
+							   th:placeholder="${site_title}">
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">网站logo：</td>
+					<td style="border: 0px solid;">
+						<div style="width: 70px;height: 21px;">
+							<span style="width: 45px;cursor: pointer"><a>上传图片</a></span>
+							<input class="input-file" type="file" name="file" id="inputLogo" />
+						</div>
+						<span>大小: 不超过5M,    格式: bmp, png, jpeg, jpg, gif,1080*342</span></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;"></td>
+					<td style="border: 0px solid;height:80px;">
+						<img id="logoUrl" alt="" width="200px" height="120px" th:src="${site_logo_url}">
+					</td>
+				</tr>
+
+				<tr>
+					<td style="border: 0px solid;">企业宣传图：</td>
+					<td style="border: 0px solid;">
+						<div style="width: 70px;height: 21px;">
+							<span style="width: 45px;cursor: pointer"><a>上传图片</a></span>
+							<input class="input-file" type="file" name="file" id="inputBanner" />
+						</div>
+						<span>大小: 不超过5M,    格式: bmp, png, jpeg, jpg, gif,1080*342</span></td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;"></td>
+					<td style="border: 0px solid;height:80px;">
+						<img id="bannerUrl" alt="" width="403px" height="160px" th:src="${site_banner_url}">
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;">积分名称:</td>
+					<td style="border: 0px solid;">
+						<input id="integrationName" type="text" name="integrationName"
+								th:placeholder="${site_integration_name}">
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="border: 0px solid;">APP左侧模块名称:</td>
+					<td style="border: 0px solid;">
+						<input id="weChatAppSecret" type="text" name="app_leftmodel_name" th:placeholder="${app_leftmodel_name}">
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="border: 0px solid;">APP左侧模块URL:</td>
+					<td style="border: 0px solid;">
+						<input id="weChatAppSecret" type="text" name="app_leftmodel_url" th:placeholder="${app_leftmodel_url}">
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="border: 0px solid;">APP右侧模块名称:</td>
+					<td style="border: 0px solid;">
+						<input id="weChatAppSecret" type="text" name="app_rightmodel_name" th:placeholder="${app_rightmodel_name}">
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="border: 0px solid;">APP右侧模块URL:</td>
+					<td style="border: 0px solid;">
+						<input id="weChatAppSecret" type="text" name="app_rightmodel_url" th:placeholder="${app_rightmodel_url}">
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px solid;"></td>
+					<td style="border: 0px solid;height:80px;">
+						<input id="release" type="button" value="保存设置">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<!-- <script src="/uploadify/jquery.uploadify.min.js"></script> -->
+<script type="text/javascript">
+	//保存
+	$(function(){
+		$("#release").click(function(){
+			var title = $("#sysTitle").val();
+			var logoUrl = $("#logoUrl").attr("src");
+			var bannerUrl = $("#bannerUrl").attr("src");
+			var integrationName = $("#integrationName").val();
+			var weChatAppId = $("#weChatAppId").val();
+			var weChatAppSecret = $("#weChatAppSecret").val();
+
+			$.ajax({
+				type: "POST",
+				url: "/manage/configure/save",
+				data: {'siteTitle':title, 'siteLogoUrl':logoUrl,'siteBannerUrl':bannerUrl, 'siteIntegrationName': integrationName,
+						"weChatAppId": weChatAppId, "weChatAppSecret": weChatAppSecret},
+				dataType: "json",
+				success: function(response){
+					if(response.code == 0){
+						alert("设置保存成功");
+
+						location.href="/manage/user/list";
+					}else{
+						alert(response.msg);
+					}
+				}
+			});
+		});
+	});
+
+	$("#inputLogo").uploadify({
+		auto:true,
+		swf:'/uploadify/uploadify.swf',
+		button_image_url : '/uploadify/spacer.gif',
+		uploader:'/file/upload?;jsessionid=='+uuid(),
+		fileObjName: 'file',
+		buttonText:"",
+		fileTypeExts:"*.jpg;*.gif;*.png",
+		fileTypeDesc:".jpg",
+		hideButton:true,
+		multi:true,
+		removeCompleted:true,
+		removeTimeout:1,
+		fileSizeLimit:2000,
+		queueID:"input-file-queue",
+		onUploadSuccess:function(file,data,response){
+			var json = eval("("+data+")");//转换为json对象
+			if(json.code > 0){
+				alert(json.msg);
+				return;
+			}
+			$("#logoUrl").attr("src",json.data.files[0]);
+		}
+	});
+
+	$("#inputBanner").uploadify({
+		auto:true,
+		swf:'/uploadify/uploadify.swf',
+		button_image_url : '/uploadify/spacer.gif',
+		uploader:'/file/upload?;jsessionid=='+uuid(),
+		fileObjName: 'file',
+		buttonText:"",
+		fileTypeExts:"*.jpg;*.gif;*.png",
+		fileTypeDesc:".jpg",
+		hideButton:true,
+		multi:true,
+		removeCompleted:true,
+		removeTimeout:1,
+		fileSizeLimit:2000,
+		queueID:"input-file-queue",
+		//检测FLASH失败调用
+		onFallback:function(){
+			alert("您未安装FLASH控件，无法上传图片！请安装FLASH控件后再试。");
+		},
+		onUploadSuccess:function(file,data,response){
+			var json = eval("("+data+")");//转换为json对象
+			if(json.code > 0){
+				alert(json.msg);
+				return;
+			}
+			$("#bannerUrl").attr("src",json.data.files[0]);
+		}
+	});
+
+	//UUID
+	function uuid() {
+		var s = [];
+		var hexDigits = "0123456789abcdef";
+		for (var i = 0; i < 36; i++) {
+			s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+		}
+		s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+		s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+		s[8] = s[13] = s[18] = s[23] = "-";
+
+		var uuid = s.join("");
+		return uuid;
+	}
+</script>
+</div>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 通用端左边 -->
+				<div class='col-md-9 left-content'>
+					<div class="news-latest" th:if="(not ${data.list}) or ${data.list.isEmpty()}" style="text-align: center;">
+						<h3>暂无数据</h3>
+					</div>
+					<div class="news-latest" th:if="${data.list} and not ${data.list.isEmpty()}">
+						<div class="news-item rows" th:each="item : ${data.list}">
+							<div class="col-md-2">
+								<a th:href="'livePlay?uuid='+${item.uuid}">
+									<img th:src="(${item.cover} and not ${#strings.isEmpty(item.cover)}) ? ${item.cover} : 'pufa/images/pic_default.jpg'" />
+								</a>
+							</div>
+							<div class="col-md-10">
+								<a th:href="'livePlay?uuid='+${item.uuid}">
+									<h3 th:text="${item.title}" >标题</h3>
+								</a>
+								<p>
+									开始时间：<th:block th:if="${item.started} != null" th:text="${item.started}"></th:block>｜
+									播放次数：<th:block th:text="${item.playCount}"></th:block>
+								</p>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<nav th:if="${data.list} and not ${data.list.isEmpty()}">
+						<ul class="pagination">
+							<!-- 上一页 -->
+							<li>
+								<a th:href="'lives?pageNo=' + ${data.pageNo - 1}" class="btn" th:classappend="(${data.pageNo} le 1)? 'disabled'" role="button">&laquo;</a>
+							</li>
+							<!-- 向前三页 -->
+							<li th:if="${data.pageNo} ge 3">
+								<a th:href="'lives?pageNo=' + ${data.pageNo-3}" class="btn" role="button" th:text="${data.pageNo}-2"></a>
+							</li>
+							<li th:if="${data.pageNo} ge 2">
+								<a th:href="'lives?pageNo=' + ${data.pageNo-2}" class="btn" role="button" th:text="${data.pageNo}-1"></a>
+							</li>
+							<li th:if="${data.pageNo} ge 1">
+								<a th:href="'lives?pageNo=' + ${data.pageNo-1}" class="btn" role="button" th:text="${data.pageNo}"></a>
+							</li>
+							<!-- 当前页 -->
+							<li>
+								<a th:href="'lives?pageNo=' + ${data.pageNo}" class="btn disabled" role="button" th:text="${data.pageNo}+1"></a>
+							</li>
+							<!-- 向后三页 -->
+							<li th:if="${data.pageNo+1} lt ${data.totalPage}">
+								<a th:href="'lives?pageNo=' + ${data.pageNo+1}" class="btn" role="button" th:text="${data.pageNo}+2"></a>
+							</li>
+							<li th:if="${data.pageNo+2} lt ${data.totalPage}">
+								<a th:href="'lives?pageNo=' + ${data.pageNo+2}" class="btn" role="button" th:text="${data.pageNo}+3"></a>
+							</li>
+							<li th:if="${data.pageNo+3} lt ${data.totalPage}">
+								<a th:href="'lives?pageNo=' + ${data.pageNo+3}" class="btn" role="button" th:text="${data.pageNo}+4"></a>
+							</li>
+							<!-- 下一页 -->
+							<li>
+								<a th:href="'lives?pageNo=' + ${data.pageNo + 1}" class="btn" th:classappend="(${data.pageNo+1} ge ${data.totalPage}) ? 'disabled'" role="button">&raquo;</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+				<!-- PC端右边 -->
+				<div th:replace="/pufa/frag/sidebar_index"></div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+	</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="/js/mobileUtil.js"></script>
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>视频直播</title>
+<link href="/css/green.css" rel="stylesheet">
+<link href="/css/green_addon.css" rel="stylesheet">
+</head>
+<body>
+<div class="header"> <span class="backBtn"></span>
+   <h2 th:text="${profile.nickname}"></h2>
+</div>
+
+<div class="usercard">
+	<div class="usercard_inner">
+		<div class="pic"><img src="/image/image_380x380.jpg" th:src="${profile.avatar}"><span class="vip"></span></div>
+		<h2><span class="name" th:text="${profile.nickname}">不吃鱼的猫不吃鱼的猫</span>
+		<span th:if="${profile.gender}==0" class="gender male"></span>
+		<span th:if="${profile.gender}==1" class="gender female"></span>
+		<span class="level" th:text="${profile.level}+级">20级</span></h2>
+		<h3>直播时长：<span class="dur" th:text="${friendlyTotalStreamTime}">121小时</span></h3>
+		<h3>收获礼物：<span class="gift_num" th:text="${space.giftModule.num}">2211个</span></h3>
+		<ul class="data">
+			<li><span th:text="${space.user.profile.age}">18</span><em>年龄</em><s></s></li>
+			<li><span th:text="${space.user.followCount}">28831</span><em>关注</em><s></s></li>
+			<li><span th:text="${space.user.followByCount}">808551</span><em>粉丝</em></li>
+		</ul>
+	</div>
+</div>
+
+<div class="activity">
+	
+		<div class="activity_item" th:each="stream : ${contentList}">
+				<div class="desc">
+						<img class="uicon" src="/image/image_100x100.jpg" th:src="${profile.avatar}">
+						<div class="name" th:text="${profile.nickname}">张开翅膀飞</div>
+						<div class="posi"><i></i><span th:text="${stream.position}">海淀区阜成路73号世纪裕惠大厦</span></div>
+				</div>
+				<div class="pic"><img src="/image/image_966x966.jpg" th:src="${stream.cover}"></div>
+				<div class="shadow"><div class="tit" th:text="${stream.title}">支援灾区明星一起来大型公益活动</div><div class="like"><i></i><span th:text="${stream.likeCount}">879925</span></div></div>
+		</div>
+<!-- 
+		<div class="activity_item">
+				<div class="desc">
+						<img class="uicon" src="/image/image_100x100.jpg">
+						<div class="name">跑偏</div>
+						<div class="posi"><i></i><span>海淀区阜成路73号世纪裕惠大厦</span></div>
+				</div>
+				<div class="pic"><img src="/image/image_966x966.jpg"></div>
+				<div class="shadow"><div class="tit">支援灾区明星一起来大型公益活动</div><div class="like"><i></i><span>879925</span></div></div>
+		</div>
+ -->
+</div>
+
+<div class="app_down_bar2" id="app_down_bar">
+<img src="/image/app_logo.png">
+<span>马上去</span><span th:text="${appName}"></span><span>看直播</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="container col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">广告管理  <a href="#" id="toAddBanner" class="pull-right  lead">添加广告</a></h2>
+				<input type="hidden" id="bannerCount" name="bannerCount" th:attr="value=${bannerCount}" />
+			<div class="table-responsive">
+			<table class="table table-bordered text-center "
+				style="line-height: 25px">
+				<tr>
+					<th class="text-center">广告ID</th>
+					<th class="text-center">图片</th>
+					<th class="text-center">位置</th>
+					<th class="text-center">排序</th>
+					<th class="text-center">类型</th>
+					<th class="text-center">标题</th>
+					<th class="text-center">链接</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<tr th:each="banner:${banners}">
+					<td th:text="${banner.uuid}"></td>
+					<td>
+						<img th:src="${banner.picUrl}" width="130px" />
+					</td>
+					<td th:switch="${banner.location}">
+						<p th:case="HomePageBanner">首页banner</p>
+						<p th:case="HomePageRight">右侧边栏</p>
+						<p th:case="LiveRoom">直播间</p>
+						<p th:case="Splash">app启动页</p>
+						<p th:case="ShopPage">商品页</p>
+						<p th:case="ShopTop">商品页顶部</p>
+						<p th:case="ShopLeft">商品页左边</p>
+						<p th:case="ShopMiddle">商品页中部</p>
+					</td>
+					<td>
+						<input type="text" banner="banner" th:value="${banner.sort}" th:attr="bannerId=${banner.uuid}" size=2 />
+					</td>
+					<td th:switch="${banner.type}">
+						<p th:case="0">预告</p>
+						<p th:case="1">直播</p>
+						<p th:case="2">回放</p>
+						<p th:case="3">空间</p>
+						<p th:case="4">网页</p>
+						<p th:case="5">无跳转</p>
+					</td>
+					<td th:text="${banner.title}"></td>
+					<td>
+							<a th:href="${banner.content}" th:text="${banner.content}" style="display: inline-block; width: 300px;word-wrap:break-word;"></a>
+					</td>
+					<td>
+						<a th:attr="value=${banner.uuid}" type=1 href="javascript:;">编辑</a>|
+						<a th:attr="value=${banner.uuid}" type=2 href="javascript:;">删除</a>
+					</td>
+				</tr>
+			</table>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+			<script type="text/javascript">
+				$(function() {
+					$("#toAddBanner").click(function() {
+						var bannerCount=$("#bannerCount").attr("value");
+						location.href = "/manage/banner/add"
+						//if(bannerCount<6){
+							//location.href = "/manage/banner/add"
+						//}else{
+							//alert("广告数量已达上限，请先删除部分数据");
+						//}
+					});
+					$("td a").click(function() {
+						if ($(this).attr("type") == 1) {
+							modify($(this).attr("value"));
+						} else {
+							del($(this).attr("value"));
+						}
+					});
+
+					//设置排序
+					$("input[banner='banner']").change(function() {
+						var bannerId = $(this).attr("bannerId");
+						var sort = $(this).val();
+						$.ajax({
+							url : "/manage/banner/sort",
+							data : {
+								"bannerId" : bannerId,
+								"sort" : sort
+							},
+							type : "POST",
+							dataType : 'json',
+							success : function(response) {
+								if (response.code == 0) {
+									location.href = "/manage/banner/"
+								} else {
+									alert(response.msg);
+								}
+							}
+						});
+					});
+				});
+
+				//跳到编辑页面
+				function modify(uuid) {
+					location.href = "/manage/banner/add?bannerId=" + uuid;
+				}
+				//删除
+				function del(uuid) {
+					$.ajax({
+						type : "POST",
+						url : "/manage/banner/delete",
+						data : {
+							'bannerId' : uuid
+						},
+						dataType : "json",
+						success : function(response) {
+							if (response.code == 0) {
+								alert("删除成功");
+								location.href = "/manage/banner/"
+							} else {
+								alert(response.msg);
+							}
+						}
+					});
+				}
+			</script>

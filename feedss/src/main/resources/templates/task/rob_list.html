@@ -1,0 +1,147 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/js/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+
+    <div th:include="/common/header::header"></div>
+    <title>抢到的任务</title>
+
+</head>
+<body>
+<div class="header"><span class="backBtn"></span>
+    <div class="tab_list"><span>发布的任务</span><span class="selected">抢到的任务</span></div>
+</div>
+
+<input type="hidden" id="userId" value="" th:value="${userId}"/>
+<input type="hidden" id="userToken" value=""  th:value="${userToken}" />
+
+<div class="task">
+
+    <div class="task_item" th:each="one:${list}">
+        <div class="pic"><img src="images/image_164x164.jpg" th:src="${one.avatar}"/></div>
+        <div class="flag" th:utext="${one.statusDescription}">执行中</div>
+        <div class="delBtn" th:if="${one.status eq 3}" th:attr="data-bind=${one.taskId}"></div>
+        <h2 th:text="${one.nickname}">不爱吃鱼的喵</h2>
+        <h3 th:text="${one.description}">朝阳区亮马桥龙飞大夏，谁在2小时内给我送个感冒药！一天量，外加咖啡一杯。</h3>
+        <div class="btn_group" th:if="${one.status == 1}"><span class="confrimBtn" th:attr="data-bind=${one.taskId}">确认完成任务</span></div>
+        <div class="btn_group" th:if="${one.status == 4}"><span class="confrimBtn" th:attr="data-bind=${one.taskId}">再次确认完成任务</span></div>
+        <div class="remarks" th:each="reject:${one.rejectList}" th:text="'不同意：'+${reject.description}"></div>
+    </div>
+
+</div>
+
+<div class="nodata_outer2" th:if="${#lists.size(list) eq 0}">
+    <div class="nodata_inner2">
+        <img src="/images/nodata.png" />
+        <span>您还没有抢到的任务，快去观看直播抢任务吧~</span>
+    </div>
+</div>
+
+<div th:include="/common/boot::boot"></div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var jQuery = $;
+    /*]]>*/
+</script>
+<script src="js/jquery-json-min.js"  th:src="@{/js/jquery-json-min.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    $(function () {
+
+        $(".delBtn").each(function () {
+            var o = $(this);
+            o.bind("click", function () {
+                var taskId = o.attr("data-bind");
+                Modal.confirm(
+                        {
+                            msg: "确认删除么？"
+                        })
+                        .on(function (e) {
+                            if(e){
+                                doDel(taskId);
+                            }
+                        });
+            });
+        });
+
+        $(".confrimBtn").each(function () {
+            var o = $(this);
+            o.bind("click", function () {
+                doApplyFinish(o.attr("data-bind"));
+            });
+        });
+
+
+    });
+
+    function doApplyFinish(taskId) {
+        //if (!confirm("确认提交么？")) {
+        //    return false;
+        //}
+        var req = {
+            "taskId": taskId
+        };
+        $.ajax({
+            type: "POST",
+            url: "/task/applyFinish",
+            dataType: "json",
+            contentType : 'application/json',
+            data: $.toJSON(req),
+            headers: {
+                "userId": $("#userId").val(),
+                "userToken": $("#userToken").val()
+            },
+            success: function (data) {
+                if (data) {
+                    if (data.code == 0) {
+                        //alert("提交成功");
+                        location.reload();
+                        return;
+                    }
+                    alert(data.msg);
+                }
+
+            }
+        });
+
+    }
+
+    function doDel(taskId) {
+        var req = {
+            "taskId": taskId
+        };
+        $.ajax({
+            type: "POST",
+            url: "/task/delAccept",
+            dataType: "json",
+            contentType : 'application/json',
+            data : $.toJSON(req),
+            headers: {
+                "userId": $("#userId").val(),
+                "userToken": $("#userToken").val()
+            },
+            success: function(data){
+                if (data) {
+                    if (data.code == 0) {
+                        //alert("删除成功");
+                        location.reload();
+                        return;
+                    }
+                    alert(data.msg);
+                }
+
+            }
+        });
+
+    }
+
+    /*]]>*/
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<div class="panel panel-primary" style="text-align: center;">
+	<div class="panel-heading" style="text-align: center;"><h5>兑换记录</h5></div>
+	<div class="panel-body row">
+		<div class="col-md-2"></div>
+		<div class="col-md-4">商品</div>
+		<div class="col-md-3">消费金额</div>
+		<div class="col-md-3">交易状态</div>
+	</div>
+</div>
+
+<div class="panel panel-default" th:each="product : ${list}">
+	<div class="panel-heading">
+		<a th:text="${product.product.updated}">2016-12-12 22:12:21</a> <a style="margin-left: 10%">订单号：<a th:text="${product.userProductId}"></a></a>
+	</div>
+	<div class="panel-body row" style="text-align: center;">
+		<div class="col-md-2" style="text-align: left;">
+			<img alt="" th:src="@{${product.product.pic}}" width="140px" />
+		</div>
+		<div class="col-md-4" style="margin-top: 50px">
+			<span th:text="${product.product.name}">名校堂4.3存儿童学习机</span>
+		</div>
+		<div class="col-md-3" style="margin-top: 50px">
+			<a style="color: red" th:text="${product.product.price}">1000</a> 普法币
+		</div>
+		<div class="col-md-3" style="margin-top: 50px">
+			<a style="color: red" th:if="${product.product.status} == 0">待发货</a>
+			<a style="color: red" th:if="${product.product.status} == 1">已发货</a>
+		</div>
+	</div>
+</div>

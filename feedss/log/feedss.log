@@ -1,0 +1,642 @@
+2017-03-15 12:11:14.165 648  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-15 12:11:14.297 780  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 21113 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-15 12:11:14.297 780  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-15 12:11:14.297 780  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: localhost
+2017-03-15 12:11:14.587 1070 [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-15 12:59:52.057 564  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-15 12:59:52.131 638  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 21472 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-15 12:59:52.131 638  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-15 12:59:52.131 638  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: localhost
+2017-03-15 12:59:52.313 820  [background-preinit] INFO  o.h.validator.internal.util.Version- HV000001: Hibernate Validator 5.2.4.Final
+2017-03-15 12:59:52.332 839  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-15 12:59:52.332 839  [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@a3d8174: startup date [Wed Mar 15 12:59:52 CST 2017]; root of context hierarchy
+2017-03-15 12:59:53.376 1883 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate- Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-03-15 12:59:54.112 2619 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate- Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-03-15 12:59:54.220 2727 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ApplyRepository.
+2017-03-15 12:59:54.221 2728 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserProductRepository.
+2017-03-15 12:59:54.222 2729 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.SkillRepository.
+2017-03-15 12:59:54.222 2729 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ProductTransactionRepostitory.
+2017-03-15 12:59:54.223 2730 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.UserTrailerRepository.
+2017-03-15 12:59:54.224 2731 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserRelationRepository.
+2017-03-15 12:59:54.225 2732 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.ProductRepository.
+2017-03-15 12:59:54.225 2732 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.AccountTransactionRepository.
+2017-03-15 12:59:54.226 2733 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.FavoriteRepository.
+2017-03-15 12:59:54.226 2733 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.AccountRepository.
+2017-03-15 12:59:54.227 2734 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.TaskRepository.
+2017-03-15 12:59:54.227 2734 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.VersionRepository.
+2017-03-15 12:59:54.227 2734 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.ReportRepository.
+2017-03-15 12:59:54.228 2735 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ProfileRepository.
+2017-03-15 12:59:54.229 2736 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UsrProductRepository.
+2017-03-15 12:59:54.229 2736 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.contact.repository.AccountUsersigRepository.
+2017-03-15 12:59:54.229 2736 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.BannerRepository.
+2017-03-15 12:59:54.230 2737 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.StreamRepository.
+2017-03-15 12:59:54.230 2737 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.CategoryRepository.
+2017-03-15 12:59:54.230 2737 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.FeedbackRepository.
+2017-03-15 12:59:54.231 2738 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.PermissionRepository.
+2017-03-15 12:59:54.231 2738 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.TrailerRepository.
+2017-03-15 12:59:54.232 2739 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.base.util.conf.ConfigureRepository.
+2017-03-15 12:59:54.232 2739 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.LogRepostitory.
+2017-03-15 12:59:54.232 2739 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.TimeCardRepository.
+2017-03-15 12:59:54.233 2740 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserRoleRepository.
+2017-03-15 12:59:54.233 2740 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.ReleaseProductRepository.
+2017-03-15 12:59:54.233 2740 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.contact.repository.SysMessageRepository.
+2017-03-15 12:59:54.234 2741 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ModuleRepository.
+2017-03-15 12:59:54.234 2741 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.manage.repository.ManageVersionRepository.
+2017-03-15 12:59:54.234 2741 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.AppointmentRepository.
+2017-03-15 12:59:54.234 2741 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.TaskAcceptRepository.
+2017-03-15 12:59:54.235 2742 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.CommentRepository.
+2017-03-15 12:59:54.235 2742 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.TaskRejectRepository.
+2017-03-15 12:59:54.235 2742 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.LikeRepository.
+2017-03-15 12:59:54.236 2743 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.OfflineRepostitory.
+2017-03-15 12:59:54.236 2743 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ProductRecordRepostitory.
+2017-03-15 12:59:54.237 2744 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.PayRecordRepository.
+2017-03-15 12:59:54.237 2744 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.RoleRepository.
+2017-03-15 12:59:54.237 2744 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.contact.repository.GroupRepository.
+2017-03-15 12:59:54.237 2744 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.ArticleRepository.
+2017-03-15 12:59:54.238 2745 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.WatchStreamRepository.
+2017-03-15 12:59:54.238 2745 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.app.ButtonRepository.
+2017-03-15 12:59:54.238 2745 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.RolePermissionRepository.
+2017-03-15 12:59:54.239 2746 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.InteractionRepository.
+2017-03-15 12:59:54.239 2746 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.PushStreamTerminalRepository.
+2017-03-15 12:59:54.240 2747 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserRepository.
+2017-03-15 12:59:54.669 3176 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e833f8de] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-15 12:59:55.180 3687 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer- Tomcat initialized with port(s): 8188 (http)
+2017-03-15 12:59:55.191 3698 [main] INFO  o.a.catalina.core.StandardService- Starting service Tomcat
+2017-03-15 12:59:55.192 3699 [main] INFO  o.a.catalina.core.StandardEngine- Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-03-15 12:59:55.410 3917 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2017-03-15 12:59:55.411 3918 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 3079 ms
+2017-03-15 12:59:55.670 4177 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean- Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-15 12:59:55.676 4183 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-15 12:59:55.676 4183 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-03-15 12:59:55.677 4184 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-03-15 12:59:55.677 4184 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'requestContextFilter' to: [/*]
+2017-03-15 12:59:55.912 4419 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean- Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-15 12:59:55.925 4432 [main] INFO  o.h.jpa.internal.util.LogHelper- HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-15 12:59:55.978 4485 [main] INFO  org.hibernate.Version- HHH000412: Hibernate Core {5.0.11.Final}
+2017-03-15 12:59:55.979 4486 [main] INFO  org.hibernate.cfg.Environment- HHH000206: hibernate.properties not found
+2017-03-15 12:59:55.981 4488 [main] INFO  org.hibernate.cfg.Environment- HHH000021: Bytecode provider name : javassist
+2017-03-15 12:59:56.016 4523 [main] INFO  o.h.annotations.common.Version- HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-15 12:59:56.308 4815 [main] ERROR o.a.tomcat.jdbc.pool.ConnectionPool- Unable to create initial connections of pool.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:989)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:718)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:650)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:254)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:228)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1081)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.feedss.FeedssApplication.main(FeedssApplication.java:12)
+Caused by: java.net.UnknownHostException: mysql: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 59 common frames omitted
+2017-03-15 12:59:56.310 4817 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator- HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2017-03-15 12:59:56.324 4831 [main] INFO  org.hibernate.dialect.Dialect- HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-15 12:59:56.338 4845 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl- HHH000422: Disabling contextual LOB creation as connection was null
+2017-03-15 12:59:57.362 5869 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate- HHH000228: Running hbm2ddl schema update
+2017-03-15 12:59:57.373 5880 [main] ERROR o.a.tomcat.jdbc.pool.ConnectionPool- Unable to create initial connections of pool.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:989)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:718)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:650)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.prepare(TargetDatabaseImpl.java:38)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:57)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1081)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.feedss.FeedssApplication.main(FeedssApplication.java:12)
+Caused by: java.net.UnknownHostException: mysql
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1280)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 52 common frames omitted
+2017-03-15 12:59:57.375 5882 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2017-03-15 12:59:57.378 5885 [main] INFO  o.a.catalina.core.StandardService- Stopping service Tomcat
+2017-03-15 12:59:57.389 5896 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer- 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-03-15 12:59:57.392 5899 [main] ERROR o.s.boot.SpringApplication- Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1583)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1081)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.feedss.FeedssApplication.main(FeedssApplication.java:12)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	... 16 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to open JDBC connection for schema management target
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.prepare(TargetDatabaseImpl.java:42)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:57)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 22 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:989)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:718)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:650)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.prepare(TargetDatabaseImpl.java:38)
+	... 28 common frames omitted
+Caused by: java.net.UnknownHostException: mysql
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1280)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 52 common frames omitted
+2017-03-15 13:06:53.240 641  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-15 13:06:53.334 735  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 21544 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-15 13:06:53.334 735  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-15 13:06:53.334 735  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: localhost
+2017-03-15 13:06:53.515 916  [background-preinit] INFO  o.h.validator.internal.util.Version- HV000001: Hibernate Validator 5.2.4.Final
+2017-03-15 13:06:53.579 980  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-15 13:06:53.580 981  [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@8c11eee: startup date [Wed Mar 15 13:06:53 CST 2017]; root of context hierarchy
+2017-03-15 13:06:54.869 2270 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate- Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-03-15 13:06:55.614 3015 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate- Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-03-15 13:06:55.706 3107 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ApplyRepository.
+2017-03-15 13:06:55.706 3107 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserProductRepository.
+2017-03-15 13:06:55.706 3107 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.SkillRepository.
+2017-03-15 13:06:55.707 3108 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ProductTransactionRepostitory.
+2017-03-15 13:06:55.707 3108 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.UserTrailerRepository.
+2017-03-15 13:06:55.708 3109 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserRelationRepository.
+2017-03-15 13:06:55.708 3109 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.ProductRepository.
+2017-03-15 13:06:55.709 3110 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.AccountTransactionRepository.
+2017-03-15 13:06:55.709 3110 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.FavoriteRepository.
+2017-03-15 13:06:55.709 3110 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.AccountRepository.
+2017-03-15 13:06:55.710 3111 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.TaskRepository.
+2017-03-15 13:06:55.710 3111 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.VersionRepository.
+2017-03-15 13:06:55.710 3111 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.ReportRepository.
+2017-03-15 13:06:55.711 3112 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ProfileRepository.
+2017-03-15 13:06:55.711 3112 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UsrProductRepository.
+2017-03-15 13:06:55.711 3112 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.contact.repository.AccountUsersigRepository.
+2017-03-15 13:06:55.712 3113 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.BannerRepository.
+2017-03-15 13:06:55.712 3113 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.StreamRepository.
+2017-03-15 13:06:55.712 3113 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.CategoryRepository.
+2017-03-15 13:06:55.712 3113 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.FeedbackRepository.
+2017-03-15 13:06:55.712 3113 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.PermissionRepository.
+2017-03-15 13:06:55.713 3114 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.TrailerRepository.
+2017-03-15 13:06:55.713 3114 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.base.util.conf.ConfigureRepository.
+2017-03-15 13:06:55.713 3114 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.LogRepostitory.
+2017-03-15 13:06:55.713 3114 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.TimeCardRepository.
+2017-03-15 13:06:55.714 3115 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserRoleRepository.
+2017-03-15 13:06:55.714 3115 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.ReleaseProductRepository.
+2017-03-15 13:06:55.714 3115 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.contact.repository.SysMessageRepository.
+2017-03-15 13:06:55.714 3115 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ModuleRepository.
+2017-03-15 13:06:55.715 3116 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.manage.repository.ManageVersionRepository.
+2017-03-15 13:06:55.715 3116 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.AppointmentRepository.
+2017-03-15 13:06:55.715 3116 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.TaskAcceptRepository.
+2017-03-15 13:06:55.715 3116 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.CommentRepository.
+2017-03-15 13:06:55.715 3116 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.TaskRejectRepository.
+2017-03-15 13:06:55.716 3117 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.LikeRepository.
+2017-03-15 13:06:55.716 3117 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.OfflineRepostitory.
+2017-03-15 13:06:55.716 3117 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.ProductRecordRepostitory.
+2017-03-15 13:06:55.716 3117 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.PayRecordRepository.
+2017-03-15 13:06:55.717 3118 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.RoleRepository.
+2017-03-15 13:06:55.717 3118 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.contact.repository.GroupRepository.
+2017-03-15 13:06:55.717 3118 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.ArticleRepository.
+2017-03-15 13:06:55.717 3118 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.content.repository.WatchStreamRepository.
+2017-03-15 13:06:55.718 3119 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.app.ButtonRepository.
+2017-03-15 13:06:55.718 3119 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.RolePermissionRepository.
+2017-03-15 13:06:55.718 3119 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.InteractionRepository.
+2017-03-15 13:06:55.719 3120 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.portal.repository.PushStreamTerminalRepository.
+2017-03-15 13:06:55.719 3120 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.feedss.user.repository.UserRepository.
+2017-03-15 13:06:56.189 3590 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc6b9655] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-15 13:06:56.787 4188 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer- Tomcat initialized with port(s): 8188 (http)
+2017-03-15 13:06:56.798 4199 [main] INFO  o.a.catalina.core.StandardService- Starting service Tomcat
+2017-03-15 13:06:56.799 4200 [main] INFO  o.a.catalina.core.StandardEngine- Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-03-15 13:06:56.992 4393 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2017-03-15 13:06:56.992 4393 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 3413 ms
+2017-03-15 13:06:57.303 4704 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean- Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-15 13:06:57.311 4712 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-15 13:06:57.311 4712 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-03-15 13:06:57.311 4712 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-03-15 13:06:57.311 4712 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean- Mapping filter: 'requestContextFilter' to: [/*]
+2017-03-15 13:06:57.689 5090 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean- Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-15 13:06:57.715 5116 [main] INFO  o.h.jpa.internal.util.LogHelper- HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-15 13:06:57.825 5226 [main] INFO  org.hibernate.Version- HHH000412: Hibernate Core {5.0.11.Final}
+2017-03-15 13:06:57.828 5229 [main] INFO  org.hibernate.cfg.Environment- HHH000206: hibernate.properties not found
+2017-03-15 13:06:57.830 5231 [main] INFO  org.hibernate.cfg.Environment- HHH000021: Bytecode provider name : javassist
+2017-03-15 13:06:57.916 5317 [main] INFO  o.h.annotations.common.Version- HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-15 13:06:58.465 5866 [main] ERROR o.a.tomcat.jdbc.pool.ConnectionPool- Unable to create initial connections of pool.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:989)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:718)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:650)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:254)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:228)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1081)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.feedss.FeedssApplication.main(FeedssApplication.java:12)
+Caused by: java.net.UnknownHostException: mysql: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 59 common frames omitted
+2017-03-15 13:06:58.468 5869 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator- HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2017-03-15 13:06:58.485 5886 [main] INFO  org.hibernate.dialect.Dialect- HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-15 13:06:58.504 5905 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl- HHH000422: Disabling contextual LOB creation as connection was null
+2017-03-15 13:06:59.953 7354 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate- HHH000228: Running hbm2ddl schema update
+2017-03-15 13:06:59.965 7366 [main] ERROR o.a.tomcat.jdbc.pool.ConnectionPool- Unable to create initial connections of pool.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:989)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:718)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:650)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.prepare(TargetDatabaseImpl.java:38)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:57)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1081)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.feedss.FeedssApplication.main(FeedssApplication.java:12)
+Caused by: java.net.UnknownHostException: mysql
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1280)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 52 common frames omitted
+2017-03-15 13:06:59.967 7368 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2017-03-15 13:06:59.970 7371 [main] INFO  o.a.catalina.core.StandardService- Stopping service Tomcat
+2017-03-15 13:06:59.974 7375 [localhost-startStop-1] WARN  o.a.c.loader.WebappClassLoaderBase- The web application [ROOT] appears to have started a thread named [Thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:214)
+ org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:166)
+ org.springframework.data.redis.core.RedisTemplate.keys(RedisTemplate.java:728)
+ com.feedss.content.monitor.RoomKeyinitialize.run(RoomKeyinitialize.java:31)
+2017-03-15 13:06:59.987 7388 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer- 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-03-15 13:06:59.991 7392 [main] ERROR o.s.boot.SpringApplication- Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1583)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1081)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.feedss.FeedssApplication.main(FeedssApplication.java:12)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	... 16 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to open JDBC connection for schema management target
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.prepare(TargetDatabaseImpl.java:42)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:57)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 22 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:989)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:718)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:650)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.prepare(TargetDatabaseImpl.java:38)
+	... 28 common frames omitted
+Caused by: java.net.UnknownHostException: mysql
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1280)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 52 common frames omitted

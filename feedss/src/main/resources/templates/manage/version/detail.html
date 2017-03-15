@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('trailer')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">详细</h2>
+				<form action="/manage/version/add" method="post" id="addForm">
+					<div class="form-group">
+							<label for="exampleInputEmail1">版本</label> 
+							<input type="text" name="version" th:value="${mv.version}" readonly class="form-control"  id="exampleInputEmail1" placeholder="">
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">版本号</label> 
+							<input type="text" name="version_code" th:value="${mv.version_code}" readonly	class="form-control"  id="exampleInputEmail1" placeholder="">
+					</div>
+					
+					<div class="form-group">
+							<label for="exampleInputEmail1">内容</label> 
+							<textarea name="update_info" th:text="${mv.update_info}" readonly class="form-control" rows="10"></textarea>
+					</div>
+					<div class="form-group ">
+							<label for="exampleInputEmail1">更新类型</label> 
+							<div class="radio">
+							  <label th:text="${mv.update_type}==0?'普通':'强制'">
+							  </label>
+							</div>
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">渠道</label>
+							<div class="row" id="channel_" th:text="${mv.channel}">
+								
+							</div>
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">文件</label>
+							<div class="row" id="channel_" >
+								<a th:href="@{${mv.down_url}}" target="_blank">下载文件</a>
+							</div>
+					</div>
+					<button type="button" class="btn btn-default" onclick="history.go(-1);">取消</button> &nbsp;&nbsp;
+				</form>
+				
+				
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	<script src="/js/bootstrap-paginator.js"></script>
+	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript"  src="/js/jquery.form.js"></script>
+	
+</body>
+</html>

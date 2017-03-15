@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('report')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header">举报管理</h2>
+				<form id="form1" action="/manage/report/list" method="post">
+					<input type="hidden" id="page" name="page" value="">
+					<div class="row">
+						<div class="col-md-3">
+
+
+							<div class="dataTables_filter" id="example_filter">
+								<label> 搜索举报用户ID: <input type="text" name="userId" value=""
+									aria-controls="example" th:value="${userId}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 搜索被举报用户ID: <input type="text" name="toUserId" value=""
+									aria-controls="example" th:value="${toUserId}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 搜索举报文本: <input type="text" name="keyword" value=""
+									aria-controls="example" th:value="${keyword}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<div class="dataTables_filter" id="example_filter">
+								<button class="btn btn-sm btn-primary">查询</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>举报用户ID</th>
+								<th>举报用户昵称</th>
+								<th>被举报用户ID</th>
+								<th>被举报用户昵称</th>
+								<th>举报原因</th>
+								<th>举报文本</th>
+								<th>举报时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="one:${list}">
+								<td th:text="${one.creator}">1</td>
+								<td th:text="${one.nickname}" >-</td>
+								<td th:text="${one.toUserId}">-</td>
+								<td th:text="${one.toNickname}">-</td>
+								<td th:text="${one.tags}" >-</td>
+								<td th:text="${one.shortDesc}" th:title="${one.description}" >-</td>
+								<td th:text="${#dates.format(one.created, 'yyyy-MM-dd HH:mm:ss')}">0</td>
+								<td>
+								<a href="#" th:if="${one.toStatus}==1" th:text="启用" th:onclick="'javascript:enabled(\''+${one.toUserId}+'\');'">启用</a> &nbsp;&nbsp;
+								<a href="#" th:if="${one.toStatus}==0" th:text="禁用" th:onclick="'javascript:disable(\''+${one.toUserId}+'\');'">禁用</a> &nbsp;&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row">
+						<div class="col-md-6">
+							<div >
+								<ul id="bp-3-element-sm-test"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	<script src="/js/bootstrap-paginator.js"></script>
+	<script type='text/javascript' th:inline="javascript">
+	 var element = $('#bp-3-element-sm-test');
+
+     options = {
+         size:"small",
+         bootstrapMajorVersion:3,
+         currentPage: /*[[${pageNo}]]*/,
+         numberOfPages: 5,
+         totalPages:/*[[${totalPages}]]*/,
+         onPageClicked: function(e,originalEvent,type,page){
+        	// alert("Page item clicked, type: "+type+" page: "+page);
+        	 $("#page").val(page);
+        	 $("#form1").submit();
+         }
+     };
+     element.bootstrapPaginator(options);
+    </script>
+    <script  th:inline="javascript">
+
+    	function enabled(userId){
+    		if(!confirm("确认要启用该用户?")){
+    			return false;
+    		}
+    		$.ajax({
+    			   type: "POST",
+    			   url: "/manage/user/enabled",
+    			   data: "userId="+userId,
+    			   dataType: "json",
+    			   success: function(msg){
+    			     if(msg.code==0){
+    			    	 alert("启用成功");
+    			    	 location.reload();
+    			     }else{
+    			    	 alert(msg.msg);
+    			     }
+    			   }
+    			});
+    	}
+		function disable(userId){
+			if(!confirm("确认要禁用该用户?")){
+    			return false;
+    		}
+			$.ajax({
+	   			   type: "POST",
+	   			   url: "/manage/user/disable",
+	   			   data: "userId="+userId,
+	   			   dataType: "json",
+	   			   success: function(msg){
+	   				if(msg.code==0){
+	   			    	 alert("禁用成功");
+	   			    	 location.reload();
+	   			     }else{
+	   			    	 alert(msg.msg);
+	   			     }
+	   			   }
+	   			});
+    	}
+		
+
+    </script>
+</body>
+</html>

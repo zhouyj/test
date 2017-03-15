@@ -1,0 +1,180 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div
+				class="container col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">
+					预告管理 <a href="/manage/trailer/add" class="pull-right  lead">添加预告</a>
+				</h2>
+				<form id="form1" action="" method="post">
+					<input type="hidden" id="page" name="page" value=""> <input
+						type="hidden" id="field" name="field" value=""> <input
+						type="hidden" id="direction" name="direction" value="">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 预告ID: <input id="trailerId" type="text"
+									name="trailerId" value="" aria-controls="example"
+									th:value="${trailerId}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 标题: <input type="text" name="title" id="title"
+									value="" aria-controls="example" th:value="${title}">
+								</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 主播id: <input type="text" name="userId"
+									id="userId" value="" aria-controls="example"
+									th:value="${userId}">
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="dataTables_filter" id="example_filter">
+								<label> 预告状态: <!-- <input type="text" name="mobile" value="" aria-controls="example" > -->
+									<select id="type">
+										<option value="0">全部</option>
+										<option value="1">有效</option>
+										<option value="2">无效</option>
+								</select>
+								</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="dataTables_filter" id="example_filter">
+								<button id="sreach" type="button" onclick="getList(1);">查询</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>预告ID</th>
+								<th>标题</th>
+								<th>开始时间</th>
+								<th>发起人Id</th>
+								<th>发起人昵称</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="trailer:${list}">
+								<td th:text="${trailer.uuid}"></td>
+								<td th:text="${trailer.title}"></td>
+								<td th:text="${trailer.playTiemStr}"></td>
+								<td th:text="${trailer.userId}"></td>
+								<td th:text="${trailer.userNickname}"></td>
+								<td th:switch="${trailer.trStatus}"><span th:case="1">有效
+								</span><span th:case="2">无效</span></td>
+								<td><a type="0" th:attr="value=${trailer.uuid}">编辑</a>
+									&nbsp;| <a type="1" th:attr="value=${trailer.uuid}">详细</a>
+									&nbsp;| <a type="2" th:attr="value=${trailer.uuid}">删除</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="row">
+					<input type="hidden" id="page1" name="page"
+						th:attr="value=${pageNo}">
+					<div class="col-md-6">
+						<div>
+							<ul id="bp-3-element-sm-test"></ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/js/bootstrap-paginator.js"></script>
+<script type='text/javascript' th:inline="javascript">
+	 var element = $('#bp-3-element-sm-test');
+
+     options = {
+         size:"small",
+         bootstrapMajorVersion:3,
+         currentPage: /*[[${pageNo}]]*/,
+         numberOfPages: 5,
+         totalPages:[[${pageCount}]],
+         onPageClicked: function(e,originalEvent,type,page){
+        	 //alert("Page item clicked, type: "+type+" page: "+page);
+        	 getList(page);
+         }
+     };
+     element.bootstrapPaginator(options);
+</script>
+<script language="javascript" type="text/javascript">
+  $(function(){
+	  //操作事件
+	  $("td a").click(function(){
+		  var type = $(this).attr("type");
+		  var trailerId = $(this).attr("value");
+		  if(type == 0){//编辑
+			  window.open("/manage/trailer/add?trailerId="+trailerId,'_self');
+			  return;
+		  }else if(type == 1){//详情
+			  document.location.href="/manage/trailer/get?trailerId="+trailerId;
+			  return;
+		  }else if(type == 2){//删除
+			  if(confirm("确认删除么？")){
+				  deleteTr(trailerId);
+			  }
+		  return;
+		  }
+	  });
+	  
+	  //搜索
+	  $(".pager a").click(function(){
+		//图片
+		var page = $(this).attr("page");
+		if(page ==undefined || page==null){
+			return;
+		}
+		var pageCount = $("#pageCount").val();
+		if(page<1 || page > pageCount){
+			return;
+		}
+		getList(page);
+	  });
+  });
+
+  //查询
+  function getList(pageNo){
+	  var trailerId = $("#trailerId").val();
+	  var title = $("#title").val();
+	  var userId = $("#userId").val();
+	  var type = $("#type option:selected").val();
+	  var path = "trailerId="+trailerId+"&title="+title+"&userId="+userId+"&status="+type+"&pageNo="+pageNo+"&pageSize=10";
+	  location.href="/manage/trailer/?"+path;
+	  return;
+  }
+  
+  function deleteTr(trailerId){
+	  $.ajax({
+		  url: "/manage/trailer/delete",
+		  data:{"trailerId":trailerId},
+		  type: "GET",
+		  dataType:'json',
+		  success: function(response){
+			 if(response.code == 0){
+				location.href="/manage/trailer/"
+			 }else{
+				 alert(response.msg);
+			 }
+		  }
+	  });
+  }
+</script>

@@ -1,0 +1,33 @@
+<div class="col-sm-3 col-md-2 sidebar" th:fragment="left (active)">
+	<ul class="nav nav-sidebar">
+	<!-- 用户类 -->
+		<li th:class="${active}=='user'?'active':''" class="active"><a href="/manage/user/list">用户管理<span class="sr-only">(current)</span></a></li>
+		<li th:class="${active}=='apply'?'active':''" ><a href="/manage/apply/list">VIP审核</a></li>
+		<li th:class="${active}=='report'?'active':''" ><a href="/manage/report/list">举报管理</a></li>
+		<li th:class="${active}=='terminal'?'active':''" ><a href="/manage/terminal/list">设备管理</a></li>
+
+	<li><hr/></li>
+	<!-- 沟通类 -->
+		<li th:class="${active}=='sysmessage'?'active':''" ><a href="/manage/sysmessage/list">消息管理</a></li>
+		<li th:class="${active}=='appointment'?'active':''" ><a href="/manage/appointment/list">预约管理</a></li>
+
+	<!-- 内容类 -->
+		<li th:class="${session.activeLeftType}==1?'active':''" ><a href="/manage/category/?activeLeftType=1">分类管理</a></li>
+		<li th:class="${session.activeLeftType}==5?'active':''" ><a href="/manage/articles/?activeLeftType=5">内容管理</a></li>
+		<li th:class="${session.activeLeftType}==4?'active':''" ><a href="/manage/stream/?activeLeftType=4">直播管理</a></li>
+		<li th:class="${session.activeLeftType}==2?'active':''" ><a href="/manage/banner/?activeLeftType=2">广告管理</a></li>
+		<li th:class="${session.activeLeftType}==3?'active':''"><a href="/manage/trailer/?activeLeftType=3">预告管理</a></li>
+
+	<li><hr/></li>
+	<!-- 交易类 -->
+		<li th:class="${active}=='pay'?'active':''"  ><a href="/manage/payrecord/list">交易管理</a></li>
+		<li th:class="(${active} == 'products' or ${session.activeLeftType}==6) ? 'active':''"><a href="/manage/product/?activeLeftType=6">商品管理</a></li>
+		<li th:class="(${active} == 'userProducts' or ${session.activeLeftType}==7) ? 'active':''"><a href="/manage/product/userProductList/?activeLeftType=7">购买记录</a></li>
+	<li><hr/></li>
+	<!-- 设置类 -->
+		<!-- <li th:class="${active}=='agreement'?'active':''" ><a href="/manage/user/agreement">用户协议</a></li> -->
+		<li th:class="${active}=='version'?'active':''" ><a href="/manage/version/list">版本管理</a></li>
+		<li th:class="${active}=='cloud'?'active':''" ><a href="#" th:href="${cloudUrl}" target="_blank">云服务</a></li>
+		<li th:class="${active}=='configure'?'active':''" ><a href="/manage/configure/settings">全局设置</a></li>
+	</ul>
+</div>

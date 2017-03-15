@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('trailer')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">添加版本</h2>
+				<form action="/manage/version/add" method="post" id="addForm">
+					<div class="form-group">
+							<label for="exampleInputEmail1">版本</label> 
+							<input type="text" name="version" class="form-control"  id="exampleInputEmail1" placeholder="">
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">版本号</label> 
+							<input type="text" name="version_code"	class="form-control"  id="exampleInputEmail1" placeholder="">
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">设备类型</label> 
+							<input type="text" name="device_type"	class="form-control"  id="exampleInputEmail1" placeholder="">
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">内容</label> 
+							<textarea name="update_info" class="form-control" rows="10"></textarea>
+					</div>
+					<div class="form-group ">
+							<label for="exampleInputEmail1">更新类型</label> 
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="update_type" id="optionsRadios1" value="0" checked>
+							   普通
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="update_type" id="optionsRadios1" value="1" >
+							    强制
+							  </label>
+							</div>
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">渠道&nbsp;&nbsp;<button class="btn btn-success" type="button" onclick="addChannel()">添加</button></label>
+							<div class="row" id="channel_">
+								
+							</div>
+					</div>
+					<button type="button" class="btn btn-default" onclick="history.go(-1);">取消</button> &nbsp;&nbsp;
+					<button type="button" class="btn btn-success" onclick="submitAdd()">提交</button>
+				</form>
+				
+				
+				<!-- 渠道选择 -->
+				<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel">选择渠道</h4>
+				      </div>
+				      <div class="modal-body" id="myModal-channel">
+				       	选中的渠道：<input value="" id="selectChannel_value" >(可输入)【默认官方渠道：feedss】<br>
+				       	<br>
+				       	
+				       	<ul style="width: 400px;">
+				       		<li style="width: 150px;float:left"  th:each="c:${channels}"  onclick="select_c(this)" th:text="${c}" th:value="${c}">渠道</li>
+				       	</ul>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default"  data-dismiss="modal">关闭</button>
+				        <button type="button" class="btn btn-primary" onclick="channelConfirm()">确定</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	<script src="/js/bootstrap-paginator.js"></script>
+	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript"  src="/js/jquery.form.js"></script>
+	<script>
+		$('#time').datetimepicker({
+		    format: 'yyyy-mm-dd',
+			minView:2,
+			pickerPosition:"bottom-right"
+		});
+		
+		var selectChannel_v;
+		function selectChannel(obj){
+			selectChannel_v=obj;
+			$('#myModal').modal('show')
+			$("#selectChannel_value").val($(obj).val())
+		}
+		
+		function select_c(obj){
+			var v=$(obj).text();
+			$("#selectChannel_value").val(v);
+		}
+		
+		
+		function submitAdd(){
+			var $channel=$("#channel_");
+			var $o=$channel.find(".col-sm-12")
+			if(typeof(o)==Object){
+				var name=$o.find(".channel_name").val();
+				var url=$o.find(".channel_url").val();
+				$o.find("name=channelInfos").val(name+"_"+url);
+			}else{
+				for(var i=0;i<$o.length;i++){
+					var oo=$o.get(i)
+					var name=$(oo).find(".channel_name").val();
+					var url=$(oo).find(".channel_url").val();
+					$(oo).find("[name=channelInfos]").val(name+"_"+url);
+				}
+			}
+			
+			$.ajax({
+   			   type: "POST",
+   			   url: "/manage/version/add",
+   			   data: $("#addForm").serialize(),
+   			   dataType:"json",
+   			   success: function(msg){
+   			     if(msg.code==0){
+   			    	 alert("添加成功")
+   			    	 location.href="/manage/version/list";
+   			     }else{
+   			    	 alert(msg.msg);
+   			     }
+   			   }
+   			});
+			return true;
+		}
+		
+		function channelConfirm(){
+			var value=$("#selectChannel_value").val();
+			$(selectChannel_v).val(value)
+			$("#myModal").modal("hide")
+		}
+		
+		function addChannel(){
+			var formId=new Date().getTime();
+			var html='<div class="col-sm-12 col-sm-offset-2 col-md-12 col-md-offset-1 ">';
+			html+='<div class="form-group form-inline">';
+			html+='<input type="text" onclick="selectChannel(this)" class="form-control channel_name"  placeholder="渠道">&nbsp;&nbsp;';
+			html+='<input type="hidden" name="channelInfos" value="">';
+			html+='<form id="'+formId+'" style="display: inline;" enctype="multipart/form-data">';
+			html+='<input type="file" name="file" onchange="uploadChange(this)"	class="form-control"  placeholder="文件">';
+			html+='<input type="hidden" class="channel_url" value="">';
+			html+='</form>&nbsp;&nbsp;';
+			html+='进度：<div class="progress">';
+			html+='<div class="progress-bar" >0%</div>';
+			html+='</div>';
+			html+='&nbsp;&nbsp;<button class="btn btn-danger" type="button" onclick="delChannel(this)" >删除</button>';
+			html+='</div>';
+			html+='</div>';
+			$("#channel_").append(html)
+			
+			bindFrom(formId)
+		}
+		
+		function delChannel(obj){
+			$(obj).parent().parent().remove();
+		}
+		
+		function uploadChange(obj){
+			var $f=$(obj).parent();
+			console.info($f.html())
+			$f.submit();
+		}
+		function bindFrom(id){
+			$('#'+id).ajaxForm({
+		 		url:"/manage/version/upLoadFile",
+		 		type:"post",
+		 		timeout:"200000",
+		        dataType: 'json',
+		        beforeSubmit:function(arr, _form, options){
+		        	for(var i=0;i<arr.length;i++){
+		        		var obj=arr[i];
+		        		if(obj.name=='file'){
+		        			if(obj.value==''){
+		        				alert("文件不能为空");
+		        				return false;
+		        			}
+		        			//var file_name=obj.value.name.substr(obj.value.name.lastIndexOf(".")).toLowerCase();
+		        			//if(file_name!='.xls'){
+							//	alert("请上传后缀名为xls的文件!");
+							//	return false;
+							//}
+		        		}
+		        	}
+		        	return true;
+		        },
+		        uploadProgress:function(event, position, total, percent){
+		        	console.info($("#"+id).next().find(".progress-bar"));
+		        	$("#"+id).next().find(".progress-bar").css("width",percent+"%")
+		        	$("#"+id).next().find(".progress-bar").text(percent+"%")
+		        	//console.info(percent+"   55");
+		        },
+		        error:function(){},
+		        success: function(msg){
+		        	$("#"+id).next().find(".progress-bar").text(msg.msg)
+		        	if(msg.code==0){
+		        		$("#"+id).find(".channel_url").val(msg.url)
+		        	}
+		        },
+		    });
+		}
+		
+		
+    </script>
+</body>
+</html>

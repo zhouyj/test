@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<script type="text/javascript" src="/js/jwplayer.js"></script>
+<script type="text/javascript" src="/js/jwplayer.html5.js"></script>
+</head>
+
+<body>
+<div align="center">
+
+播放地址：<input id="playUri" type="text" size="100" th:attr="value=${playUri}" />
+<br /><br />
+<div id="myElement">Loading the player ...</div>
+
+<script type="text/javascript">
+var playUri = document.getElementById("playUri").value;
+
+    jwplayer("myElement").setup({
+    	flashplayer: '/swf/jwplayer.flash.swf',
+        image: "/image/preview.jpg",
+        file: playUri,
+        rtmp: {
+            bufferlength: 1
+        },
+        height: 360,
+        width: 640,
+        autostart:true
+    });
+</script>
+</div>
+</body>
+</html>

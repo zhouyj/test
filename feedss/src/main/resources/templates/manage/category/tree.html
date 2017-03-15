@@ -1,0 +1,513 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content" xmlns:layout="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+     xmlns:td="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml">
+
+    <link href="/css/fancytree/jquery-ui.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+
+    <!-- jquery-contextmenu (https://github.com/mar10/jquery-ui-contextmenu/) -->
+    <script src="/js/fancytree/jquery.ui-contextmenu.min.js"></script>
+
+    <link href="/css/fancytree/skin-win8/ui.fancytree.css" rel="stylesheet">
+    <script src="/js/fancytree/jquery.fancytree.js"></script>
+    <script src="/js/fancytree/jquery.fancytree.dnd.js"></script>
+    <script src="/js/fancytree/jquery.fancytree.edit.js"></script>
+    <script src="/js/fancytree/jquery.fancytree.gridnav.js"></script>
+    <script src="/js/fancytree/jquery.fancytree.table.js"></script>
+
+    <style type="text/css">
+        .ui-menu {
+            width: 180px;
+            font-size: 63%;
+        }
+        .ui-menu kbd { /* Keyboard shortcuts for ui-contextmenu titles */
+            float: right;
+        }
+        /* custom alignment (set by 'renderColumns'' event) */
+        td.alignRight {
+            text-align: right;
+        }
+        td.alignCenter {
+            text-align: center;
+        }
+        td input[type=input] {
+            width: 40px;
+        }
+    </style>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="sub-header ">分类管理 <a href="#" class="pull-right  lead"
+                                        data-toggle="modal" data-target="#myModal">添加分类</a> </h2>
+
+		<div>
+			分类类型：
+			<select onchange="window.location=this.value;">
+			  <option value="">--</option>
+			  <option value="?activeLeftType=1&type=ALL">内容</option>
+			  <option value="?activeLeftType=1&type=Shop">商品</option>
+			  <option value="?activeLeftType=1&type=AD">广告</option>
+			</select>
+		</div>
+		<hr/>
+
+        <table id="tree">
+            <colgroup>
+                <col width="230px">
+                <col width="300px">
+                <col width="60px">
+                <col width="60px">
+                <col width="60px">
+                <col width="60px">
+                <col width="60px">
+                <col width="60px">
+                <col width="60px">
+            </colgroup>
+            <thead >
+            <tr> <th>名称</th> <th>分类id</th> <th>序号</th> <th>添加</th> <th>编辑</th> <th>删除</th><th>首页</th><th>侧边栏</th><th>是否可见</th></tr>
+            </thead>
+            <tbody >
+            <!-- Define a row template for all invariant markup: -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input id="sort_text" type="text" placeholder="" ></td>
+                <td><input id="add_child" value="添加" type="button" class="btn btn-link"></td>
+                <td><input id="rename_node" value="编辑" type="button" class="btn btn-link"></td>
+                <td><input id="remove_node" value="删除" type="button" class="btn btn-link"></td>
+                <td><input id="home_show" type="checkbox"></td>
+                <td><input id="side_bar_show" type="checkbox"></td>
+                <td><input id="visible" type="checkbox"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        添加一级分类
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="category_name" placeholder="请输入分类名称">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="add_new_category" data-dismiss="modal">添加</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div id="bg"></div>
+    <div id="show">
+        <div style="position: relative; height: 60%;top: 0px;width: 60%">
+           <input id="ctgName" type="text" class="form-control" style="left: 72px;top: 10px;position: relative;" size="50" placeholder="请输入分类名称">
+           <input id="imageUrl" type="text" class="form-control" style="left: 72px;top: 10px;position: relative;" size="50" placeholder="请输入分类图标">
+            <input id="ctgId" type="hidden">
+            <input id="ctgParentId" type="hidden">
+        </div>
+        <div>
+            <input id="div_hide" type="button" class="btn btn-primary" value="取消" onclick="hidediv();" style="margin-left: 176px"/> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="new_cate_add" type="button" class="btn btn-primary" value="提交" onclick="add_new_cate();"/>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:inline="javascript">
+	var type = [[${type}]];
+
+    var SOURCE = [[${categorys}]],
+                    CLIPBOARD;
+
+    $(function() {
+
+        $("#tree").fancytree({
+            checkbox: false,
+            titlesTabbable: true,     // Add all node titles to TAB chain
+            quicksearch: true,        // Jump to nodes when pressing first character
+            icon: false,
+            extensions: [/*"edit",*/ "dnd", "table", "gridnav"],
+            source: SOURCE,
+            dnd: {
+                preventVoidMoves: true,
+                preventRecursiveMoves: true,
+                autoExpandMS: 400,
+                dragStart: function (node, data) {
+                    return true;
+                },
+                dragEnter: function (node, data) {
+                    if (node.parent !== data.otherNode.parent) { // 只允许同父节点内的拖放
+                        return false;
+                    }
+                    return ["before", "after"]; // 只运行同级别拖放
+//                    return true;  // 允许所有拖放
+                },
+                dragExpand: function (node, data) {
+                    return false;
+                },
+                dragDrop: function (node, data) {
+                    data.otherNode.moveTo(node, data.hitMode);
+                }
+            },
+            edit: {
+                triggerStart: ["f2", "dblclick", "mac+enter"],
+                adjustWidthOfs: 6,   // null: don't adjust input size to content
+                inputCss: {minWidth: "6em"},
+                close: function (event, data) {
+                    if (data.save && data.new) {
+                        $("#tree").trigger("nodeCommand", {cmd: "addSibling"});
+                    }
+                },
+                save: function (event, data) {
+                    var node = data.node;
+
+                    if (data.save || data.isNew) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/manage/category/add_update",
+                            data: {'parentId': node.data.parentId, 'categoryId': node.key, 'name': node.title, 'type': type},
+                            dataType: "json",
+                            success: function (response) {
+                                if (response.code == 0) {
+                                    if (data.save) {
+                                        alert("修改成功");
+                                    } else {
+                                        alert("添加成功");
+                                    }
+                                } else {
+                                    alert(response.msg);
+                                }
+                            }
+                        });
+                    }
+                }
+            },
+            table: {
+                indentation: 20,
+                nodeColumnIdx: 0
+//                checkboxColumnIdx: -1
+            },
+            gridnav: {
+                autofocusInput: false,
+                handleCursorKeys: true
+            },
+            createNode: function (event, data) {
+                var node = data.node,
+                        $tdList = $(node.tr).find(">td");
+
+                $tdList.eq(1).addClass("alignCenter");
+                $tdList.eq(2).change(function () {
+                    $.ajax({
+                        url: "/manage/category/sort",
+                        data: {"parentId": node.data.parentId, "categoryId": node.key, "sort": $tdList.eq(2).find("input").val(), 'type': type},
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (response) {
+                            if (response.code == 0) {
+                                alert("排序更新成功。");
+                            	location.reload();
+                            } else {
+                                alert(response.msg);
+                            }
+                        }
+                    });
+                });
+                // (Index #2 is rendered by fancytree)
+                // Set column #3 info from node data:
+                $tdList.eq(3).find("input").click(function () {
+                    showdiv(node.key, "", "");
+                });
+
+                $tdList.eq(4).find("input").click(function () {
+                    showdiv(node.data.parentId, node.key, node.title);
+                });
+                $tdList.eq(5).find("input").click(function () {
+                    if (confirm("确认删除么？")) {
+                        var refNode = node.getNextSibling() || node.getPrevSibling() || node.getParent();
+                        $.ajax({
+                            type: "POST",
+                            url: "/manage/category/delete",
+                            data: {'categoryId': node.key, 'name': node.title},
+                            dataType: "json",
+                            success: function (response) {
+                                if (response.code == 0) {
+                                    node.remove();
+                                    if (refNode) {
+                                        refNode.setActive();
+                                    }
+                                    alert("删除成功");
+                                } else {
+                                    alert(response.msg);
+                                }
+                            }
+                        });
+                    }
+                });
+
+                $tdList.eq(6).addClass("alignCenter");
+                $tdList.eq(7).addClass("alignCenter");
+                $tdList.eq(8).addClass("alignCenter");
+
+                var showHome = $tdList.eq(6).find("input");
+                if (node.data.showInHomePageModel){
+                    showHome.attr("checked", "checked");
+                }else {
+                    showHome.removeAttr("checked");
+                }
+                showHome.change(function(){
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/category/add_update",
+                        data: {"parentId": node.data.parentId, "categoryId": node.key,'sort': node.data.sort,'showInHome':showHome.prop("checked"), 'type': type},
+                        dataType: "json",
+                        success: function(response){
+                            if(response.code == 0){
+                                if (showHome.prop("checked")){
+                                    alert("设置首页显示成功");
+                                }else {
+                                    alert("取消首页显示成功");
+                                }
+                            }else{
+                                alert(response.msg);
+                            }
+                        }
+                    });
+                });
+
+                var showRight = $tdList.eq(7).find("input");
+                if (node.data.showInRightModel){
+                    showRight.attr("checked", "checked");
+                }else {
+                    showRight.removeAttr("checked");
+                }
+                showRight.change(function(){
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/category/add_update",
+                        data: {"parentId": node.data.parentId, "categoryId": node.key, 'sort': node.data.sort, 'showInRight':showRight.prop("checked"), 'type': type},
+                        dataType: "json",
+                        success: function(response){
+                            if(response.code == 0){
+                                if (showRight.prop("checked")){
+                                    alert("设置侧边栏显示成功");
+                                }else {
+                                    alert("取消侧边栏显示成功");
+                                }
+                            }else{
+                                alert(response.msg);
+                            }
+                        }
+                    });
+                });
+
+                var visibleCheck = $tdList.eq(8).find("input");
+                if (node.data.visible){
+                    visibleCheck.attr("checked", "checked");
+                }else {
+                    visibleCheck.removeAttr("checked");
+                }
+                visibleCheck.change(function(){
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/category/add_update",
+                        data: {"parentId": node.data.parentId, "categoryId": node.key, 'sort': node.data.sort, 'visible':visibleCheck.prop("checked"), 'type': type},
+                        dataType: "json",
+                        success: function(response){
+                            if(response.code == 0){
+                                if (visibleCheck.prop("checked")){
+                                    alert("设置显示成功");
+                                }else {
+                                    alert("取消显示成功");
+                                }
+                            }else{
+                                alert(response.msg);
+                            }
+                        }
+                    });
+                });
+            },
+            renderColumns: function (event, data) {
+                var node = data.node,
+                        $tdList = $(node.tr).find(">td");
+
+                $tdList.eq(1).text(node.key);
+                $tdList.eq(2).find("input").val(node.data.sort);
+
+                var addCate = $tdList.eq(3).find("input"),
+                        showHome = $tdList.eq(6).find("input"),
+                        showRight = $tdList.eq(7).find("input");
+                if (node.isFolder()){
+                    addCate.show();
+                    showHome.hide();
+                    showRight.hide();
+                }else {
+                    addCate.hide();
+                    showHome.show();
+                    showRight.show();
+                }
+            }
+        }).on("nodeCommand", function (event, data) {
+            var refNode, moveMode,
+                    tree = $(this).fancytree("getTree"),
+                    node = tree.getActiveNode();
+
+            switch (data.cmd) {
+                case "moveUp":
+                    refNode = node.getPrevSibling();
+                    if (refNode) {
+                        node.moveTo(refNode, "before");
+                        node.setActive();
+                    }
+                    break;
+                case "moveDown":
+                    refNode = node.getNextSibling();
+                    if (refNode) {
+                        node.moveTo(refNode, "after");
+                        node.setActive();
+                    }
+                    break;
+                case "indent":
+                    refNode = node.getPrevSibling();
+                    if (refNode) {
+                        node.moveTo(refNode, "child");
+                        refNode.setExpanded();
+                        node.setActive();
+                    }
+                    break;
+                case "outdent":
+                    if (!node.isTopLevel()) {
+                        node.moveTo(node.getParent(), "after");
+                        node.setActive();
+                    }
+                    break;
+                case "rename":
+                    node.editStart();
+                    break;
+                case "remove":
+                    refNode = node.getNextSibling() || node.getPrevSibling() || node.getParent();
+                    node.remove();
+                    if (refNode) {
+                        refNode.setActive();
+                    }
+                    break;
+                case "addChild":
+                    node.editCreateNode("child", "");
+                    break;
+                case "addSibling":
+                    node.editCreateNode("after", "");
+                    break;
+                case "cut":
+                    CLIPBOARD = {mode: data.cmd, data: node};
+                    break;
+                case "copy":
+                    CLIPBOARD = {
+                        mode: data.cmd,
+                        data: node.toDict(function (n) {
+                            delete n.key;
+                        })
+                    };
+                    break;
+                case "clear":
+                    CLIPBOARD = null;
+                    break;
+                case "paste":
+                    if (CLIPBOARD.mode === "cut") {
+                        // refNode = node.getPrevSibling();
+                        CLIPBOARD.data.moveTo(node, "child");
+                        CLIPBOARD.data.setActive();
+                    } else if (CLIPBOARD.mode === "copy") {
+                        node.addChildren(CLIPBOARD.data).setActive();
+                    }
+                    break;
+                default:
+                    alert("Unhandled command: " + data.cmd);
+                    return;
+            }
+        });
+    });
+
+    $("#add_new_category").click(function () {
+        var name = $('#category_name').val();
+        if (null == name || '' == name){
+            alert("标题不能为空");
+        }else {
+            $.ajax({
+                type: "POST",
+                url: "/manage/category/add_update",
+                data: {'categoryId': "",'name':name, 'type': type},
+                dataType: "json",
+                success: function(response){
+                    if(response.code == 0){
+                        var tree = $("#tree").fancytree("getTree"),
+                                node = tree.getRootNode();
+                        node.addNode(response.data, "child");
+//                    node.createNode("child", name);
+                    }else{
+                        alert(response.msg);
+                    }
+                }
+            });
+        }
+    });
+
+    //显示
+    function showdiv(parentId, categoryId,name) {
+
+        $("#ctgName").val(name);
+        $("#ctgId").val(categoryId);
+        $("#ctgParentId").val(parentId);
+
+        document.getElementById("bg").style.display ="block";
+        document.getElementById("show").style.display ="block";
+    }
+
+    //隐藏
+    function hidediv() {
+        document.getElementById("bg").style.display ='none';
+        document.getElementById("show").style.display ='none';
+    }
+
+    function add_new_cate() {
+        var title = $("#ctgName").val(),
+            ctgId = $("#ctgId").val(),
+            ctgParentId = $("#ctgParentId").val();
+
+        var imageUrl = $("#imageUrl").val();
+        
+        if (null == title || '' == title){
+            alert("标题不能为空");
+        }else {
+            $.ajax({
+                type: "POST",
+                url: "/manage/category/add_update",
+                data: {"parentId": ctgParentId, "categoryId": ctgId,'name':title, 'type': type, 'imageUrl':imageUrl},
+                dataType: "json",
+                success: function(response){
+                    if(response.code == 0){
+                        var tree = $("#tree").fancytree("getTree"),
+                                node = tree.getActiveNode();
+                        if (null !== ctgId && "" !== ctgId){
+                            node.setTitle(title);
+                        }else {
+                            node.addNode(response.data, "child");
+                            node.setExpanded(tree);
+                        }
+
+                        hidediv();
+                    }else{
+                        alert(response.msg);
+                    }
+                }
+            });
+        }
+    }
+</script>

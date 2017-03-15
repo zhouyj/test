@@ -1,0 +1,21 @@
+<!-- 积分兑换滚动图片 -->
+<div class='featured-slider post-excerpts page-section mobile-full-width'>
+	<div class='actual-posts'>
+		<div class='post post-excerpt featured category-Ecosystem in Action' th:each="banner : ${topBanners}">
+			<div class='image-container'>
+				<div class='image-overlay'></div>
+				<a th:href="${banner.content}">
+					<div class="bg-image lazyload image" th:attr="data-bgset=@{${banner.picUrl}}" data-sizes='auto'></div>
+				</a>
+			</div>
+		</div>
+		<div class='post post-excerpt featured category-Ecosystem in Action' th:if="${#lists.isEmpty(topBanners)}">
+			<div class='image-container'>
+				<div class='image-overlay'></div>
+				<a href="#">
+					<div class="bg-image lazyload image" data-bgset="pufa/images/example/2.png" data-sizes='auto'></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

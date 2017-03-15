@@ -1,0 +1,28 @@
+<div th:fragment="boot">
+
+    <!-- system modal start -->
+    <div id="ycf-alert" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    修改发送内容：<br>
+                    <textarea id="modifyContent" cols="50" rows="4">[Content]</textarea>
+                    <p>[Message]</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group" style="display: table; width: auto;margin-left: auto;margin-right: auto;">
+                        <button type="button" class="btn btn-primary ok" data-dismiss="modal">[BtnOk]</button>
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">[BtnCancel]</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- system modal end -->
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/lib2.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.min.js"></script>
+
+</div>

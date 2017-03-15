@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<link rel='stylesheet' id='sitecss-css' href='/pufa/css/sign.css' type='text/css' media='all' />
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 登录注册 -->
+				<div class="col-md-offset-3 col-md-6 col-sm-12">
+					<div class="alert alert-danger" role="alert" id="sign-msg" style="display: none"></div>
+					<ul id="myTab" class="nav nav-tabs">
+						<li id="signin" class="active" style="width: 50%;text-align: center;">
+							<a href="#signin-content" data-toggle="tab">登录</a>
+						</li>
+						<li id="signup" style="width: 50%;text-align: center; ">
+							<a href="#signup-content" data-toggle="tab">注册</a>
+						</li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="signin-content" th:include="pufa/frag/sign_in">登录框</div>
+						<div class="tab-pane fade" id="signup-content" th:include="pufa/frag/sign_up">注册框</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+		<script type="text/javascript" src="pufa/js/jquery.form.js"></script>
+		<script type="text/javascript" src="pufa/js/pufa-common.js"></script>
+		<script type="text/javascript" src="pufa/js/sign.js"></script>
+		<script type="text/javascript">
+			//根据URL标签切换
+			var param = getUrlParam("tab");
+			if("signup" == param){
+				$("#signin").removeClass("active");
+				$("#signin-content").removeClass("in active");
+				$("#signup").addClass("active");
+				$("#signup-content").addClass("in active");
+				console.log("tab=" + param);
+			}
+		</script>
+	</body>
+
+</html>

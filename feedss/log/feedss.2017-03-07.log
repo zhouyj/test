@@ -1,0 +1,670 @@
+2017-03-07 10:30:04.007 1008 [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 10:30:04.140 1141 [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 54142 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 10:30:04.140 1141 [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 10:30:04.140 1141 [main] INFO  com.feedss.FeedssApplication- The following profiles are active: test
+2017-03-07 10:30:04.413 1414 [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 10:30:11.850 8851 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 10:30:12.429 9430 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 10:30:12.512 9513 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 10:30:12.534 9535 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=710282680
+2017-03-07 10:30:12.594 9595 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=710282680, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 10:30:13.483 10484 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:30:13.544 10545 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 10:30:13.659 10660 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=231941360
+2017-03-07 10:30:14.367 11368 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:30:14.372 11373 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 10:30:14.380 11381 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=347331622
+2017-03-07 10:30:14.861 11862 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://static.feedss.com/icon_zp/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:30:18.872 15873 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 10:30:18.953 15954 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 10:30:18.965 15966 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 10:30:19.013 16014 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 10:30:19.015 16016 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 15.486 seconds (JVM running for 16.221)
+2017-03-07 10:31:00.000 57001 [pool-3-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:31:00.036 57037 [pool-3-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:31:00.080 57081 [pool-3-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:31:00.080 57081 [pool-3-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:31:00 CST 2017
+2017-03-07 10:31:05.000 62001 [pool-3-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:31:05.167 62168 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSiga97d8a1d800c437aab3b7a38b4add17b
+2017-03-07 10:31:05.249 62250 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigbc377dad772b4f818ee3aac1854c9060
+2017-03-07 10:31:05.318 62319 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig319bb2a4f19643748d539fb6007a6197
+2017-03-07 10:31:05.379 62380 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigb160abd0e6e84bac9b3afd42691f66cb
+2017-03-07 10:31:05.436 62437 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigac0cede113384c14b08ca7f21074cc8a
+2017-03-07 10:31:05.487 62488 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8224e985ece141eba1cb3d5cc95859f2
+2017-03-07 10:31:05.571 62572 [pool-3-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8c2afb4992ed4a7bbd293c33c9f8dc30
+2017-03-07 10:31:05.587 62588 [pool-3-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:32:45.816 650  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 10:32:45.907 741  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 54193 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 10:32:45.907 741  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 10:32:45.907 741  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: test
+2017-03-07 10:32:46.158 992  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 10:32:52.821 7655 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 10:32:53.397 8231 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 10:32:53.401 8235 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 10:32:53.448 8282 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=612515967
+2017-03-07 10:32:53.492 8326 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=612515967, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 10:32:54.752 9586 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:32:54.779 9613 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 10:32:54.873 9707 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=412784658
+2017-03-07 10:32:55.591 10425 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:32:55.595 10429 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 10:32:55.602 10436 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=361866740
+2017-03-07 10:32:56.216 11050 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://static.feedss.com/icon_zp/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:33:00.216 15050 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 10:33:00.285 15119 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 10:33:00.297 15131 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 10:33:00.325 15159 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 10:33:00.327 15161 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 14.829 seconds (JVM running for 15.353)
+2017-03-07 10:33:05.023 19857 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:33:05.125 19959 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:34:00.003 74837 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:34:00.003 74837 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:34:00.051 74885 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:34:00.102 74936 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:34:00.103 74937 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:34:00 CST 2017
+2017-03-07 10:34:04.999 79833 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:34:05.069 79903 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:34:59.999 134833 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 10:35:01.471 136305 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:35:01.508 136342 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:35:01.508 136342 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:35:01.519 136353 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:35:01 CST 2017
+2017-03-07 10:35:05.002 139836 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:35:05.076 139910 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:35:59.994 194828 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:35:59.996 194830 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:35:59.998 194832 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:35:59 CST 2017
+2017-03-07 10:36:00.068 194902 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:36:00.118 194952 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:36:00.124 194958 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:36:05.001 199835 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:36:05.068 199902 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:37:00.002 254836 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:37:00.015 254849 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:37:00 CST 2017
+2017-03-07 10:37:00.062 254896 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:37:00.107 254941 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:37:05.003 259837 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:37:05.073 259907 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:38:00.000 314834 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:38:00.000 314834 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:38:00.014 314848 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:38:00 CST 2017
+2017-03-07 10:38:00.115 314949 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:38:00.143 314977 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:38:05.002 319836 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:38:05.073 319907 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:38:59.998 374832 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:38:59.998 374832 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:39:00.066 374900 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:39:00.075 374909 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:39:00 CST 2017
+2017-03-07 10:39:00.124 374958 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:39:05.002 379836 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:39:05.186 380020 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:39:50.306 425140 [http-nio-8188-exec-1] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}
+2017-03-07 10:39:50.570 425404 [http-nio-8188-exec-1] INFO  c.f.base.spring.ControllerLogAop- execute info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}, execute time len:264ms
+2017-03-07 10:39:59.993 434827 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 10:40:01.068 435902 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:40:01.068 435902 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:40:01.086 435920 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:40:01.139 435973 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:40:01.139 435973 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:40:01 CST 2017
+2017-03-07 10:40:05.001 439835 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:40:05.108 439942 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:41:00.039 494873 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:41:00.081 494915 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:41:00.081 494915 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:41:00.088 494922 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:41:00 CST 2017
+2017-03-07 10:41:05.003 499837 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:41:05.074 499908 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:41:59.999 554833 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:41:59.999 554833 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:41:59.999 554833 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:42:00.014 554848 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:42:00 CST 2017
+2017-03-07 10:42:00.059 554893 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:42:00.091 554925 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:42:05.004 559838 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:42:05.081 559915 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSiga97d8a1d800c437aab3b7a38b4add17b
+2017-03-07 10:42:05.146 559980 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigbc377dad772b4f818ee3aac1854c9060
+2017-03-07 10:42:05.190 560024 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig319bb2a4f19643748d539fb6007a6197
+2017-03-07 10:42:05.246 560080 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigb160abd0e6e84bac9b3afd42691f66cb
+2017-03-07 10:42:05.290 560124 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigac0cede113384c14b08ca7f21074cc8a
+2017-03-07 10:42:05.338 560172 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8224e985ece141eba1cb3d5cc95859f2
+2017-03-07 10:42:05.390 560224 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8c2afb4992ed4a7bbd293c33c9f8dc30
+2017-03-07 10:42:05.399 560233 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:43:00.000 614834 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:43:00 CST 2017
+2017-03-07 10:43:00.085 614919 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:43:00.122 614956 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:43:00.122 614956 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:43:05.002 619836 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:43:05.070 619904 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:44:00.000 674834 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:44:00.000 674834 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:44:00.067 674901 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:44:00.067 674901 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:44:00 CST 2017
+2017-03-07 10:44:00.110 674944 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:44:05.001 679835 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:44:05.092 679926 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:44:59.994 734828 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 10:45:01.243 736077 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:45:01.244 736078 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:45:01 CST 2017
+2017-03-07 10:45:01.310 736144 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:45:01.316 736150 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:45:01.357 736191 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:45:05.003 739837 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:45:05.077 739911 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:46:00.000 794834 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:46:00.054 794888 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:46:00.097 794931 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:46:00.097 794931 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:46:00.107 794941 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:46:00 CST 2017
+2017-03-07 10:46:04.999 799833 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:46:05.137 799971 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:46:16.083 810917 [http-nio-8188-exec-3] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}
+2017-03-07 10:50:05.083 662  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 10:50:05.182 761  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 54452 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 10:50:05.182 761  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 10:50:05.182 761  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: test
+2017-03-07 10:50:05.479 1058 [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 10:50:12.696 8275 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 10:50:13.469 9048 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 10:50:13.473 9052 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 10:50:13.559 9138 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=109920762
+2017-03-07 10:50:13.608 9187 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=109920762, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 10:50:14.631 10210 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:50:14.657 10236 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 10:50:14.754 10333 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=216904752
+2017-03-07 10:50:15.542 11121 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:50:15.546 11125 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 10:50:15.552 11131 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=810691626
+2017-03-07 10:50:16.459 12038 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://static.feedss.com/icon_zp/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 10:50:20.276 15855 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 10:50:20.382 15961 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 10:50:20.399 15978 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 10:50:20.438 16017 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 10:50:20.439 16018 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 15.682 seconds (JVM running for 16.211)
+2017-03-07 10:51:00.000 55579 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:51:00.049 55628 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:51:00.049 55628 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:51:00.049 55628 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:51:00.085 55664 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:51:00 CST 2017
+2017-03-07 10:51:04.999 60578 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:51:05.102 60681 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:51:17.741 73320 [http-nio-8188-exec-1] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}
+2017-03-07 10:51:59.998 115577 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:52:00.017 115596 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:52:00.058 115637 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:52:00.058 115637 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:52:00.065 115644 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:52:00 CST 2017
+2017-03-07 10:52:05.003 120582 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:52:05.081 120660 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:52:59.999 175578 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:53:00.014 175593 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:53:00.039 175618 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:53:00.044 175623 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:53:00 CST 2017
+2017-03-07 10:53:05.000 180579 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:53:05.128 180707 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSiga97d8a1d800c437aab3b7a38b4add17b
+2017-03-07 10:53:05.176 180755 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigbc377dad772b4f818ee3aac1854c9060
+2017-03-07 10:53:05.221 180800 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig319bb2a4f19643748d539fb6007a6197
+2017-03-07 10:53:05.264 180843 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigb160abd0e6e84bac9b3afd42691f66cb
+2017-03-07 10:53:05.308 180887 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigac0cede113384c14b08ca7f21074cc8a
+2017-03-07 10:53:05.380 180959 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8224e985ece141eba1cb3d5cc95859f2
+2017-03-07 10:53:05.454 181033 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8c2afb4992ed4a7bbd293c33c9f8dc30
+2017-03-07 10:53:05.461 181040 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:53:33.514 209093 [http-nio-8188-exec-1] INFO  c.f.base.spring.ControllerLogAop- execute info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}, execute time len:135755ms, response data:{"body":{"code":10003,"data":{},"msg":"无权限"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+2017-03-07 10:53:59.999 235578 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:53:59.999 235578 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:53:59.999 235578 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:54:00.041 235620 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:54:00.041 235620 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:54:00 CST 2017
+2017-03-07 10:54:00.094 235673 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:54:05.002 240581 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:54:05.070 240649 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:54:48.081 283660 [http-nio-8188-exec-3] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}
+2017-03-07 10:54:59.992 295571 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 10:55:00.308 295887 [http-nio-8188-exec-3] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 10:55:01.588 297167 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:55:01 CST 2017
+2017-03-07 10:55:01.633 297212 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:55:01.670 297249 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:55:01.670 297249 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:55:05.002 300581 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:55:05.073 300652 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:55:10.282 305861 [http-nio-8188-exec-3] DEBUG c.f.c.q.GenerateTLSSignatureUtil- generate sig: eJxFkE1Pg0AURf8LazEzA68dTLqggJFYq6RYZUUGZoCplvIxQovxv4uExu05ubnvvm8t3OxuWVVJHjMVGw3X7jSk3UxYnCvZiJhlSjQjxgBAELraTjStPJWjIAgDJgZC-1JyUSqZySkIC57AAjPdyHiqm9hgegIm0TlilGIE1EronGtlPgaevMDxbXGQtYPD9hOx-sWNEndAW3s-QOu7Syt8jfo*P3q14wdvtlyvFcPnh9p596L985BmBRB2gO3uPjBM5idLlG*6oiuGx8Bera5l-COepv*NM8fjxxEmmaWSRzFxSimAgayZszQ9fZUqVpdKTL-6*QUsyF7l
+2017-03-07 10:55:19.569 315148 [http-nio-8188-exec-3] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 10:55:19.575 315154 [http-nio-8188-exec-3] INFO  c.f.content.service.RoomService- userObj profile, {"age":0,"avatar":"http://image.xh.feedss.com/20170306/xinhuaxuanwen.png","birthdate":"","ext":{},"gender":1,"level":1,"nickname":"新华炫闻"}
+2017-03-07 10:55:19.591 315170 [http-nio-8188-exec-3] DEBUG c.f.content.service.RoomService- createStream cost time, 35, 110, 39, 14, 2
+2017-03-07 10:55:19.593 315172 [http-nio-8188-exec-3] INFO  c.f.base.spring.ControllerLogAop- execute info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}, execute time len:31512ms, response data:{"body":{"code":0,"data":{"playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4","appName":"live","latitude":0,"started":"2017-03-07 10:55:19","type":"Normal","playUri":"","uuid":"cd8381bb-2296-4be1-95e1-9df2a0bd0438","userId":"56db561a-3fdc-413a-b542-d0a8810589b8","parentId":"","cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg","isSecret":0,"publishUri":"","isVR":0,"ended":"2017-03-07 10:55:19","position":"北京东城xx胡同","category":"c0d37690-8250-4133-b08f-fc328877a585","status":2,"longitude":0},"msg":"ok"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+2017-03-07 10:55:19.804 315383 [SimpleAsyncTaskExecutor-2] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=531345622
+2017-03-07 10:55:19.804 315383 [SimpleAsyncTaskExecutor-2] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=531345622, params:{"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUPcd8381bb-2296-4be1-95e1-9df2a0bd0438","Name":"live"}
+2017-03-07 10:55:20.410 315989 [SimpleAsyncTaskExecutor-2] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"FAIL","ErrorCode":10004,"ErrorInfo":"invalid owner id"}
+2017-03-07 10:55:20.411 315990 [SimpleAsyncTaskExecutor-2] ERROR c.f.c.qcloud.QCloudMessageUtil- addGroup fail, {"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUPcd8381bb-2296-4be1-95e1-9df2a0bd0438","Name":"live"}
+2017-03-07 10:55:59.999 355578 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:56:00.022 355601 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:56:00.067 355646 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:56:00.067 355646 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:56:00.083 355662 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:56:00 CST 2017
+2017-03-07 10:56:05.003 360582 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:56:05.070 360649 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:56:59.999 415578 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 10:57:00.020 415599 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:57:00.027 415606 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:57:00 CST 2017
+2017-03-07 10:57:00.073 415652 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:57:00.101 415680 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:57:05.002 420581 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:57:05.113 420692 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:57:43.058 458637 [http-nio-8188-exec-5] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}
+2017-03-07 10:57:50.459 466038 [http-nio-8188-exec-5] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 10:57:50.633 466212 [http-nio-8188-exec-5] INFO  c.f.content.service.RoomService- userObj profile, {"age":0,"avatar":"http://image.xh.feedss.com/20170306/xinhuaxuanwen.png","birthdate":"","ext":{},"gender":1,"level":1,"nickname":"新华炫闻"}
+2017-03-07 10:57:50.634 466213 [http-nio-8188-exec-5] DEBUG c.f.content.service.RoomService- createStream cost time, 36, 137, 0, 1, 0
+2017-03-07 10:57:50.634 466213 [http-nio-8188-exec-5] INFO  c.f.base.spring.ControllerLogAop- execute info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test01", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"北京东城xx胡同", "type":"Normal"}, execute time len:7576ms, response data:{"body":{"code":0,"data":{"playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4","appName":"live","latitude":0,"started":"2017-03-07 10:57:50","type":"Normal","playUri":"","uuid":"4b2ddd24-2c9b-48b7-a739-4740f45e9763","userId":"56db561a-3fdc-413a-b542-d0a8810589b8","parentId":"","cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg","isSecret":0,"publishUri":"","isVR":0,"ended":"2017-03-07 10:57:50","position":"北京东城xx胡同","category":"c0d37690-8250-4133-b08f-fc328877a585","status":2,"longitude":0},"msg":"ok"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+2017-03-07 10:57:50.860 466439 [SimpleAsyncTaskExecutor-4] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=668135977
+2017-03-07 10:57:50.860 466439 [SimpleAsyncTaskExecutor-4] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=668135977, params:{"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUP4b2ddd24-2c9b-48b7-a739-4740f45e9763","Name":"live"}
+2017-03-07 10:57:51.210 466789 [SimpleAsyncTaskExecutor-4] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"FAIL","ErrorCode":10004,"ErrorInfo":"invalid owner id"}
+2017-03-07 10:57:51.211 466790 [SimpleAsyncTaskExecutor-4] ERROR c.f.c.qcloud.QCloudMessageUtil- addGroup fail, {"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUP4b2ddd24-2c9b-48b7-a739-4740f45e9763","Name":"live"}
+2017-03-07 10:58:00.000 475579 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 10:58:00.020 475599 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:58:00.033 475612 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:58:00 CST 2017
+2017-03-07 10:58:00.082 475661 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:58:00.106 475685 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:58:05.003 480582 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:58:05.093 480672 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:59:00.001 535580 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 10:59:00.045 535624 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 10:59:00.051 535630 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 10:59:00 CST 2017
+2017-03-07 10:59:00.104 535683 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 10:59:05.003 540582 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 10:59:05.074 540653 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 10:59:59.982 595561 [pool-2-thread-1] INFO  c.f.p.t.HandleOverdueInterationTask- ******************handle overdue refresh start*********************
+2017-03-07 11:00:00.017 595596 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 11:00:01.481 597060 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 11:00:01.498 597077 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 11:00:01.502 597081 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:00:01.571 597150 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:00:01.571 597150 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:00:01 CST 2017
+2017-03-07 11:00:01.622 597201 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:00:05.001 600580 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:00:05.112 600691 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:01:00.003 655582 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:01:00 CST 2017
+2017-03-07 11:01:00.053 655632 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:01:00.059 655638 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:01:00.087 655666 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:01:05.001 660580 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:01:05.068 660647 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:22:32.525 648  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 11:22:32.600 723  [main] INFO  c.f.c.service.QcloudServiceTest- Starting QcloudServiceTest on localhost with PID 54956 (started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 11:22:32.600 723  [main] DEBUG c.f.c.service.QcloudServiceTest- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 11:22:32.600 723  [main] INFO  c.f.c.service.QcloudServiceTest- The following profiles are active: test
+2017-03-07 11:22:32.786 909  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 11:22:36.936 5059 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 11:22:37.743 5866 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 11:22:37.777 5900 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 11:22:37.820 5943 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=874998847
+2017-03-07 11:22:37.863 5986 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=874998847, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 11:22:38.479 6602 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 11:22:38.501 6624 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 11:22:38.579 6702 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=133261172
+2017-03-07 11:22:39.219 7342 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 11:22:39.223 7346 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 11:22:39.230 7353 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=228094520
+2017-03-07 11:22:39.798 7921 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://static.feedss.com/icon_zp/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 11:23:04.711 662  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 11:23:04.811 762  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 54965 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 11:23:04.811 762  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 11:23:04.811 762  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: test
+2017-03-07 11:23:05.058 1009 [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 11:23:11.887 7838 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 11:23:12.440 8391 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 11:23:12.444 8395 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 11:23:12.490 8441 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=179771538
+2017-03-07 11:23:12.536 8487 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=179771538, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 11:23:13.405 9356 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 11:23:13.432 9383 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 11:23:13.522 9473 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=244014470
+2017-03-07 11:23:14.244 10195 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 11:23:14.248 10199 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 11:23:14.255 10206 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=462557077
+2017-03-07 11:23:14.858 10809 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://static.feedss.com/icon_zp/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 11:23:19.189 15140 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 11:23:19.262 15213 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 11:23:19.310 15261 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 11:23:19.339 15290 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 11:23:19.340 15291 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 14.95 seconds (JVM running for 15.485)
+2017-03-07 11:23:42.073 38024 [http-nio-8188-exec-1] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test03", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"星空", "type":"Normal"}
+2017-03-07 11:23:46.403 42354 [http-nio-8188-exec-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 11:23:46.686 42637 [http-nio-8188-exec-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 11:23:46.707 42658 [http-nio-8188-exec-1] INFO  c.f.content.service.RoomService- userObj profile, {"age":0,"avatar":"http://image.xh.feedss.com/20170306/xinhuaxuanwen.png","birthdate":"","ext":{},"gender":1,"level":1,"nickname":"新华炫闻"}
+2017-03-07 11:23:46.728 42679 [http-nio-8188-exec-1] DEBUG c.f.content.service.RoomService- createStream cost time, 76, 167, 61, 17, 3
+2017-03-07 11:23:46.739 42690 [http-nio-8188-exec-1] INFO  c.f.base.spring.ControllerLogAop- execute info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test03", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"星空", "type":"Normal"}, execute time len:4659ms, response data:{"body":{"code":0,"data":{"playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4","appName":"live","latitude":0,"started":"2017-03-07 11:23:46","type":"Normal","playUri":"","uuid":"b488efcc-41c1-44c0-8922-1aadb4be167d","userId":"56db561a-3fdc-413a-b542-d0a8810589b8","parentId":"","cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg","isSecret":0,"publishUri":"","isVR":0,"ended":"2017-03-07 11:23:46","position":"星空","category":"c0d37690-8250-4133-b08f-fc328877a585","status":2,"longitude":0},"msg":"ok"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+2017-03-07 11:23:46.848 42799 [SimpleAsyncTaskExecutor-2] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=388432382
+2017-03-07 11:23:46.849 42800 [SimpleAsyncTaskExecutor-2] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=388432382, params:{"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUPb488efcc-41c1-44c0-8922-1aadb4be167d","Name":"live"}
+2017-03-07 11:23:47.205 43156 [SimpleAsyncTaskExecutor-2] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"FAIL","ErrorCode":10004,"ErrorInfo":"invalid owner id"}
+2017-03-07 11:23:47.206 43157 [SimpleAsyncTaskExecutor-2] ERROR c.f.c.qcloud.QCloudMessageUtil- addGroup fail, {"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUPb488efcc-41c1-44c0-8922-1aadb4be167d","Name":"live"}
+2017-03-07 11:24:00.003 55954 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:24:00.047 55998 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:24:00.047 55998 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 11:24:00.075 56026 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 11:24:00.116 56067 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:24:00.122 56073 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:24:00 CST 2017
+2017-03-07 11:24:05.003 60954 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:24:05.135 61086 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSiga97d8a1d800c437aab3b7a38b4add17b
+2017-03-07 11:24:05.208 61159 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigbc377dad772b4f818ee3aac1854c9060
+2017-03-07 11:24:05.259 61210 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig319bb2a4f19643748d539fb6007a6197
+2017-03-07 11:24:05.385 61336 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigb160abd0e6e84bac9b3afd42691f66cb
+2017-03-07 11:24:05.458 61409 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSigac0cede113384c14b08ca7f21074cc8a
+2017-03-07 11:24:05.517 61468 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8224e985ece141eba1cb3d5cc95859f2
+2017-03-07 11:24:05.568 61519 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig8c2afb4992ed4a7bbd293c33c9f8dc30
+2017-03-07 11:24:05.577 61528 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:24:59.999 115950 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 11:25:01.192 117143 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:25:01.229 117180 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:25:01.229 117180 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:25:01.237 117188 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:25:01 CST 2017
+2017-03-07 11:25:05.003 120954 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:25:05.100 121051 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:26:00.000 175951 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 11:26:00.008 175959 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:26:00.022 175973 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:26:00.072 176023 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:26:00.072 176023 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:26:00 CST 2017
+2017-03-07 11:26:05.003 180954 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:26:05.118 181069 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:26:59.998 235949 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 11:27:00.031 235982 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:27:00 CST 2017
+2017-03-07 11:27:00.117 236068 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:27:00.129 236080 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:27:00.158 236109 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:27:05.001 240952 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:27:05.317 241268 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:27:59.998 295949 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 11:28:00.005 295956 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 11:28:00.016 295967 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 11:28:00 CST 2017
+2017-03-07 11:28:00.077 296028 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 11:28:00.104 296055 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 11:28:05.002 300953 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 11:28:05.087 301038 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 11:28:18.619 314570 [http-nio-8188-exec-3] INFO  c.f.base.spring.ControllerLogAop- request info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test03", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"星空", "type":"Normal"}
+2017-03-07 11:28:18.642 314593 [http-nio-8188-exec-3] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 11:28:18.811 314762 [http-nio-8188-exec-3] INFO  c.f.content.service.RoomService- userObj profile, {"age":0,"avatar":"http://image.xh.feedss.com/20170306/xinhuaxuanwen.png","birthdate":"","ext":{},"gender":1,"level":1,"nickname":"新华炫闻"}
+2017-03-07 11:28:18.811 314762 [http-nio-8188-exec-3] DEBUG c.f.content.service.RoomService- createStream cost time, 30, 138, 1, 0, 0
+2017-03-07 11:28:18.812 314763 [http-nio-8188-exec-3] INFO  c.f.base.spring.ControllerLogAop- execute info: url:/stream/importVideo, Headers{ userId:null, userToken:null, deviceId:null, deviceAgent:null, deviceType:null, deviceVersion:null, appChannel:null, appVersion:null}, Params{ }, Body:{"appId":"xuanwen","appName":"xinhuaxuanwen","appToken":"091d7aa1600649df822f6be8fb0a5b6c", "title":"小视频test03", "cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg", "duration":"110", "playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4", "categoryId":"c0d37690-8250-4133-b08f-fc328877a585", "position":"星空", "type":"Normal"}, execute time len:192ms, response data:{"body":{"code":0,"data":{"playbackUri":"http://static.xh.feedss.com/20170307/447e47e5-fc5a-4fc7-9c98-49c63d48468d.mp4","appName":"live","latitude":0,"started":"2017-03-07 11:28:18","type":"Normal","playUri":"","uuid":"c5e4460c-e9d2-43c6-b6e3-dded0a68c01f","userId":"56db561a-3fdc-413a-b542-d0a8810589b8","parentId":"","cover":"http://image.xh.feedss.com/20170304/31cdf3d0-8d4d-471e-9c22-7b670d94ee58.jpg","isSecret":0,"publishUri":"","isVR":0,"ended":"2017-03-07 11:28:18","position":"星空","category":"c0d37690-8250-4133-b08f-fc328877a585","status":2,"longitude":0},"msg":"ok"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+2017-03-07 11:28:18.906 314857 [SimpleAsyncTaskExecutor-4] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=157553859
+2017-03-07 11:28:18.906 314857 [SimpleAsyncTaskExecutor-4] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/group_open_http_svc/create_group?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz8a0W7stJjxMWJAJUUDR*NIU2m4XQjfbghPjv1sb0NdzcnPPvV-R03R5zbsOBOOOJUZENxGKrgKWfQdGMq6cNB5jSmmM0MUepbHQai9ihCmOE4T*JQipHSgIg1zsQZ*FhdqTWTkfTkbUqZO2eGoXZbpdm6oR5TqF3ql*3JDnh5N*X2WT0W2LXgooto-K5BjL*7uFlbviKKo8Xc7atzo5zCs0NvVrllWrYd2Qj8HgskzsWLjtt574Ol9J4rN0sJeB5xRhQv7S*WbTHrRj7rOT4RnfP*k-V*E_&contenttype=json&random=157553859, params:{"Type":"AVChatRoom","Owner_Account":"56db561a-3fdc-413a-b542-d0a8810589b8","GroupId":"GROUPc5e4460c-e9d2-43c6-b6e3-dded0a68c01f","Name":"live"}
+2017-03-07 11:28:19.272 315223 [SimpleAsyncTaskExecutor-4] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorCode":0,"GroupId":"GROUPc5e4460c-e9d2-43c6-b6e3-dded0a68c01f"}
+2017-03-07 12:21:09.647 645  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 12:21:09.742 740  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 55960 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 12:21:09.742 740  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 12:21:09.742 740  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: xh
+2017-03-07 12:21:09.997 995  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 12:21:18.289 9287 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 12:21:18.789 9787 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 12:21:18.793 9791 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 12:21:18.844 9842 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=362559042
+2017-03-07 12:21:18.887 9885 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=362559042, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 12:21:19.747 10745 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"FAIL","ErrorCode":70009,"ErrorInfo":"tls_check_signature failed  decrypt sig failed failed iRet:-2 sdkappid:1400012342,acctype:6463,identifier:admin sig:B*24*zIqPOPnBJlhV04_"}
+2017-03-07 12:21:19.770 10768 [main] ERROR c.f.c.qcloud.QCloudMessageUtil- setAppAttrs fail, {"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 12:21:19.773 10771 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 12:21:19.863 10861 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=257599918
+2017-03-07 12:21:20.124 11122 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"FAIL","ErrorCode":70009,"ErrorInfo":"tls_check_signature failed  decrypt sig failed failed iRet:-2 sdkappid:1400012342,acctype:6463,identifier:admin sig:B*24*zIqPOPnBJlhV04_"}
+2017-03-07 12:21:20.128 11126 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import account error, {"ActionStatus":"FAIL","ErrorCode":70009,"ErrorInfo":"tls_check_signature failed  decrypt sig failed failed iRet:-2 sdkappid:1400012342,acctype:6463,identifier:admin sig:B*24*zIqPOPnBJlhV04_"}
+2017-03-07 12:21:20.128 11126 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 12:21:20.134 11132 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400012342&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=573774300
+2017-03-07 12:21:20.292 11290 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://static.feedss.com/icon_zp/system.png"}, resp = {"ActionStatus":"FAIL","ErrorCode":70009,"ErrorInfo":"tls_check_signature failed  decrypt sig failed failed iRet:-2 sdkappid:1400012342,acctype:6463,identifier:admin sig:B*24*zIqPOPnBJlhV04_"}
+2017-03-07 12:21:20.293 11291 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import account error, {"ActionStatus":"FAIL","ErrorCode":70009,"ErrorInfo":"tls_check_signature failed  decrypt sig failed failed iRet:-2 sdkappid:1400012342,acctype:6463,identifier:admin sig:B*24*zIqPOPnBJlhV04_"}
+2017-03-07 12:21:24.885 15883 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 12:21:24.962 15960 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 12:21:24.976 15974 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 12:21:25.006 16004 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 12:21:25.008 16006 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 15.683 seconds (JVM running for 16.199)
+2017-03-07 12:21:59.999 50997 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:22:00.062 51060 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:22:00 CST 2017
+2017-03-07 12:22:00.178 51176 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:22:00.210 51208 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:22:00.210 51208 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:22:00.350 51348 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 12:22:05.002 56000 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:22:05.060 56058 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:22:59.999 110997 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:22:59 CST 2017
+2017-03-07 12:23:00.126 111124 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:23:00.170 111168 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:23:00.171 111169 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:23:04.998 115996 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:23:05.019 116017 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:23:59.999 170997 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 12:24:00.014 171012 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[4b2ddd24-2c9b-48b7-a739-4740f45e9763]不存在
+2017-03-07 12:24:00.020 171018 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[c5e4460c-e9d2-43c6-b6e3-dded0a68c01f]不存在
+2017-03-07 12:24:00.021 171019 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:24:00.024 171022 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:24:00.061 171059 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:24:00.074 171072 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:24:00.081 171079 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:24:00 CST 2017
+2017-03-07 12:24:05.001 175999 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:24:05.023 176021 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:24:59.997 230995 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 12:25:00.162 231160 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:25:00.184 231182 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:25:00.191 231189 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:25:00 CST 2017
+2017-03-07 12:25:00.237 231235 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:25:05.003 236001 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:25:05.033 236031 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:25:36.815 267813 [http-nio-8188-exec-7] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:25:36.828 267826 [http-nio-8188-exec-7] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:25:36.829 267827 [http-nio-8188-exec-7] INFO  c.f.u.service.impl.UserServiceImpl- generate token, 4dccee16a755027ad35248017eb7be09
+2017-03-07 12:25:36.856 267854 [http-nio-8188-exec-8] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:25:42.094 273092 [http-nio-8188-exec-7] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:25:58.435 289433 [http-nio-8188-exec-4] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:25:59.999 290997 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:26:00.005 291003 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:26:00 CST 2017
+2017-03-07 12:26:00.135 291133 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:26:00.143 291141 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:26:00.180 291178 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:26:05.000 295998 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:26:05.021 296019 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:26:55.737 346735 [http-nio-8188-exec-5] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:26:59.996 350994 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 12:27:00.011 351009 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[cd8381bb-2296-4be1-95e1-9df2a0bd0438]不存在
+2017-03-07 12:27:00.011 351009 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:27:00.029 351027 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:27:00 CST 2017
+2017-03-07 12:27:00.090 351088 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:27:00.146 351144 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:27:05.000 355998 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:27:05.021 356019 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:28:00.001 410999 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:28:00.004 411002 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:28:00.018 411016 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:28:00.107 411105 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:28:00.108 411106 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:28:00 CST 2017
+2017-03-07 12:28:05.002 416000 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:28:05.020 416018 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:29:00.000 470998 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:29:00.030 471028 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:29:00.030 471028 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:29:00 CST 2017
+2017-03-07 12:29:00.107 471105 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:29:05.003 476001 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:29:05.034 476032 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:29:59.995 530993 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 12:30:00.125 531123 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 12:30:00.132 531130 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[b488efcc-41c1-44c0-8922-1aadb4be167d]不存在
+2017-03-07 12:30:00.132 531130 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:30:00.132 531130 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:30:00.149 531147 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:30:00 CST 2017
+2017-03-07 12:30:00.196 531194 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:30:00.217 531215 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:30:05.002 536000 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:30:05.041 536039 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:30:59.999 590997 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:30:59 CST 2017
+2017-03-07 12:31:00.063 591061 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:31:00.070 591068 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:31:00.163 591161 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:31:05.002 596000 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:31:05.035 596033 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:32:00.000 650998 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:32:00.000 650998 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:32:00.015 651013 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:32:00.037 651035 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:32:00.038 651036 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:32:00 CST 2017
+2017-03-07 12:32:05.002 656000 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:32:05.029 656027 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:52:23.854 667  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 12:52:23.966 779  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 56440 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 12:52:23.967 780  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 12:52:23.967 780  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: xh
+2017-03-07 12:52:24.234 1047 [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 12:52:32.339 9152 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 12:52:32.887 9700 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 12:52:32.891 9704 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 12:52:32.940 9753 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=286090962
+2017-03-07 12:52:32.989 9802 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=286090962, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 12:52:33.897 10710 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 12:52:33.925 10738 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 12:52:34.022 10835 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=535405751
+2017-03-07 12:52:34.958 11771 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 12:52:34.963 11776 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 12:52:34.970 11783 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=344599060
+2017-03-07 12:52:35.470 12283 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://image.xh.feedss.com/icon/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 12:52:39.200 16013 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 12:52:39.269 16082 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 12:52:39.283 16096 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 12:52:39.315 16128 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 12:52:39.317 16130 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 15.781 seconds (JVM running for 16.325)
+2017-03-07 12:53:00.004 36817 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:53:00.050 36863 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:53:00.050 36863 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:53:00 CST 2017
+2017-03-07 12:53:00.121 36934 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:53:01.235 38048 [http-nio-8188-exec-2] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:53:01.239 38052 [http-nio-8188-exec-2] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:53:01.267 38080 [http-nio-8188-exec-3] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:53:04.461 41274 [http-nio-8188-exec-9] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:53:05.003 41816 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:53:05.034 41847 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:54:00.002 96815 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:54:00.079 96892 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 12:54:00.088 96901 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 12:54:00.100 96913 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[4b2ddd24-2c9b-48b7-a739-4740f45e9763]不存在
+2017-03-07 12:54:00.108 96921 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[c5e4460c-e9d2-43c6-b6e3-dded0a68c01f]不存在
+2017-03-07 12:54:00.108 96921 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:54:00 CST 2017
+2017-03-07 12:54:00.171 96984 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:54:00.195 97008 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:54:00.195 97008 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:54:05.002 101815 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:54:05.020 101833 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:54:59.999 156812 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 12:55:00.434 157247 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:55:00.441 157254 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:55:00 CST 2017
+2017-03-07 12:55:00.493 157306 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:55:00.514 157327 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:55:05.000 161813 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:55:05.018 161831 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:55:59.999 216812 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:56:00.005 216818 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:56:00.033 216846 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:56:00.033 216846 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:56:00.046 216859 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:56:00 CST 2017
+2017-03-07 12:56:04.999 221812 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:56:05.042 221855 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:56:24.710 241523 [http-nio-8188-exec-1] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:56:59.998 276811 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 12:57:00.022 276835 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[cd8381bb-2296-4be1-95e1-9df2a0bd0438]不存在
+2017-03-07 12:57:00.022 276835 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:57:00.033 276846 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:57:00.059 276872 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:57:00.059 276872 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:57:00 CST 2017
+2017-03-07 12:57:05.003 281816 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:57:05.028 281841 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:57:59.999 336812 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 12:58:00.003 336816 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:58:00.023 336836 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:58:00 CST 2017
+2017-03-07 12:58:00.099 336912 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:58:00.123 336936 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:58:05.000 341813 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:58:05.020 341833 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:58:26.668 363481 [http-nio-8188-exec-3] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:59:00.003 396816 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 12:59:00.042 396855 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 12:59:00.051 396864 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 12:59:00.062 396875 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 12:59:00 CST 2017
+2017-03-07 12:59:05.003 401816 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 12:59:05.022 401835 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 12:59:19.705 416518 [http-nio-8188-exec-4] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:59:36.451 433264 [http-nio-8188-exec-8] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:59:47.922 444735 [http-nio-8188-exec-5] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 12:59:59.987 456800 [pool-2-thread-1] INFO  c.f.p.t.HandleOverdueInterationTask- ******************handle overdue refresh start*********************
+2017-03-07 13:00:00.007 456820 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 13:00:00.419 457232 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 13:00:00.426 457239 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[b488efcc-41c1-44c0-8922-1aadb4be167d]不存在
+2017-03-07 13:00:00.426 457239 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 13:00:00.426 457239 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 13:00:00.445 457258 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 13:00:00.446 457259 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 13:00:00 CST 2017
+2017-03-07 13:00:00.494 457307 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 13:00:05.003 461816 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 13:00:05.025 461838 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 13:00:10.469 467282 [http-nio-8188-exec-7] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 13:00:59.999 516812 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 13:00:59 CST 2017
+2017-03-07 13:01:00.057 516870 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 13:01:00.065 516878 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 13:01:00.098 516911 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 13:01:05.003 521816 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 13:01:05.027 521840 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 13:01:59.998 576811 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 13:02:00.017 576830 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 13:02:00.054 576867 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 13:02:00.054 576867 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 13:02:00.063 576876 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 13:02:00 CST 2017
+2017-03-07 13:02:05.003 581816 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 13:02:05.028 581841 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 16:03:37.125 579  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化环境变量......
+2017-03-07 16:03:37.202 656  [main] INFO  com.feedss.FeedssApplication- Starting FeedssApplication on localhost with PID 59299 (/Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss/target/classes started by zhouyujuan in /Users/zhouyujuan/Documents/dev/code/workspace-neon/feedss)
+2017-03-07 16:03:37.203 657  [main] DEBUG com.feedss.FeedssApplication- Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-03-07 16:03:37.203 657  [main] INFO  com.feedss.FeedssApplication- The following profiles are active: xh
+2017-03-07 16:03:37.415 869  [main] INFO  c.f.b.s.ApplicationEventListener- 初始化完成......
+2017-03-07 16:03:44.258 7712 [main] INFO  c.f.base.util.conf.ConfigureUtil- ConfigureUtil...
+2017-03-07 16:03:44.753 8207 [main] INFO  c.f.c.q.GenerateTLSSignatureUtil- init GenerateTLSSignatureUtil...
+2017-03-07 16:03:44.818 8272 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- init QCloudMessageUtil...
+2017-03-07 16:03:44.842 8296 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=586926635
+2017-03-07 16:03:44.878 8332 [main] INFO  com.feedss.base.util.HttpUtil- request url:https://console.tim.qq.com/v4/openim/im_set_attr_name?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=586926635, params:{"AttrNames":{"0":"group","1":"id"}}
+2017-03-07 16:03:46.035 9489 [main] INFO  com.feedss.base.util.HttpUtil- response:{"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 16:03:46.099 9553 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 16:03:46.180 9634 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=824373838
+2017-03-07 16:03:46.892 10346 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"nosessionAccount","Nick":"","FaceUrl":""}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 16:03:46.896 10350 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- Header:{Content-Type=[application/json;charset=UTF-8], Accept=[application/json;charset=UTF-8], Accept-Charset=[utf-8]}
+2017-03-07 16:03:46.901 10355 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- ========requestUrl = https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=1400025800&identifier=admin&usersig=eJxFkNFOwjAUQP9lz0a6rtVi4sMCU9GZ4AbT8NKUtRs3Zl0pHakx-juzAX09Jzf33PsdrfLyWhgDkgvHEyujuwhFVwErb8AqLhqn7IhjSilG6GKPyh6g16PAKKYxThD6lyCVdtBAGBSyA30WB2hH8pqtZ4vZfsg2t3vv2Kap5pKBIozYIZv4ybJukdV5v5yXZPfRiRSy1JtHfWyLp7dt9TItblLWbd*xK7rnsiGLKl8xgvxu-VCpGN1flslPHm77rSdjHabsL9FBpwJnjBI0JcmZi7ruB*24*zIqPOPnBJlhV04_&contenttype=json&random=434468002
+2017-03-07 16:03:47.814 11268 [main] INFO  c.f.c.qcloud.QCloudMessageUtil- import user to qcloud, req = {"Identifier":"systemMessageAccount","Nick":"系统消息","FaceUrl":"http://image.xh.feedss.com/icon/system.png"}, resp = {"ActionStatus":"OK","ErrorInfo":"","ErrorCode":0}
+2017-03-07 16:03:51.004 14458 [main] INFO  c.f.b.s.ApplicationEventListener- 应用刷新......
+2017-03-07 16:03:51.064 14518 [main] INFO  c.f.b.s.ApplicationEventListener- 应用已启动完成......
+2017-03-07 16:03:51.075 14529 [main] INFO  c.f.u.service.impl.UserServiceImpl- ini admin...
+2017-03-07 16:03:51.101 14555 [main] INFO  c.f.u.service.impl.UserServiceImpl- admin has exist...
+2017-03-07 16:03:51.102 14556 [main] INFO  com.feedss.FeedssApplication- Started FeedssApplication in 14.259 seconds (JVM running for 14.715)
+2017-03-07 16:04:00.000 23454 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 16:04:00.034 23488 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 16:04:00.066 23520 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 16:04:00.066 23520 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 16:04:00 CST 2017
+2017-03-07 16:04:00.133 23587 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 16:04:00.260 23714 [pool-2-thread-1] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig56db561a3fdc413ab542d0a8810589b8
+2017-03-07 16:04:05.004 28458 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 16:04:05.035 28489 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 16:05:00.001 83455 [pool-2-thread-1] DEBUG c.f.content.task.CategoryStreamTask- 更新分类下统计直播间和回放数量....
+2017-03-07 16:05:00.508 83962 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 16:05:00.534 83988 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 16:05:00.534 83988 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 16:05:00 CST 2017
+2017-03-07 16:05:00.607 84061 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 16:05:04.379 87833 [http-nio-8188-exec-2] INFO  com.feedss.base.util.RedisUtil- cachekey = MessageUserSig1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 16:05:04.380 87834 [http-nio-8188-exec-2] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 16:05:04.402 87856 [http-nio-8188-exec-3] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 16:05:05.001 88455 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 16:05:05.015 88469 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 16:05:07.044 90498 [http-nio-8188-exec-9] INFO  com.feedss.base.util.RedisUtil- cachekey = TOKEN1697d4d82e6644d8a7027a8a245c71c5
+2017-03-07 16:05:59.999 143453 [pool-2-thread-1] DEBUG com.feedss.content.task.RoomTask- 监控Room在线状态....
+2017-03-07 16:06:00.013 143467 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[4b2ddd24-2c9b-48b7-a739-4740f45e9763]不存在
+2017-03-07 16:06:00.022 143476 [pool-2-thread-1] INFO  c.f.c.monitor.impl.RoomListeners- 主播房间stream：[c5e4460c-e9d2-43c6-b6e3-dded0a68c01f]不存在
+2017-03-07 16:06:00.022 143476 [pool-2-thread-1] DEBUG c.feedss.content.task.AudienceTask- 监控room观众在线状态....
+2017-03-07 16:06:00.026 143480 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 16:06:00.052 143506 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 16:06:00.052 143506 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 16:06:00 CST 2017
+2017-03-07 16:06:00.121 143575 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 16:06:05.002 148456 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 16:06:05.024 148478 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 16:07:00.017 203471 [pool-2-thread-1] INFO  c.f.base.util.conf.ConfigureUtil- >>>>>>>>>>>>> load config ... Tue Mar 07 16:07:00 CST 2017
+2017-03-07 16:07:00.091 203545 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift Start*********************
+2017-03-07 16:07:00.112 203566 [pool-2-thread-1] INFO  com.feedss.user.task.ProductTask- ******************Receive Gift End*********************
+2017-03-07 16:07:00.112 203566 [pool-2-thread-1] DEBUG com.feedss.content.task.StreamTask- 监控stream状态....
+2017-03-07 16:07:05.000 208454 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh start*********************
+2017-03-07 16:07:05.027 208481 [pool-2-thread-1] INFO  com.feedss.user.task.HostListTask- ******************host list refresh end*********************
+2017-03-07 16:07:32.679 236133 [Thread-7] INFO  c.f.b.s.ApplicationEventListener- 应用关闭......

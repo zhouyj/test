@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-xs-6 col-sm-4 col-md-3" th:each="product : ${productList.list}" style="margin-bottom: 15px">
+		<div class="product-item">
+			<a href="#">
+				<div class="product-pic">
+					<a href="#"><img th:src="@{${product.pic}}" width="160px" height="120px"/></a>
+				</div>
+				<div class="product-text">
+					<a href="javascript:;"><h5 th:text="${product.name}">少儿保险保险金</h5></a>
+					<!-- 
+					<div style="margin: -6px 0 15px 0"><small style="color: grey">原价 ￥<span th:text="${product.price / 10}"></span></small></div>
+					 -->
+					<div><a style="color: #ff5900" th:text="${product.price}"></a> 普法币</div>
+				</div>
+				<br/>
+				<div>
+					<a th:href="@{/shop/buy?productId=} + ${product.uuid}" class="btn btn-primary btn-small">兑换</a>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

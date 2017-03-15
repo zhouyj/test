@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/pufa/unslider/css/unslider.css">
+<script type="text/javascript" src="/pufa/unslider/js/unslider-min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.slider-ad').unslider({
+			arrows : true
+		});
+	});
+</script>
+
+<div class="shop-ad-list" th:each="banner : ${banners}">
+	<h5 class='section-header video' style="width: 70%; margin: 0 auto;">
+		<a th:href="@{/shop/bannerDetail?category=} + ${banner.category.uuid}"> 
+			<span class='section-name-container'>
+				<h3 class='section-name' th:text="${banner.category.name}">广告标题</h3>
+			</span>
+		</a>
+	</h5>
+	<div style="width: 95%; margin: 0 auto; position: relative;">
+		<div class="slider-ad">
+			<ul>
+				<li th:each="items : ${banner.banners}">
+					<div class="row" style="font-size: 16px;">
+						<div class="col-xs-4 col-md-2" th:each="item : ${items}">
+							<div class="product-item" style="background: none;">
+								<div class="product-pic">
+									<a th:href="${item.content}"><img th:src="${item.picUrl}" /></a>
+								</div>
+								<div class="product-text">
+									<a th:href="${item.content}" th:text="${item.title}">标题</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

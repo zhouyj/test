@@ -1,0 +1,103 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+    <div th:include="/common/header::header"></div>
+    <title>榜单</title>
+</head>
+<body>
+<div class="header"><span class="backBtn"></span>
+    <div class="tab_list"><span>人气榜</span><span>经验榜</span><span class="selected">忠诚榜</span></div>
+</div>
+
+<input type="hidden" id="viewUserId" value="" th:value="${viewUserId}"/>
+<input type="hidden" id="type" value="" th:value="${type}"/>
+
+<div class="rank_tab_list">
+    <a href="" th:href="${weekUrl}"><span>本周排行</span></a>
+    <a href="" th:href="${monthUrl}"><span >本月排行</span></a>
+    <a href="" th:href="${yearUrl}"><span >年度排行</span></a></div>
+<div class="rank">
+
+    <div class="rank_item" th:each="one:${list}">
+        <div class="pic"><img src="images/image_164x164.jpg" th:src="${one.user.profile.avatar}"/></div>
+        <div class="followBtn dis" th:if="${one.user.uuid eq viewUserId}" th:attr="isfollow=-1"></div>
+        <div class="followBtn dis" th:if="${one.user.uuid ne viewUserId and one.user.isFollow eq 1}" th:data="${one.user.uuid}" th:attr="isfollow=${one.user.isFollow}">已关注</div>
+        <div class="followBtn" th:if="${one.user.uuid ne viewUserId and one.user.isFollow eq 0}" th:data="${one.user.uuid}" th:attr="isfollow=${one.user.isFollow}">关注</div>
+        <h2 th:text="${one.user.profile.nickname}">纯情丶失落り</h2>
+        <h3 th:text="${one.user.describe}">本周观看时长：<em>121h</em></h3>
+    </div>
+
+
+</div>
+
+<div class="nodata_outer2" th:if="${list ==null || #lists.size(list) eq 0}">
+    <div class="nodata_inner2">
+        <img src="/images/nodata.png" />
+        <span>人都到哪儿去啦？</span>
+    </div>
+</div>
+
+<div class="report_submit more_btn" id="moreBtn" onclick="loadData()">加载更多</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var viewUserId = $("#viewUserId").val();
+    var type = $("#type").val();
+
+    $(function(){
+        $(".rank_tab_list span").eq(type-1).addClass("selected");
+        $(".rank_item").eq(0).addClass("no1");
+        $(".rank_item").eq(1).addClass("no2");
+        $(".rank_item").eq(2).addClass("no3");
+        $(".followBtn").bind("click", function(){
+            var o = $(this);
+            var follow = parseInt(o.attr("isfollow"));
+
+            if(follow == 1){
+                doUnFollow(o.attr("data"));
+            }else if(follow == 0){
+                doFollow(o.attr("data"));
+            }
+        });
+    });
+
+    function doFollow(toUserId) {
+        $.post("/h5/follow", {
+            "userId": viewUserId,
+            "toUserId": toUserId
+        }, function (data) {
+            if (data) {
+                if (data.code == 0) {
+                    //alert("关注成功");
+                    location.reload();
+                    return;
+                }
+                alert(data.msg);
+            }
+
+        });
+    }
+
+    function doUnFollow(toUserId) {
+        $.post("/h5/unFollow", {
+            "userId": viewUserId,
+            "toUserId": toUserId
+        }, function (data) {
+            if (data) {
+                if (data.code == 0) {
+                    //alert("取消关注成功");
+                    location.reload();
+                    return;
+                }
+                alert(data.msg);
+            }
+
+        });
+    }
+
+/*]]>*/
+</script>
+</body>
+</html>

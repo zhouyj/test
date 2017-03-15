@@ -1,0 +1,46 @@
+<!-- 顶部导航公用组件 -->
+<div class='top-bar'>
+	<div class='container top-bar-container'>
+		<!-- logo -->
+		<div class='top-bar-part top-background'>
+			<div class="logo">
+				<a href="/">
+					<img th:src="@{/pufa/images/logo_text.png}" class="img-responsive" style="width: 100%" />
+				</a>
+			</div>
+		</div>
+		<!-- 移动的菜单按钮 -->
+		<button class='menu-button mobile-button transparent-button visible-sm-block visible-xs-block' type='button' name='menu'>
+			<i class='fa fa-bars'></i>
+		</button>
+	</div>
+	
+	<!-- PC端菜单 -->
+	<div class="hidden-xs hidden-sm" style="width: 100%; background-color: #ff5900">
+		<div class='container menu-bar '>
+			<div style="float: right; height: 40px;">
+				<div class="social-icons" th:if="not ${session.user}" style="padding-top: 8px">
+					<a href="/sign?tab=signin">登录</a> | <a href="/sign?tab=signup">注册</a>
+				</div>
+				<div class="social-icons" th:if="${session.user}" >
+					<a th:href="@{/profile}" th:if="${session.user.containsKey('profile')} and ${session.user.profile}">
+						<img th:src="${session.user.profile.avatar} ? ${session.user.profile.avatar} : '@{/pufa/images/default_head.jpg}'" width="40px" height="40px" class="img-circle" />
+						&nbsp;&nbsp;
+						<a th:href="@{/profile}" th:text="(${session.user.profile} and ${session.user.profile.nickname}) ? ${session.user.profile.nickname} : ${session.user.mobile}"></a> 
+						| <a th:href="@{/signout}">退出</a>
+					</a>
+				</div>
+			</div>
+			<div class="alibaba-link"><a href="/lives" style="">普法直播</a></div>
+			<div class="alibaba-link dropdown dropdown-business" th:each="category : ${navTree}">
+				<a th:class="${category.childList} ? 'has-sub-menu'" th:href="${category.childList} ? 'javascript:;' : 'list?category='+${category.uuid}" th:text="${category.name}">导航标题</a>
+				<ul class="sub-menu hidden-xs hidden-sm" th:if="${category.childList}">
+					<li th:each="childCategory : ${category.childList}">
+						<a href="#" th:href="'/list?category=' + ${childCategory.uuid}" th:text="${childCategory.name}">子导航标题</a>
+					</li>
+				</ul>
+			</div>
+			<div class="alibaba-link dropdown dropdown-business"><a href="/shop" style="">普法币商城</a></div>
+		</div>
+	</div>
+</div>

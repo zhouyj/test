@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 顶部 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<div class='col-md-3 shop-top'>
+					<div th:replace="/pufa/frag/shop_menu"></div>
+				</div>
+				<div class='col-md-6 shop-top'>
+					<div th:replace="/pufa/frag/banner_shop"></div>
+				</div>
+				<div class='col-md-3 shop-top'>
+					<div th:replace="/pufa/frag/shop_right"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 商品 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<div class='col-md-3 hidden-xs' th:if="${leftBanner}">
+					<a th:href="${leftBanner.content}"><img th:src="${leftBanner.picUrl}"/></a>
+				</div>
+				<div class='col-xs-12 col-md-9'>
+					<div th:replace="/pufa/frag/shop_product_content"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 大广告 -->
+		<div class='container main-content home'>
+				<div th:replace="/pufa/frag/shop_ad_middle"></div>
+		</div>
+		
+		<!-- 小广告 -->
+		<div class='container main-content home'>
+				<div th:replace="/pufa/frag/shop_ad_bottom"></div>
+		</div>
+		
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer_shop"></footer>
+	</body>
+
+</html>

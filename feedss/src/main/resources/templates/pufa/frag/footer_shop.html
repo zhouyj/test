@@ -1,0 +1,46 @@
+<!-- 悬浮窗 -->
+<div class="box hidden-xs hidden-sm">
+	<ul>
+		<li class="backtop" onclick="$('html, body').animate({scrollTop:0}, 'slow');">
+		</li>
+		<li class="weixin">
+			<div class="weixin-logo"></div>
+		</li>
+		<li class="weibo" style="margin-top: -4px">
+			<div class="weibo-logo"></div>
+		</li>
+		<li class="call" style="margin-top: -1px">
+			<div class="call-logo">
+				<img src="/pufa/images/call.png">
+			</div>
+		</li>
+	</ul>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+	<div class="container">
+		<div class="footer-row">
+			<div class="footer-part company-logo">
+				<div class="logo">
+					<a href="/"><img th:src="@{/pufa/images/logo.png}" alt="" class="img-responsive" style="width: 100%;" /></a>
+				</div>
+			</div>
+			<div class="footer-part other-links right">
+				<div class="legal-link ">
+					<a th:href="@{/article?articleId=59002188-98a8-41aa-b027-655205a0ffb6}"><b>关于我们</b></a>
+				</div>
+				<div class="legal-link ">
+					<a th:href="@{/article?articleId=8b439bb1-6358-4109-b7dd-c227925fdaa0}"><b>新手帮助</b></a>
+				</div>
+			</div>
+			<div class="footer-part social-icons right pufa-weixin">
+				<img th:src="@{/pufa/images/u74.png}" alt="" width="60px" />
+				<div class="weixin-logo"></div>
+			</div>
+		</div>
+	</div>
+	<div style="padding-left: 40px;">
+		<p class="footer-copyright">Copyright © 2014-2016 www.51pufa.cn All Rights Reserved ｜京ICP备15019711号-1</p>
+	</div>
+</footer>

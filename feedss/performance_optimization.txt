@@ -1,0 +1,78 @@
+##linux
+
+#网络
+#vim /etc/sysctl.conf
+#add
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 1
+net.ipv4.tcp_fin_timeout = 5
+
+net.ipv4.tcp_keepalive_time = 1800 
+net.ipv4.tcp_keepalive_probes = 3 
+net.ipv4.tcp_keepalive_intvl = 15 
+
+#生效
+#/sbin/sysctl -p
+#/sbin/sysctl -p /etc/sysctl.conf
+
+#/etc/rc.d/init.d/network restart 
+
+#状态统计
+#netstat -an | awk '/^tcp/ {++s[$NF]} END {for(a in s) print a, s[a]}'
+
+#打开文件数
+#vim /etc/security/limits.conf
+#add
+* soft nofile 65535  
+* hard nofile 65535
+
+#cat /proc/sys/fs/file-max
+#ulimit -a
+
+
+##nginx
+#proxy
+	proxy_connect_timeout 300;
+	proxy_read_timeout 300;
+	proxy_send_timeout 300;
+	proxy_buffer_size 64k;
+	proxy_buffers   4 32k;
+	proxy_busy_buffers_size 64k;
+	proxy_temp_file_write_size 64k;
+
+#fastcgi	
+	fastcgi_connect_timeout 300;
+	fastcgi_read_timeout 300;
+	fastcgi_send_timeout 300;
+	fastcgi_buffer_size 64k;
+	fastcgi_buffers   4 32k;
+	fastcgi_busy_buffers_size 64k;
+	fastcgi_temp_file_write_size 64k;
+	
+##mysql max connections
+
+set GLOBAL max_connections=1000;
+
+show variables like '%max_connections%';
+show status like '%Max_used_connections%';
+
+
+##spring boot
+http://blog.oneapm.com/apm-tech/385.html
+http://www.alexecollins.com/spring-boot-performance/
+https://dzone.com/articles/spring-boot-memory-performance
+
+spring.datasource.tomcat.max-wait=10000
+spring.datasource.tomcat.max-active=500
+spring.datasource.tomcat.test-on-borrow=true
+
+spring.datasource.max-active=500
+spring.datasource.initial-size=50
+spring.datasource.max-idle=50
+spring.datasource.min-idle=20
+
+server.tomcat.max-threads=1024
+
+
+

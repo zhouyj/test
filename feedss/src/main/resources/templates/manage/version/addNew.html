@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header :: header">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/custom.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		th:replace="/fragments/nav :: nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar"
+				th:replace="/fragments/left :: left ('trailer')">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">功能1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+					<li><a href="#">功能1</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+					<li><a href="">功能1</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header ">添加版本</h2>
+				<form action="/manage/version/add" method="post" id="addForm">
+					
+					<div class="form-group">
+							<label for="exampleInputEmail1">内容</label> 
+							<textarea name="update_info" class="form-control" rows="10"></textarea>
+					</div>
+					<div class="form-group">
+							<label for="exampleInputEmail1">文件（文件格式：版本_版本号_更新类型_渠道.apk）&nbsp;&nbsp;
+								<input type="file"  multiple="multiple" onchange="addFile1()" id="addFile">
+							</label>
+							<div class="row" id="channel_">
+																
+							</div>
+					</div>
+					<button type="button" class="btn btn-default" onclick="history.go(-1);">取消</button> &nbsp;&nbsp;
+					<button type="button" class="btn btn-success" onclick="submitAdd()">提交</button>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+
+
+
+	<div style="display: none" th:replace="/fragments/footer :: footer">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	</div>
+	<script src="/js/bootstrap-paginator.js"></script>
+	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript"  src="/js/jquery.form.js"></script>
+	<script>
+		$('#time').datetimepicker({
+		    format: 'yyyy-mm-dd',
+			minView:2,
+			pickerPosition:"bottom-right"
+		});
+		
+		
+		
+		
+		function submitAdd(){
+			$.ajax({
+   			   type: "POST",
+   			   url: "/manage/version/add",
+   			   data: $("#addForm").serialize(),
+   			   dataType:"json",
+   			   success: function(msg){
+   			     if(msg.code==0){
+   			    	 alert("添加成功")
+   			    	 location.href="/manage/version/list";
+   			     }else{
+   			    	 alert(msg.msg);
+   			     }
+   			   }
+   			});
+			return true;
+		}
+		
+		function addFile1(){
+			var files = document.getElementById('addFile').files;
+			var a=files;
+			var formdata = new FormData(document.getElementById('addFile'));
+			 for (var i=0; i < a.length; i++) {
+		            formdata.append(a[i].name, a[i].value);
+		            console.info(a[i].name+" -@-  "+a[i].value)
+		        }
+			for(var i=0;i<files.length;i++){
+				var formId="up_"+(new Date().getTime());
+				addChannel(formId,files[i]);
+			}
+			
+		}
+		
+		function addChannel(formId,file){
+			var html='<div class="col-sm-12 col-sm-offset-2 col-md-12 col-md-offset-1 ">';
+			html+='<div class="form-group form-inline">';
+			html+='<input type="hidden" name="fileUrls" value="">';
+			html+='<input type="hidden" name="channelInfos" value="">';
+			html+='<form id="'+formId+'" style="display: inline;" enctype="multipart/form-data">';
+			html+='<input type="text"  id="'+formId+'_fileName" class="form-control"  readonly >';
+			html+='<input type="file"  name="file" style="display: none;" id="'+formId+'_file" class="form-control"  placeholder="文件">';
+			html+='</form>&nbsp;&nbsp;';
+			html+='进度：<div class="progress">';
+			html+='<div class="progress-bar" >0%</div>';
+			html+='</div>';
+			html+='&nbsp;&nbsp;<button class="btn btn-danger" type="button" onclick="delChannel(this)" >删除</button>';
+			html+='&nbsp;<span id="'+formId+'_error" style="color:red"></span>';
+			html+='</div>';
+			html+='</div>';
+			$("#channel_").append(html)
+			
+			$("#"+formId+"_fileName").val(file.name)
+			
+			var files=document.getElementById(formId+'_file').files;
+			files[0]=file;
+			bindFrom(formId);
+			$("#"+formId).submit();
+		}
+		
+		function delChannel(obj){
+			$(obj).parent().parent().remove();
+		}
+		
+		function bindFrom(id){
+			$('#'+id).ajaxForm({
+		 		/* url:"/manage/version/upLoadFileNew", */
+		 		url:"/file/upload",
+		 		type:"post",
+		 		timeout:"200000",
+		        dataType: 'json',
+		        beforeSubmit:function(arr, _form, options){
+		        	for(var i=0;i<arr.length;i++){
+		        		var obj=arr[i];
+		        		if(obj.name=='file'){
+		        			//if(obj.value==''){
+		        			//	alert("文件不能为空");
+		        			//	return false;
+		        			//}
+		        			//var file_name=obj.value.name.substr(obj.value.name.lastIndexOf(".")).toLowerCase();
+		        			//if(file_name!='.xls'){
+							//	alert("请上传后缀名为xls的文件!");
+							//	return false;
+							//}
+		        		}
+		        	}
+		        	return true;
+		        },
+		        uploadProgress:function(event, position, total, percent){
+		        	$("#"+id).next().find(".progress-bar").css("width",percent+"%")
+		        	$("#"+id).next().find(".progress-bar").text(percent+"%")
+		        },
+		        error:function(e){
+		        	console.info(e)
+		        	$("#"+id).next().find(".progress-bar").text("异常")
+		        },
+		        success: function(msg){
+		        	if(msg.code==0){
+		        		$("#"+id).next().find(".progress-bar").text("成功")
+		        		$("#"+id).parent().find("input[name=fileUrls]").val(msg.data.files[0])
+		        		$("#"+id).parent().find("input[name=channelInfos]").val($("#"+id+"_fileName").val())
+		        	}else{
+		        		$("#"+id).next().find(".progress-bar").text("失败")
+		        		$("#"+id+"_error").text(msg.msg)
+		        	}
+		        },
+		    });
+		}
+		
+		
+    </script>
+    
+    
+    
+</body>
+</html>

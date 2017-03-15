@@ -1,0 +1,30 @@
+<div layout:decorator="/fragments/layout" layout:fragment="content">
+<div class="page-header">
+ <span ><button type="button" class="btn btn-default glyphicon glyphicon-plus">添加banner</button></span>
+</div>
+<table class="table table-bordered text-center " style="line-height:25px">
+  <tr>
+     <th class="text-center">广告ID</th>
+     <th class="text-center">排序</th>
+     <th class="text-center">图片</th>
+     <th class="text-center">类型</th>
+     <th class="text-center">链接</th>
+     <th class="text-center">操作</th>
+  </tr>
+  <tr th:each="banner:${banners}">
+    <td th:text="${banner.uuid}"></td>
+    <td th:text="${banner.sort}"></td>
+    <td><img  th:src="${banner.picUrl}" width="130px" height="50px"/> </td>
+    <td th:switch="${banner.type}">
+        <p th:case="0">预告</p>
+　　           <p th:case="1">直播 </p>
+		<p th:case="2">回放</p>
+		<p th:case="3">空间</p>
+		<p th:case="4">H5页面</p>
+		<p th:case="5">无跳转</p>
+    </td>
+    <td th:text="${banner.content}"></td>
+    <td>编辑|删除</td>
+  </tr>
+</table>
+</div>

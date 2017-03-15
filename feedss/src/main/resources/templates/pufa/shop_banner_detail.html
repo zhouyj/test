@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/pufa/frag/head"></head>
+<body class="home blog index">
+	<nav th:replace="/pufa/frag/nav"></nav>
+
+	<!-- 大广告 
+	<div class='container main-content home'>
+		<div style="margin: 20px 0">
+			<a href="http://www.qingda100.cn/" target="_blank"> <img th:src="@{/pufa/images/example/shop_ad2.jpg}" width="100%" />
+			</a>
+		</div>
+	</div>
+	-->
+	
+	<!-- 机构列表 -->
+	<div class='container main-content home'>
+		<!-- 面包屑 -->
+		<div class="breadNav">
+			<style>
+				.breadcrumb > li + li:before {color: #CCCCCC;content: " - ";padding: 0 5px;}
+				.breadcrumb .active{color: #ff5900}
+			</style>
+			<ol class="breadcrumb" style="background-color: white;">
+				<li>您所在的位置：</li>
+				<li th:each="city,iterStat : ${citys}">
+					<a th:class="${iterStat.last} ? active" th:text="${city}">分类项</a>
+				</li>
+			</ol>
+		</div>
+		<h5 class='section-header video' style="width: 70%; margin: 0 auto;">
+			<a href="javascript:;"> 
+				<span class='section-name-container'>
+					<h3 class='section-name' th:text="${category.name}">广告标题</h3>
+				</span>
+			</a>
+		</h5>
+		<div class="shop-ad-list">
+			<div class="row" style="font-size: 16px;">
+				<div class="col-xs-4 col-md-2" th:each="banner : ${bannerList}">
+					<div class="product-item" style="background: none;">
+						<div class="product-pic">
+							<a th:href="${banner.content}"><img th:src="${banner.picUrl}" /></a>
+						</div>
+						<div class="product-text">
+							<a th:href="${banner.content}" th:text="${banner.title}">标题</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 页尾 -->
+	<footer th:replace="/pufa/frag/footer_shop"></footer>
+</body>
+
+</html>

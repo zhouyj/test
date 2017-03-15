@@ -1,0 +1,93 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 通用端左边 -->
+				<div class='col-md-9 left-content'>
+					<!-- 面包屑 -->
+					<div class="breadNav">
+						<style>
+							.breadcrumb > li + li:before {color: #CCCCCC;content: "/ ";padding: 0 5px;}
+							.breadcrumb .active{color: #ff5900}
+						</style>
+							<ol class="breadcrumb" style="background-color: white;">
+							<li><a th:href="@{/}"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+							<li th:each="category,iterStat : ${breadNav}">
+								<a th:class="${iterStat.last} ? active" th:href="${iterStat.first} ? 'javascript:;' : (@{/list?category=} + ${category.uuid})" th:text="${category.name}">分类项</a>
+							</li>
+						</ol>
+					</div>
+					<div class="news-latest" th:if="(not ${data}) or (not ${data.containsKey('list')}) or (not ${data.list}) or ${data.list.isEmpty()}" style="text-align: center;">
+						<h3>暂无数据</h3>
+					</div>
+					<div class="news-latest" th:if="${data} and ${data.containsKey('list')} and ${data.list} and not ${data.list.isEmpty()}">
+						<div class="news-item rows" th:each="item : ${data.list}">
+							<div class="col-md-3">
+								<a th:href="'article?articleId='+${item.uuid}"><img th:src="(${!#strings.isEmpty(item.cover)}) ? @{${item.cover}} : @{/pufa/images/pic_default.jpg}" /></a>
+							</div>
+							<div class="col-md-9">
+								<a th:href="'article?articleId='+${item.uuid}"><h3 th:text="${item.name}" th:title="${item.name}">标题</h3></a>
+								<p>
+									来源：<th:block th:text="${item.source} ? ${item.source} : '无'"></th:block>｜
+									<th:block th:if="${item.updated} != null" th:text="${#dates.format(item.updated,'yyyy-MM-dd HH:mm')}"></th:block>｜
+									阅读量：<th:block th:text="${item.viewCount}"></th:block>
+								</p>
+								<p th:text="${item.summary}"></p>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<nav th:if="${data} and ${data.containsKey('list')} and ${data.list} and not ${data.list.isEmpty()}">
+						<ul class="pagination">
+							<!-- 上一页 -->
+							<li>
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo - 1}" class="btn" th:classappend="(${data.pageNo} lt 2)? 'disabled'" role="button">&lt;</a>
+							</li>
+							<!-- 向前三页 -->
+							<li th:if="${data.pageNo} gt 3">
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo-3}" class="btn" role="button" th:text="${data.pageNo}-3"></a>
+							</li>
+							<li th:if="${data.pageNo} gt 2">
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo-2}" class="btn" role="button" th:text="${data.pageNo}-2"></a>
+							</li>
+							<li th:if="${data.pageNo} gt 1">
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo-1}" class="btn" role="button" th:text="${data.pageNo}-1"></a>
+							</li>
+							<!-- 当前页 -->
+							<li>
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo}" class="btn disabled" role="button" th:text="${data.pageNo}"></a>
+							</li>
+							<!-- 向后三页 -->
+							<li th:if="${data.pageNo+1} le ${data.totalPage}">
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo+1}" class="btn" role="button" th:text="${data.pageNo}+1"></a>
+							</li>
+							<li th:if="${data.pageNo+2} le ${data.totalPage}">
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo+2}" class="btn" role="button" th:text="${data.pageNo}+2"></a>
+							</li>
+							<li th:if="${data.pageNo+2} le ${data.totalPage}">
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo+3}" class="btn" role="button" th:text="${data.pageNo}+3"></a>
+							</li>
+							<!-- 下一页 -->
+							<li>
+								<a th:href="'list?category=' + ${data.category} +'&amp;pageNo=' + ${data.pageNo + 1}" class="btn" th:classappend="(${data.pageNo} ge ${data.totalPage})? 'disabled'" role="button">&gt;</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+				<!-- PC端右边 -->
+				<div th:replace="/pufa/frag/sidebar_index"></div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+	</body>
+
+</html>

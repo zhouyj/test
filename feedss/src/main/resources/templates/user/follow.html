@@ -1,0 +1,175 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+    <div th:include="/common/header::header"></div>
+    <title>关注</title>
+
+</head>
+<body>
+<div class="header"><span class="backBtn"></span>
+    <h2 th:text="${nickname}">纯情丶失落り的关注</h2>
+</div>
+
+<input type="hidden" id="viewUserId" value="" th:value="${viewUserId}"/>
+<input type="hidden" id="userId" value="" th:value="${userId}"/>
+
+<div class="follower">
+
+    <div class="follower_item" style="display:none;">
+        <div class="pic"><img src=""/></div>
+        <div class="followBtn">关注</div>
+        <h2>灬主宰灬乱世</h2>
+    </div>
+
+</div>
+
+<div class="nodata_outer2" style="display:none;">
+    <div class="nodata_inner2">
+        <img src="/images/nodata.png"/>
+        <span>还没有关注的人~</span>
+    </div>
+</div>
+
+<div class="report_submit more_btn" id="moreBtn" onclick="loadData()">加载更多</div>
+
+</body>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var viewUserId = $("#viewUserId").val();
+
+    var cursorId = null;
+
+    $(function () {
+        loadData();
+    });
+
+    function loadData() {
+
+        $.post("/h5/followListData", {
+            "viewUserId": viewUserId,
+            "userId": $("#userId").val(),
+            "cursorId": cursorId,
+            "pageSize": 20
+        }, function (data) {
+            if (data && data.code == 0 && data.data && data.data.list) {
+                for (var i = 0; i < data.data.list.length; i++) {
+                    build(data.data.list[i]);
+                }
+
+                if (!cursorId && data.data.list.length == 0) {
+                    $(".nodata_outer2").show();
+                }
+
+                cursorId = data.data.cursorId;
+                if (data.data.more) {
+                    $("#moreBtn").show();
+                } else {
+                    $("#moreBtn").hide();
+                }
+
+            }
+
+        });
+
+    }
+
+    function build(data) {
+        var one = $(".follower .follower_item:first-child").clone();
+//      alert(data.fromUserId + "," + data.toUserId);
+        $(one).appendTo($(".follower"));
+        $(".follower_item:last-child img").attr("src", data.avatar);
+        $(".follower_item:last-child h2").html(data.nicknameShort);
+        var btn = $(".follower_item:last-child .followBtn");
+        btn.attr("bindData", viewUserId + "," + data.toUserId);
+        $(one).show();
+
+        //点击整行
+        $(".follower_item:last-child .pic").bind("click", function () {
+            window.app_js_interface.jumpToLvspacePage(data.toUserId);
+        });
+        $(".follower_item:last-child h2").bind("click", function () {
+            window.app_js_interface.jumpToLvspacePage(data.toUserId);
+        });
+
+        if (viewUserId == data.toUserId) {
+            btn.addClass("dis");
+            btn.html("");
+            btn.css({cursor: "default"});
+            return;
+        }
+
+        if (data.follow == 1) {
+//        alert(data.follow);
+            btn.addClass("dis");
+            btn.html("已关注");
+            btn.bind("click", function () {
+                doUnFollow(viewUserId, data.toUserId, btn);
+            });
+        } else {
+            btn.bind("click", function () {
+                doFollow(viewUserId, data.toUserId, btn);
+            });
+        }
+
+    }
+
+    //关注
+    function doFollow(userId, toUserId, btn) {
+        $.post("/h5/follow", {
+            "userId": userId,
+            "toUserId": toUserId
+        }, function (data) {
+            if (data) {
+                if (data.code == 0) {
+                    //alert("关注成功");
+                    //------------- 点击“关注”关注，按钮文字修改为“已关注”，不刷新页面 by luxiaolei
+                    //location.reload();
+                    btn.addClass("dis");
+                    btn.html("已关注");
+                    btn.unbind("click");
+                    btn.bind("click", function(){
+                      doUnFollow(userId, toUserId, btn);
+                    });
+                    //-------------------------------------------------------
+                    return;
+                }
+                alert(data.msg);
+            }
+
+        });
+    }
+
+    //取消关注
+    function doUnFollow(userId, toUserId, btn) {
+        $.post("/h5/unFollow", {
+            "userId": userId,
+            "toUserId": toUserId
+        }, function (data) {
+            if (data) {
+                if (data.code == 0) {
+                    //alert("取消关注成功");
+                    //------------- 点击“已关注”取消关注，按钮文字修改为“关注”，不刷新页面 by luxiaolei
+                    //location.reload();
+                    btn.removeClass("dis");
+                    btn.html("关注");
+                    btn.unbind("click");
+                    btn.bind("click", function(){
+                      doFollow(userId, toUserId, btn);
+                    });
+                    //-------------------------------------------------------
+                    return;
+                }
+                alert(data.msg);
+            }
+
+        });
+    }
+
+    /*]]>*/
+</script>
+
+</html>

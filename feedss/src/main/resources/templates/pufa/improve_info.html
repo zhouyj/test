@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<link rel='stylesheet' id='sitecss-css' href='pufa/css/sign.css' type='text/css' media='all' />
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<!-- 完善信息 -->
+				<div class="col-md-offset-3 col-md-6 col-sm-12">
+					<div class="alert alert-danger" role="alert" id="sign-msg" style="display: none">错误消息</div>
+					<div class="row step-tab-fix">
+						<ul id="stepTab" role="tablist">
+							<li class="blue">
+								<a role="tab">1 设置密码</a>
+							</li>
+							<li class="active blue">
+								<img src="pufa/images/blue_blue.png" />
+								<a role="tab" data-toggle="tab"> 2 完善资料</a>
+							</li>
+							<li class="gray">
+								<img src="pufa/images/blue_gray.png" />
+								<a role="tab" data-toggle="tab"> 3 完成</a>
+							</li>
+						</ul>
+						<div style="clear: both;"></div>
+					</div>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="signin-content" th:include="pufa/frag/improve_form">表单</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+		<script type="text/javascript" src="pufa/js/jquery.form.js"></script>
+		<script type="text/javascript" src="pufa/js/pufa-common.js"></script>
+		<script type="text/javascript" src="pufa/js/sign.js"></script>
+		<script type="text/javascript" src="pufa/js/birthday.js"></script>
+	</body>
+
+</html>

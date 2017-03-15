@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 顶部 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div th:replace="/pufa/frag/shop_buy_content"></div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer_shop"></footer>
+	</body>
+
+</html>

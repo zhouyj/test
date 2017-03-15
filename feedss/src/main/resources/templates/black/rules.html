@@ -1,0 +1,28 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="/js/mobileUtil.js"></script>
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>规则说明</title>
+<link href="/css/green.css" rel="stylesheet">
+</head>
+<body>
+<div class="header"> <span class="backBtn"></span>
+   <h2 th:text="${title}"></h2>
+</div>
+
+<div style="background-color:#fff;overflow:hidden;min-height:100%">
+	<div style="margin:0.463rem;color:#6e6e6e" th:utext="${content}">
+	
+	</div>
+
+	
+
+</div>
+
+
+</body>
+</html>

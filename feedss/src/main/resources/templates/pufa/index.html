@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 正文开始 -->
+		<div class='container main-content home'>
+			<div class="row">
+				<div class='col-md-9 left-content'>
+					<!-- 滚动图片 -->
+					<div th:replace="/pufa/frag/banner_index"></div>
+					<!-- 左侧内容主体 -->
+					<div th:replace="/pufa/frag/index_content"></div>
+				</div>
+
+				<!-- PC端右边 -->
+				<div th:replace="/pufa/frag/sidebar_index"></div>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+		<div class='container'>
+			<!-- 友情链接 -->
+			<div th:replace="/pufa/frag/friend_links"></div>
+		</div>
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer"></footer>
+	</body>
+
+</html>

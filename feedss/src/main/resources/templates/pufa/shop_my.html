@@ -1,0 +1,16 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="/pufa/frag/head"></head>
+	<body class="home blog index">
+		<nav th:replace="/pufa/frag/nav"></nav>
+
+		<!-- 顶部 -->
+		<div class='container main-content home'>
+			<div th:replace="/pufa/frag/shop_my_list"></div>
+		</div>
+		
+		<!-- 页尾 -->
+		<footer th:replace="/pufa/frag/footer_shop"></footer>
+	</body>
+
+</html>
